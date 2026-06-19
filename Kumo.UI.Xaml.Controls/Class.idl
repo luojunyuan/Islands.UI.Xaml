@@ -1,0 +1,9 @@
+namespace Kumo_UI_Xaml_Controls
+{
+    [default_interface]
+    runtimeclass Class
+    {
+        Class();
+        Int32 MyProperty;
+    }
+}

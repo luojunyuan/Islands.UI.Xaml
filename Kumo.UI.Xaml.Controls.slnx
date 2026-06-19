@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Kumo.UI.Xaml.Controls/Kumo.UI.Xaml.Controls.vcxproj" Id="3d5a5350-8789-4179-8257-be5cbda8fe04" />
+</Solution>
