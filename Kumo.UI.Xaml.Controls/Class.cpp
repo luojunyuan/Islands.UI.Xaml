@@ -1,4 +1,7 @@
-#include "pch.h"
+import std;
+import winrt;
+
+#define WINRT_IMPORT_MODULE
 #include "Class.h"
 #if __has_include("Class.g.cpp")
 #include "Class.g.cpp"
