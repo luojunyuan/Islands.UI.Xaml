@@ -1,0 +1,12 @@
+import "ScrollPresenterPrimitives.idl";
+
+namespace Kumo.UI.Xaml.Automation.Peers
+{
+
+[webhosthidden]
+unsealed runtimeclass ScrollPresenterAutomationPeer : Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer
+{
+    ScrollPresenterAutomationPeer(Kumo.UI.Xaml.Controls.Primitives.ScrollPresenter owner);
+}
+
+}

@@ -3,12 +3,12 @@
   <PropertyGroup Label="Globals">
     <CppWinRTOptimized>true</CppWinRTOptimized>
     <CppWinRTBuildModule>true</CppWinRTBuildModule>
-    <CppWinRTModuleInclude>Kumo_UI_Xaml_Controls</CppWinRTModuleInclude>
+    <CppWinRTModuleInclude>Kumo.UI.Xaml.Controls</CppWinRTModuleInclude>
     <CppWinRTRootNamespaceAutoMerge>true</CppWinRTRootNamespaceAutoMerge>
     <MinimalCoreWin>true</MinimalCoreWin>
     <ProjectGuid>{3d5a5350-8789-4179-8257-be5cbda8fe04}</ProjectGuid>
     <ProjectName>Kumo.UI.Xaml.Controls</ProjectName>
-    <RootNamespace>Kumo_UI_Xaml_Controls</RootNamespace>
+    <RootNamespace>Kumo.UI.Xaml.Controls</RootNamespace>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <MinimumVisualStudioVersion>16.0</MinimumVisualStudioVersion>
     <AppContainerApplication>false</AppContainerApplication>
@@ -87,7 +87,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateWindowsMetadata>true</GenerateWindowsMetadata>
-      <ModuleDefinitionFile>Kumo_UI_Xaml_Controls.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>Kumo.UI.Xaml.Controls.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
@@ -105,37 +105,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Class.h">
-      <DependentUpon>Class.cpp</DependentUpon>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="winrt.ixx">
       <CompileAs>CompileAsCppModule</CompileAs>
       <ModulesSupported>true</ModulesSupported>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Class.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Midl Include="Class.idl">
-      <SubType>Code</SubType>
-      <DependentUpon>Class.cpp</DependentUpon>
-    </Midl>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Kumo_UI_Xaml_Controls.def" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="readme.txt">
-      <DeploymentContent>false</DeploymentContent>
-    </Text>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.CppWinRT">
       <Version>3.0.260520.1</Version>
     </PackageReference>
   </ItemGroup>
+  <Import Project="Kumo.UI.Xaml.Controls.Items.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <CppWinRTFastAbi>true</CppWinRTFastAbi>
+    <CppWinRTGenerateWindowsMetadata>true</CppWinRTGenerateWindowsMetadata>
+    <CppWinRTModuleInclude>Windows.ApplicationModel.Core;Windows.ApplicationModel.Resources;Windows.ApplicationModel.Resources.Core;Windows.Devices.Input;Windows.Foundation;Windows.Foundation.Collections;Windows.Foundation.Metadata;Windows.Foundation.Numerics;Windows.Graphics;Windows.Graphics.Display;Windows.Storage.Streams;Windows.System;Windows.UI;Windows.UI.Composition;Windows.UI.Composition.Interactions;Windows.UI.Core;Windows.UI.Input;Windows.UI.Input.Inking;Windows.UI.Text;Windows.UI.ViewManagement;Windows.UI.Xaml;Windows.UI.Xaml.Automation;Windows.UI.Xaml.Automation.Peers;Windows.UI.Xaml.Automation.Provider;Windows.UI.Xaml.Controls;Windows.UI.Xaml.Controls.Primitives;Windows.UI.Xaml.Data;Windows.UI.Xaml.Documents;Windows.UI.Xaml.Hosting;Windows.UI.Xaml.Input;Windows.UI.Xaml.Interop;Windows.UI.Xaml.Markup;Windows.UI.Xaml.Media;Windows.UI.Xaml.Media.Animation;Windows.UI.Xaml.Media.Imaging;Windows.UI.Xaml.Shapes;Kumo.UI.Xaml.Automation.Peers;Kumo.UI.Xaml.Controls;Kumo.UI.Xaml.Controls.Primitives</CppWinRTModuleInclude>
+    <CppWinRTModuleInclude>$(CppWinRTModuleInclude);Windows.ApplicationModel;Windows.ApplicationModel.Activation;Windows.ApplicationModel.AppService;Windows.ApplicationModel.Background;Windows.ApplicationModel.Calls.Background;Windows.ApplicationModel.Contacts;Windows.ApplicationModel.DataTransfer;Windows.ApplicationModel.DataTransfer.DragDrop;Windows.ApplicationModel.Search;Windows.Data.Json;Windows.Data.Text;Windows.Data.Xml.Dom;Windows.Devices.Bluetooth;Windows.Devices.Bluetooth.Advertisement;Windows.Devices.Bluetooth.Background;Windows.Devices.Bluetooth.GenericAttributeProfile;Windows.Devices.Enumeration;Windows.Devices.Geolocation;Windows.Devices.Haptics;Windows.Devices.HumanInterfaceDevice;Windows.Devices.Power;Windows.Devices.Printers;Windows.Devices.Radios;Windows.Devices.Sensors;Windows.Devices.SmartCards;Windows.Devices.Sms;Windows.Gaming.Input;Windows.Globalization;Windows.Media;Windows.Media.Audio;Windows.Media.Capture;Windows.Media.Casting;Windows.Media.Core;Windows.Media.Devices;Windows.Media.Devices.Core;Windows.Media.Effects;Windows.Media.FaceAnalysis;Windows.Media.MediaProperties;Windows.Media.Playback;Windows.Media.PlayTo;Windows.Media.Protection;Windows.Media.Render;Windows.Media.SpeechRecognition;Windows.Media.Streaming.Adaptive;Windows.Networking;Windows.Networking.BackgroundTransfer;Windows.Networking.Sockets;Windows.Perception;Windows.Perception.People;Windows.Perception.Spatial;Windows.Security.Authentication.Web;Windows.Security.Authentication.Web.Provider;Windows.Security.Authorization.AppCapabilityAccess;Windows.Security.Credentials;Windows.Security.Cryptography.Certificates;Windows.Security.Cryptography.Core;Windows.Security.EnterpriseData;Windows.Services.Maps;Windows.Services.Maps.LocalSearch;Windows.Storage;Windows.Storage.FileProperties;Windows.Storage.Search;Windows.Web;Windows.Web.Http;Windows.Web.UI</CppWinRTModuleInclude>
+    <DisableEmbeddedXbf>false</DisableEmbeddedXbf>
+    <XamlComponentResourceLocation>nested</XamlComponentResourceLocation>
+    <GenerateLibraryLayout>true</GenerateLibraryLayout>
+    <GenerateBuildCompilePassWinMD>false</GenerateBuildCompilePassWinMD>
+    <BeforeFixupCLCompileOptions>$(BeforeFixupCLCompileOptions);PatchXamlGeneratedIncludes</BeforeFixupCLCompileOptions>
+    <CppWinRTProjectWinMD Condition="'$(IsPackaged)' != 'true'">$(CppWinRTMergedDir)\$(RootNamespace).winmd</CppWinRTProjectWinMD>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;inc;Generated;Collections;ScrollPresenter;ScrollView;Telemetry;ResourceHelper;TestHooks;$(GeneratedFilesDir);$(GeneratedFilesDir)winrt;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINRT_DLL;SCROLLPRESENTER_INCLUDED;SCROLLVIEW_INCLUDED;NOMINMAX;WINRT_ENABLE_LEGACY_COM;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>.;ScrollPresenter;ScrollView;TestHooks;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </Midl>
+    <Link>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <ModuleDefinitionFile>Kumo.UI.Xaml.Controls.def</ModuleDefinitionFile>
+      <AdditionalDependencies>advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <ItemGroup>
+    <ClCompile Include="**\*.cpp" Exclude="Generated\*.properties.cpp;Generated Files\**\*.cpp" />
+    <ClCompile Include="Generated\ScrollPresenter.properties.cpp" />
+    <ClCompile Include="Generated\ScrollView.properties.cpp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Midl Include="ScrollPresenter\ScrollPresenter.idl" />
+    <Midl Include="ScrollPresenter\ScrollPresenterPrimitives.idl" />
+    <Midl Include="ScrollPresenter\ScrollPresenterAutomationPeer.idl" />
+    <Midl Include="ScrollPresenter\ScrollPresenterTestHooks.idl" />
+    <Midl Include="ScrollView\ScrollView.idl" />
+    <Midl Include="ScrollView\ScrollViewTestHooks.idl" />
+    <Midl Include="TestHooks\MUXControlsTestHooks.idl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="ScrollView\ScrollView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ScrollView\ScrollView_themeresources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ScrollView\ScrollView_perf2026.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Kumo.UI.Xaml.Controls.def" />
+    <None Include="PatchXamlTypeInfo.ps1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_KumoCppWinRTModuleInterface Include="$(GeneratedFilesDir)winrt\winrt_base.ixx;$(GeneratedFilesDir)winrt\winrt_numerics.ixx;$(GeneratedFilesDir)winrt\winrt.Kumo.UI.Xaml.Automation.Peers.ixx;$(GeneratedFilesDir)winrt\winrt.Kumo.UI.Xaml.Controls.ixx;$(GeneratedFilesDir)winrt\winrt.Kumo.UI.Xaml.Controls.Primitives.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.ApplicationModel.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.ApplicationModel.Activation.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.ApplicationModel.AppService.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.ApplicationModel.Background.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.ApplicationModel.Calls.Background.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.ApplicationModel.Contacts.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.ApplicationModel.Core.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.ApplicationModel.DataTransfer.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.ApplicationModel.DataTransfer.DragDrop.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.ApplicationModel.Resources.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.ApplicationModel.Resources.Core.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.ApplicationModel.Search.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Data.Json.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Data.Text.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Devices.Bluetooth.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Devices.Bluetooth.Advertisement.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Devices.Bluetooth.Background.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Devices.Bluetooth.GenericAttributeProfile.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Devices.Enumeration.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Devices.Geolocation.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Devices.Haptics.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Devices.Input.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Devices.Radios.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Devices.SmartCards.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Devices.Sms.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Foundation.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Foundation.Collections.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Foundation.Metadata.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Foundation.Numerics.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Globalization.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Graphics.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Graphics.DirectX.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Graphics.DirectX.Direct3D11.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Graphics.Display.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Graphics.Effects.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Graphics.Imaging.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.Audio.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.Capture.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.Casting.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.Core.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.Devices.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.Devices.Core.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.Effects.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.FaceAnalysis.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.MediaProperties.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.Playback.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.PlayTo.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.Protection.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.Render.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.SpeechRecognition.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Media.Streaming.Adaptive.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Networking.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Networking.BackgroundTransfer.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Networking.Sockets.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Perception.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Perception.Spatial.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Security.Authentication.Web.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Security.Authentication.Web.Provider.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Security.Credentials.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Security.Cryptography.Certificates.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Security.Cryptography.Core.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Security.EnterpriseData.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Storage.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Storage.FileProperties.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Storage.Streams.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.System.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.System.RemoteSystems.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Composition.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Composition.Interactions.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Core.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Input.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Input.Inking.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Notifications.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Popups.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Text.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.ViewManagement.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.WindowManagement.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Automation.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Automation.Peers.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Automation.Provider.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Automation.Text.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Controls.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Controls.Primitives.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Data.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Documents.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Hosting.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Input.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Interop.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Markup.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Media.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Media.Animation.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Media.Imaging.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.UI.Xaml.Shapes.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Web.ixx;$(GeneratedFilesDir)winrt\winrt.Windows.Web.Http.ixx" />
+  </ItemGroup>
+
+  <Target Name="KumoFilterCppWinRTModuleInterfaces"
+          AfterTargets="FixupCLCompileOptions"
+          BeforeTargets="SetModuleDependencies;ClCompile">
+    <ItemGroup>
+      <ClCompile Remove="$(GeneratedFilesDir)winrt\*.ixx" />
+      <ClCompile Include="@(_KumoCppWinRTModuleInterface)">
+        <CompileAs>CompileAsCppModule</CompileAs>
+        <ModulesSupported>true</ModulesSupported>
+        <ModuleOrHeaderUnit>true</ModuleOrHeaderUnit>
+        <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
+        <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      </ClCompile>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="PatchXamlGeneratedIncludes"
+          BeforeTargets="FixupCLCompileOptions"
+          Condition="Exists('$(XamlGeneratedOutputPath)')">
+    <ItemGroup>
+      <_KumoXamlGeneratedCpp Include="$(XamlGeneratedOutputPath)*.g.cpp" />
+      <_KumoXamlGeneratedCpp Include="$(XamlGeneratedOutputPath)XamlMetaDataProvider.cpp" Condition="Exists('$(XamlGeneratedOutputPath)XamlMetaDataProvider.cpp')" />
+      <ClCompile Remove="$(XamlGeneratedOutputPath)XamlTypeInfo.g.cpp" Condition="!Exists('$(XamlGeneratedOutputPath)XamlTypeInfo.g.cpp')" />
+    </ItemGroup>
+    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\PatchXamlTypeInfo.ps1&quot; -Path &quot;%(_KumoXamlGeneratedCpp.Identity)&quot;" Condition="'@(_KumoXamlGeneratedCpp)' != ''" />
+  </Target>
+
+</Project>

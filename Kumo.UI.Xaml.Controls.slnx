@@ -5,4 +5,5 @@
     <Platform Name="x86" />
   </Configurations>
   <Project Path="Kumo.UI.Xaml.Controls/Kumo.UI.Xaml.Controls.vcxproj" Id="3d5a5350-8789-4179-8257-be5cbda8fe04" />
+  <Project Path="Kumo.UI.Xaml.Controls.Interop/Kumo.UI.Xaml.Controls.Interop.csproj" Id="9b6cb5d5-86ef-4f6d-9088-6a46ae8d51d2" />
 </Solution>

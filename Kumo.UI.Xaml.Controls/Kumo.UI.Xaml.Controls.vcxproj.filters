@@ -11,17 +11,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winrt.ixx" />
-    <ClCompile Include="Class.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Midl Include="Class.idl" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Kumo_UI_Xaml_Controls.def" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="readme.txt" />
   </ItemGroup>
 </Project>
