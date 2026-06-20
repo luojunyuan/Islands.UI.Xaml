@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
+    <UseUwp>true</UseUwp>
+    <Platforms>x86;x64;arm64</Platforms>
+    <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+    <DefaultLanguage>zh-CN</DefaultLanguage>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <SolutionDir Condition="'$(SolutionDir)' == '' Or '$(SolutionDir)' == '*Undefined*'">$(MSBuildThisFileDirectory)..\</SolutionDir>
+    <IslandsNativePlatform Condition="'$(Platform)' == 'x86'">x64</IslandsNativePlatform>
+    <IslandsNativePlatform Condition="'$(IslandsNativePlatform)' == ''">$(Platform)</IslandsNativePlatform>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CsWinRTIncludes>Islands.UI.Xaml.Controls</CsWinRTIncludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Islands.UI.Xaml.Controls\Islands.UI.Xaml.Controls.vcxproj"
+                      PrivateAssets="all"
+                      ReferenceOutputAssembly="false"
+                      SkipGetTargetFrameworkProperties="true">
+      <SetConfiguration>Configuration=$(Configuration);SolutionDir=$(SolutionDir)</SetConfiguration>
+      <SetPlatform>Platform=$(IslandsNativePlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

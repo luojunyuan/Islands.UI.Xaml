@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Islands.UI.Xaml.Controls.Interop/Islands.UI.Xaml.Controls.Interop.csproj" Id="fc257154-369d-4ba3-b3f4-7303c1696d63">
+    <Platform Solution="*|ARM64" Project="arm64" />
+    <Platform Solution="Debug|x64" Project="x64" />
+  </Project>
+  <Project Path="Islands.UI.Xaml.Controls/Islands.UI.Xaml.Controls.vcxproj" Id="268a3f9f-34c9-480b-892d-d32f672ce9ce" />
+</Solution>
