@@ -2,9 +2,13 @@
 #include "TitleBar.h"
 #include "TitleBarAutomationPeer.h"
 #include "TitleBarTemplateSettings.h"
+#include "TitleBarTrace.h"
 #if __has_include("TitleBar.g.cpp")
 #include "TitleBar.g.cpp"
 #endif
+
+bool TitleBarTrace::s_IsDebugOutputEnabled{ false };
+bool TitleBarTrace::s_IsVerboseDebugOutputEnabled{ false };
 
 namespace winrt::Islands::UI::Xaml::Controls::implementation
 {
