@@ -1,0 +1,106 @@
+namespace Islands.UI.Xaml.Controls
+{
+
+enum NonClientRegionKind
+{
+    Passthrough = 0,
+    Icon = 1
+};
+
+[default_interface]
+runtimeclass InputNonClientPointerSource
+{
+    InputNonClientPointerSource();
+
+    void SetRegionRects(NonClientRegionKind regionKind, Windows.Foundation.Collections.IIterable<Windows.Foundation.Rect> rects);
+    void ClearRegionRects(NonClientRegionKind regionKind);
+}
+
+[default_interface]
+runtimeclass AppWindowTitleBar
+{
+    AppWindowTitleBar();
+
+    Boolean ExtendsContentIntoTitleBar{ get; set; };
+    Double LeftInset{ get; set; };
+    Double RightInset{ get; set; };
+}
+
+[default_interface]
+[contentproperty("Content")]
+runtimeclass TitleBar : Windows.UI.Xaml.Controls.Control
+{
+    TitleBar();
+
+    String Title{ get; set; };
+    String Subtitle{ get; set; };
+
+    Microsoft.UI.Xaml.Controls.IconSource IconSource{ get; set; };
+
+    Windows.UI.Xaml.UIElement LeftHeader{ get; set; };
+    Windows.UI.Xaml.UIElement Content{ get; set; };
+    Windows.UI.Xaml.UIElement RightHeader{ get; set; };
+
+    Boolean IsBackButtonVisible{ get; set; };
+    Boolean IsBackButtonEnabled{ get; set; };
+    Boolean IsPaneToggleButtonVisible{ get; set; };
+
+    TitleBarTemplateSettings TemplateSettings{ get; };
+
+    Boolean AutoRefreshDragRegions{ get; set; };
+
+    event Windows.Foundation.TypedEventHandler<TitleBar, Object> BackRequested;
+    event Windows.Foundation.TypedEventHandler<TitleBar, Object> PaneToggleRequested;
+
+    void RecomputeDragRegions();
+
+    static Windows.UI.Xaml.DependencyProperty TitleProperty{ get; };
+    static Windows.UI.Xaml.DependencyProperty SubtitleProperty{ get; };
+    static Windows.UI.Xaml.DependencyProperty IconSourceProperty{ get; };
+    static Windows.UI.Xaml.DependencyProperty LeftHeaderProperty{ get; };
+    static Windows.UI.Xaml.DependencyProperty ContentProperty{ get; };
+    static Windows.UI.Xaml.DependencyProperty RightHeaderProperty{ get; };
+    static Windows.UI.Xaml.DependencyProperty IsBackButtonVisibleProperty{ get; };
+    static Windows.UI.Xaml.DependencyProperty IsBackButtonEnabledProperty{ get; };
+    static Windows.UI.Xaml.DependencyProperty IsPaneToggleButtonVisibleProperty{ get; };
+    static Windows.UI.Xaml.DependencyProperty TemplateSettingsProperty{ get; };
+    static Windows.UI.Xaml.DependencyProperty AutoRefreshDragRegionsProperty{ get; };
+
+    static Windows.UI.Xaml.DependencyProperty IsDragRegionProperty{ get; };
+    static Windows.Foundation.IReference<Boolean> GetIsDragRegion(Windows.UI.Xaml.UIElement element);
+    static void SetIsDragRegion(Windows.UI.Xaml.UIElement element, Windows.Foundation.IReference<Boolean> value);
+}
+
+[default_interface]
+runtimeclass TitleBarTemplateSettings : Windows.UI.Xaml.DependencyObject
+{
+    TitleBarTemplateSettings();
+
+    Windows.UI.Xaml.Controls.IconElement IconElement{ get; set; };
+
+    static Windows.UI.Xaml.DependencyProperty IconElementProperty{ get; };
+}
+
+[default_interface]
+runtimeclass TitleBarAutomationPeer : Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer
+{
+    TitleBarAutomationPeer(Islands.UI.Xaml.Controls.TitleBar owner);
+}
+
+[default_interface]
+runtimeclass TitleBarWindowAdapter
+{
+    TitleBarWindowAdapter(Islands.UI.Xaml.Controls.TitleBar titleBar);
+
+    Int64 WindowHandle{ get; set; };
+    Islands.UI.Xaml.Controls.AppWindowTitleBar WindowTitleBar{ get; };
+    Islands.UI.Xaml.Controls.InputNonClientPointerSource NonClientPointerSource{ get; };
+
+    void SetTitleBar(Windows.UI.Xaml.UIElement titleBar);
+    void NotifyWindowActivated(Boolean active);
+    void SetCaptionInsets(Double left, Double right);
+    Int32 HitTest(Int32 screenX, Int32 screenY, Int32 xamlRootScreenX, Int32 xamlRootScreenY);
+    Boolean ApplyTitleBarWindowRegion(Int64 titleBarWindowHandle, Int32 xamlRootScreenX, Int32 xamlRootScreenY);
+}
+
+}

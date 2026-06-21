@@ -28,6 +28,7 @@ if (!WinUIWinmdPath.EndsWith(WinUIWinmdSuffix)) {
 string winuiPkgDir = WinUIWinmdPath.Substring(0, WinUIWinmdPath.Length - WinUIWinmdSuffix.Length);
 string winuiPkgId = winuiPkgDir.Substring(winuiPkgDir.LastIndexOf('\\') + 1);
 IsWinUIPrerelease = winuiPkgId.Contains("prerelease");
+string packagePlatform = Platform.Equals("Win32", StringComparison.OrdinalIgnoreCase) ? "x86" : Platform.ToLowerInvariant();
 
 string intDir = $"{ObjDir}\\{Platform}\\WinUI\\";
 
@@ -67,11 +68,11 @@ if (!needExtract()) {
 
 if (IsWinUIPrerelease) {
     // 预发行版直接复制 dll 和 pri
-    File.Copy($"{winuiPkgDir}\\runtimes\\win-x64\\native\\Microsoft.UI.Xaml.dll", WinUIDllPath, true);
-    File.Copy($"{winuiPkgDir}\\runtimes\\win-x64\\native\\Microsoft.UI.Xaml.pri", WinUIPriPath, true);
+    File.Copy($"{winuiPkgDir}\\runtimes\\win-{packagePlatform}\\native\\Microsoft.UI.Xaml.dll", WinUIDllPath, true);
+    File.Copy($"{winuiPkgDir}\\runtimes\\win-{packagePlatform}\\native\\Microsoft.UI.Xaml.pri", WinUIPriPath, true);
 } else {
     // 从 appx 中提取出 dll 和 pri
-    string appxPath = Directory.GetFiles($"{winuiPkgDir}\\tools\\AppX\\{Platform}\\Release\\", "*.appx")[0];
+    string appxPath = Directory.GetFiles($"{winuiPkgDir}\\tools\\AppX\\{packagePlatform}\\Release\\", "*.appx")[0];
     using (ZipArchive appx = ZipFile.OpenRead(appxPath)) {
         appx.GetEntry("Microsoft.UI.Xaml.dll").ExtractToFile("Microsoft.UI.Xaml.dll", true);
         appx.GetEntry("resources.pri").ExtractToFile("Microsoft.UI.Xaml.pri", true);

@@ -8,8 +8,9 @@
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
     <SolutionDir Condition="'$(SolutionDir)' == '' Or '$(SolutionDir)' == '*Undefined*'">$(MSBuildThisFileDirectory)..\</SolutionDir>
-    <IslandsNativePlatform Condition="'$(Platform)' == 'x86'">x64</IslandsNativePlatform>
+    <IslandsNativePlatform Condition="'$(Platform)' == 'x86'">Win32</IslandsNativePlatform>
     <IslandsNativePlatform Condition="'$(IslandsNativePlatform)' == ''">$(Platform)</IslandsNativePlatform>
+    <IslandsOutPlatform>$(Platform)</IslandsOutPlatform>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -29,4 +30,26 @@
       <SetPlatform>Platform=$(IslandsNativePlatform)</SetPlatform>
     </ProjectReference>
   </ItemGroup>
+
+  <Target Name="CopyIslandsInteropOutputs" AfterTargets="Build">
+    <PropertyGroup>
+      <IslandsNativeOutputDir>$(SolutionDir)bin\$(IslandsNativePlatform)\$(Configuration)\</IslandsNativeOutputDir>
+      <IslandsOutDir>$(MSBuildProjectDirectory)\out\$(IslandsOutPlatform)\</IslandsOutDir>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <IslandsNativeOutput Include="$(IslandsNativeOutputDir)Islands.UI.Xaml.Controls.*" />
+      <IslandsNativeOutput Include="$(IslandsNativeOutputDir)Microsoft.UI.Xaml.*" />
+      <IslandsProjectionOutput Include="$(TargetDir)Islands.UI.Xaml.Controls.Interop.*" />
+    </ItemGroup>
+
+    <RemoveDir Directories="$(IslandsOutDir)" />
+    <MakeDir Directories="$(IslandsOutDir)native;$(IslandsOutDir)projection" />
+    <Copy SourceFiles="@(IslandsNativeOutput)"
+          DestinationFolder="$(IslandsOutDir)native"
+          SkipUnchangedFiles="false" />
+    <Copy SourceFiles="@(IslandsProjectionOutput)"
+          DestinationFolder="$(IslandsOutDir)projection"
+          SkipUnchangedFiles="false" />
+  </Target>
 </Project>

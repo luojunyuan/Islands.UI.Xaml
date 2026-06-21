@@ -1,756 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Build">
-      <UniqueIdentifier>{594291e2-e731-48b7-a4d4-56ebd19f1eda}</UniqueIdentifier>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{926ab91d-31b4-48c3-b9a4-e681349f27f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Collections">
-      <UniqueIdentifier>{11b7d367-f3a7-4a56-b2c9-03fcf545014c}</UniqueIdentifier>
+    <Filter Include="TitleBar">
+      <UniqueIdentifier>{62198455-857c-4f38-8e3d-77101b346e9d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Generated">
-      <UniqueIdentifier>{f499f948-e93d-4d39-9482-2f7ad7e34495}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers">
-      <UniqueIdentifier>{fb45f425-01fa-4b46-8565-98395248fb00}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ResourceHelper">
-      <UniqueIdentifier>{48126045-c37c-4f4e-bebf-7b9d9a97929a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ScrollPresenter">
-      <UniqueIdentifier>{fe8092d2-8583-4071-8077-ee55b9e2a4b9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ScrollPresenter\Tests">
-      <UniqueIdentifier>{e38d3bb7-ad02-4d4b-ac17-6f773206e913}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ScrollPresenter\Tests\APITests">
-      <UniqueIdentifier>{283a1af0-1142-43c1-91f9-b7cc166bb7b9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ScrollPresenter\Tests\InteractionTests">
-      <UniqueIdentifier>{18c2249b-3b3b-4ec1-879d-d8662417e9e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ScrollPresenter\Tests\TestUI">
-      <UniqueIdentifier>{ba549cd5-a81c-4092-99ca-7d4a7ed3a03f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ScrollView">
-      <UniqueIdentifier>{2a409d26-68ba-48a0-83cf-f98dc7ec26d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ScrollView\Tests">
-      <UniqueIdentifier>{14bbdc2f-9cc3-4c66-939b-7db5844da4b6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ScrollView\Tests\APITests">
-      <UniqueIdentifier>{0d4210c9-9d39-4982-966c-2689fd964563}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ScrollView\Tests\InteractionTests">
-      <UniqueIdentifier>{c9a9f1a1-56b5-4c90-ae65-96dd4574fc6c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ScrollView\Tests\TestUI">
-      <UniqueIdentifier>{9a70f022-37c6-4fb6-840f-881ab6ae7b15}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Telemetry">
-      <UniqueIdentifier>{749be3e9-16f0-48b6-a9c2-8c9aa126d0c2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TestHooks">
-      <UniqueIdentifier>{e46dd4e0-5421-4a36-a046-f6b25ae15a3f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="XAML">
-      <UniqueIdentifier>{7d84f4ef-1263-4f27-8f77-d41626ee0b50}</UniqueIdentifier>
+    <Filter Include="TitleBar\Strings">
+      <UniqueIdentifier>{f8dc4d5d-6479-407d-aa1c-74bdd4f8f521}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
-      <Filter>Build</Filter>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="TitleBar\AppWindowTitleBar.h">
+      <Filter>TitleBar</Filter>
     </ClInclude>
-    <ClInclude Include="XamlTypeInfoActivationIncludes.h">
-      <Filter>Build</Filter>
+    <ClInclude Include="TitleBar\InputNonClientPointerSource.h">
+      <Filter>TitleBar</Filter>
     </ClInclude>
-    <ClInclude Include="Collections\Vector.h">
-      <Filter>Collections</Filter>
+    <ClInclude Include="TitleBar\TitleBar.h">
+      <Filter>TitleBar</Filter>
     </ClInclude>
-    <ClInclude Include="Collections\VectorChangedEventArgs.h">
-      <Filter>Collections</Filter>
+    <ClInclude Include="TitleBar\TitleBarAutomationPeer.h">
+      <Filter>TitleBar</Filter>
     </ClInclude>
-    <ClInclude Include="Collections\VectorIterator.h">
-      <Filter>Collections</Filter>
+    <ClInclude Include="TitleBar\TitleBarTemplateSettings.h">
+      <Filter>TitleBar</Filter>
     </ClInclude>
-    <ClInclude Include="inc\AutoHandle.h">
-      <Filter>Headers</Filter>
+    <ClInclude Include="TitleBar\TitleBarTrace.h">
+      <Filter>TitleBar</Filter>
     </ClInclude>
-    <ClInclude Include="inc\BoxHelpers.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\BuildMacros.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\CastHelpers.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\CollectionHelper.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\CommandingHelpers.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\common.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\CppWinRTHelpers.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\CppWinRTIncludes.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\DispatcherHelper.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\DoubleUtil.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\enum_array.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\enum_vector.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ErrorHandling.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\event.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\FloatUtil.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\FocusHelper.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GlobalDependencyProperty.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\RegUtil.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\RoutedEventHelpers.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\RuntimeClassHelpers.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\SharedHelpers.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\StaticAssertFalse.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\tracker_ref.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\WinEventLogLevels.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceHelper\ResourceAccessor.h">
-      <Filter>ResourceHelper</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceHelper\Utils.h">
-      <Filter>ResourceHelper</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\BringIntoViewOffsetsChange.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\InteractionTrackerAsyncOperation.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\InteractionTrackerOwner.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\OffsetsChange.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\OffsetsChangeWithAdditionalVelocity.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\RepeatedScrollSnapPoint.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\RepeatedZoomSnapPoint.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollControllerAddScrollVelocityRequestedEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollControllerPanRequestedEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollControllerScrollByRequestedEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollControllerScrollToRequestedEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollingAnchorRequestedEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollingBringingIntoViewEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollingScrollAnimationStartingEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollingScrollCompletedEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollingScrollOptions.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollingScrollStartingEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollingZoomAnimationStartingEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollingZoomCompletedEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollingZoomOptions.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollingZoomStartingEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollPresenter.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollPresenterAutomationPeer.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollPresenterTestHooks.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollPresenterTestHooksAnchorEvaluatedEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollPresenterTestHooksExpressionAnimationStatusChangedEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollPresenterTestHooksFactory.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollPresenterTestHooksInteractionSourcesChangedEventArgs.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollPresenterTrace.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollPresenterTypeLogging.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ScrollSnapPoint.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\SnapPoint.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\SnapPointWrapper.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ViewChange.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ViewChangeBase.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ZoomFactorChange.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ZoomFactorChangeWithAdditionalVelocity.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollPresenter\ZoomSnapPoint.h">
-      <Filter>ScrollPresenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollView\ScrollBarController.h">
-      <Filter>ScrollView</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollView\ScrollView.h">
-      <Filter>ScrollView</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollView\ScrollViewBringIntoViewOperation.h">
-      <Filter>ScrollView</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollView\ScrollViewTestHooks.h">
-      <Filter>ScrollView</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollView\ScrollViewTestHooksFactory.h">
-      <Filter>ScrollView</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollView\ScrollViewTrace.h">
-      <Filter>ScrollView</Filter>
-    </ClInclude>
-    <ClInclude Include="Telemetry\MuxcTraceLogging.h">
-      <Filter>Telemetry</Filter>
-    </ClInclude>
-    <ClInclude Include="Telemetry\RuntimeProfiler.h">
-      <Filter>Telemetry</Filter>
-    </ClInclude>
-    <ClInclude Include="Telemetry\TypeLogging.h">
-      <Filter>Telemetry</Filter>
-    </ClInclude>
-    <ClInclude Include="TestHooks\MUXControlsTestHooks.h">
-      <Filter>TestHooks</Filter>
-    </ClInclude>
-    <ClInclude Include="TestHooks\MUXControlsTestHooksFactory.h">
-      <Filter>TestHooks</Filter>
-    </ClInclude>
-    <ClInclude Include="TestHooks\MUXControlsTestHooksLoggingMessageEventArgs.h">
-      <Filter>TestHooks</Filter>
-    </ClInclude>
-    <ClInclude Include="Generated\ScrollPresenter.properties.h">
-      <Filter>Generated</Filter>
-    </ClInclude>
-    <ClInclude Include="Generated\ScrollView.properties.h">
-      <Filter>Generated</Filter>
+    <ClInclude Include="TitleBar\TitleBarWindowAdapter.h">
+      <Filter>TitleBar</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
-      <Filter>Build</Filter>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="IslandsModule.cpp">
-      <Filter>Build</Filter>
+    <ClCompile Include="TitleBar\AppWindowTitleBar.cpp">
+      <Filter>TitleBar</Filter>
     </ClCompile>
-    <ClCompile Include="IslandsXamlHelpers.cpp">
-      <Filter>Build</Filter>
+    <ClCompile Include="TitleBar\InputNonClientPointerSource.cpp">
+      <Filter>TitleBar</Filter>
     </ClCompile>
-    <ClCompile Include="IslandsSupport.cpp">
-      <Filter>Build</Filter>
+    <ClCompile Include="TitleBar\TitleBar.cpp">
+      <Filter>TitleBar</Filter>
     </ClCompile>
-    <ClCompile Include="ResourceHelper\ResourceAccessor.cpp">
-      <Filter>ResourceHelper</Filter>
+    <ClCompile Include="TitleBar\TitleBarAutomationPeer.cpp">
+      <Filter>TitleBar</Filter>
     </ClCompile>
-    <ClCompile Include="ResourceHelper\Utils.cpp">
-      <Filter>ResourceHelper</Filter>
+    <ClCompile Include="TitleBar\TitleBarTemplateSettings.cpp">
+      <Filter>TitleBar</Filter>
     </ClCompile>
-    <ClCompile Include="ScrollPresenter\BringIntoViewOffsetsChange.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\InteractionTrackerAsyncOperation.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\InteractionTrackerOwner.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\OffsetsChange.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\OffsetsChangeWithAdditionalVelocity.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollControllerAddScrollVelocityRequestedEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollControllerPanRequestedEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollControllerScrollByRequestedEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollControllerScrollToRequestedEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollingAnchorRequestedEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollingBringingIntoViewEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollingScrollAnimationStartingEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollingScrollCompletedEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollingScrollOptions.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollingScrollStartingEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollingZoomAnimationStartingEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollingZoomCompletedEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollingZoomOptions.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollingZoomStartingEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollPresenter.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollPresenterAnchoring.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollPresenterAutomationPeer.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollPresenterPrivate.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollPresenterTestHooks.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollPresenterTestHooksAnchorEvaluatedEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollPresenterTestHooksExpressionAnimationStatusChangedEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollPresenterTestHooksFactory.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollPresenterTestHooksInteractionSourcesChangedEventArgs.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ScrollPresenterTypeLogging.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\SnapPoint.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\SnapPointWrapper.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ViewChange.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ZoomFactorChange.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollPresenter\ZoomFactorChangeWithAdditionalVelocity.cpp">
-      <Filter>ScrollPresenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollView\ScrollBarController.cpp">
-      <Filter>ScrollView</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollView\ScrollView.cpp">
-      <Filter>ScrollView</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollView\ScrollViewBringIntoViewOperation.cpp">
-      <Filter>ScrollView</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollView\ScrollViewLightup.cpp">
-      <Filter>ScrollView</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollView\ScrollViewTestHooks.cpp">
-      <Filter>ScrollView</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollView\ScrollViewTestHooksFactory.cpp">
-      <Filter>ScrollView</Filter>
-    </ClCompile>
-    <ClCompile Include="Telemetry\MuxcTraceLogging.cpp">
-      <Filter>Telemetry</Filter>
-    </ClCompile>
-    <ClCompile Include="Telemetry\TypeLogging.cpp">
-      <Filter>Telemetry</Filter>
-    </ClCompile>
-    <ClCompile Include="TestHooks\MUXControlsTestHooks.cpp">
-      <Filter>TestHooks</Filter>
-    </ClCompile>
-    <ClCompile Include="TestHooks\MUXControlsTestHooksFactory.cpp">
-      <Filter>TestHooks</Filter>
-    </ClCompile>
-    <ClCompile Include="TestHooks\MUXControlsTestHooksLoggingMessageEventArgs.cpp">
-      <Filter>TestHooks</Filter>
-    </ClCompile>
-    <ClCompile Include="TestHooks\TestHooksReleaseStubs.cpp">
-      <Filter>TestHooks</Filter>
-    </ClCompile>
-    <ClCompile Include="Generated\ScrollPresenter.properties.cpp">
-      <Filter>Generated</Filter>
-    </ClCompile>
-    <ClCompile Include="Generated\ScrollView.properties.cpp">
-      <Filter>Generated</Filter>
+    <ClCompile Include="TitleBar\TitleBarWindowAdapter.cpp">
+      <Filter>TitleBar</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="ScrollPresenter\ScrollPresenter.idl">
-      <Filter>ScrollPresenter</Filter>
-    </Midl>
-    <Midl Include="ScrollPresenter\ScrollPresenterPrimitives.idl">
-      <Filter>ScrollPresenter</Filter>
-    </Midl>
-    <Midl Include="ScrollPresenter\ScrollPresenterAutomationPeer.idl">
-      <Filter>ScrollPresenter</Filter>
-    </Midl>
-    <Midl Include="ScrollPresenter\ScrollPresenterTestHooks.idl">
-      <Filter>ScrollPresenter</Filter>
-    </Midl>
-    <Midl Include="ScrollView\ScrollView.idl">
-      <Filter>ScrollView</Filter>
-    </Midl>
-    <Midl Include="ScrollView\ScrollViewTestHooks.idl">
-      <Filter>ScrollView</Filter>
-    </Midl>
-    <Midl Include="TestHooks\MUXControlsTestHooks.idl">
-      <Filter>TestHooks</Filter>
+    <Midl Include="TitleBar\TitleBar.idl">
+      <Filter>TitleBar</Filter>
     </Midl>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ScrollView\ScrollView.xaml">
-      <Filter>XAML</Filter>
+    <Page Include="TitleBar\TitleBar.xaml">
+      <Filter>TitleBar</Filter>
     </Page>
-    <Page Include="ScrollView\ScrollView_themeresources.xaml">
-      <Filter>XAML</Filter>
+    <Page Include="TitleBar\TitleBar_themeresources.xaml">
+      <Filter>TitleBar</Filter>
     </Page>
-    <Page Include="ScrollView\ScrollView_perf2026.xaml">
-      <Filter>XAML</Filter>
+    <Page Include="TitleBar\TitleBar_themeresources_perf2026.xaml">
+      <Filter>TitleBar</Filter>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Islands.UI.Xaml.Controls.def">
-      <Filter>Build</Filter>
-    </None>
-    <None Include="PatchXamlTypeInfo.ps1">
-      <Filter>Build</Filter>
-    </None>
-    <None Include="ScrollPresenter\APITests\ScrollControllerTests.cs">
-      <Filter>ScrollPresenter\Tests\APITests</Filter>
-    </None>
-    <None Include="ScrollPresenter\APITests\ScrollPresenter_APITests.projitems">
-      <Filter>ScrollPresenter\Tests\APITests</Filter>
-    </None>
-    <None Include="ScrollPresenter\APITests\ScrollPresenter_APITests.shproj">
-      <Filter>ScrollPresenter\Tests\APITests</Filter>
-    </None>
-    <None Include="ScrollPresenter\APITests\ScrollPresenterAnchoringTests.cs">
-      <Filter>ScrollPresenter\Tests\APITests</Filter>
-    </None>
-    <None Include="ScrollPresenter\APITests\ScrollPresenterBringIntoViewTests.cs">
-      <Filter>ScrollPresenter\Tests\APITests</Filter>
-    </None>
-    <None Include="ScrollPresenter\APITests\ScrollPresenterLayoutTests.cs">
-      <Filter>ScrollPresenter\Tests\APITests</Filter>
-    </None>
-    <None Include="ScrollPresenter\APITests\ScrollPresenterSnapPointTests.cs">
-      <Filter>ScrollPresenter\Tests\APITests</Filter>
-    </None>
-    <None Include="ScrollPresenter\APITests\ScrollPresenterTests.cs">
-      <Filter>ScrollPresenter\Tests\APITests</Filter>
-    </None>
-    <None Include="ScrollPresenter\APITests\ScrollPresenterViewChangeTests.cs">
-      <Filter>ScrollPresenter\Tests\APITests</Filter>
-    </None>
-    <None Include="ScrollPresenter\InteractionTests\ScrollPresenter_InteractionTests.projitems">
-      <Filter>ScrollPresenter\Tests\InteractionTests</Filter>
-    </None>
-    <None Include="ScrollPresenter\InteractionTests\ScrollPresenter_InteractionTests.shproj">
-      <Filter>ScrollPresenter\Tests\InteractionTests</Filter>
-    </None>
-    <None Include="ScrollPresenter\InteractionTests\ScrollPresenterTestsBase.cs">
-      <Filter>ScrollPresenter\Tests\InteractionTests</Filter>
-    </None>
-    <None Include="ScrollPresenter\InteractionTests\ScrollPresenterTestsWithAutomationPeer.cs">
-      <Filter>ScrollPresenter\Tests\InteractionTests</Filter>
-    </None>
-    <None Include="ScrollPresenter\InteractionTests\ScrollPresenterTestsWithInputHelper.cs">
-      <Filter>ScrollPresenter\Tests\InteractionTests</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\BiDirectionalScrollController.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\CompositionScrollController.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenter_TestUI.projitems">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenter_TestUI.shproj">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterAccessibilityPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterAccessibilityPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterBringIntoViewPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterBringIntoViewPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterChainingAndRailingPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterChainingAndRailingPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterDynamicPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterDynamicPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterExpressionAnimationSourcesPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterExpressionAnimationSourcesPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterLeakDetectionPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterLeakDetectionPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterManipulationModePage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterManipulationModePage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterMousePanningPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterMousePanningPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterRepeaterAnchoringPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterRepeaterAnchoringPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterScrollSnapPointsPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterScrollSnapPointsPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterStackPanelAnchoringPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterStackPanelAnchoringPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresentersWithSimpleContentsPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresentersWithSimpleContentsPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterTestHooksHelper.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterWithBiDirectionalScrollControllerPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterWithBiDirectionalScrollControllerPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterWithCompositionScrollControllersPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterWithCompositionScrollControllersPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterWithSimpleScrollControllersPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterWithSimpleScrollControllersPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterZoomSnapPointsPage.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\ScrollPresenterZoomSnapPointsPage.xaml.cs">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollPresenter\TestUI\Themes\AdditionalStyles.xaml">
-      <Filter>ScrollPresenter\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\APITests\ScrollView_APITests.projitems">
-      <Filter>ScrollView\Tests\APITests</Filter>
-    </None>
-    <None Include="ScrollView\APITests\ScrollView_APITests.shproj">
-      <Filter>ScrollView\Tests\APITests</Filter>
-    </None>
-    <None Include="ScrollView\APITests\ScrollViewTests.cs">
-      <Filter>ScrollView\Tests\APITests</Filter>
-    </None>
-    <None Include="ScrollView\InteractionTests\ScrollView_InteractionTests.projitems">
-      <Filter>ScrollView\Tests\InteractionTests</Filter>
-    </None>
-    <None Include="ScrollView\InteractionTests\ScrollView_InteractionTests.shproj">
-      <Filter>ScrollView\Tests\InteractionTests</Filter>
-    </None>
-    <None Include="ScrollView\InteractionTests\ScrollViewTestsWithInputHelper.cs">
-      <Filter>ScrollView\Tests\InteractionTests</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollView_TestUI.projitems">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollView_TestUI.shproj">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewBlankPage.xaml">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewBlankPage.xaml.cs">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewBringIntoViewPage.xaml">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewBringIntoViewPage.xaml.cs">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewDynamicPage.xaml">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewDynamicPage.xaml.cs">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewKeyboardAndGamepadNavigationPage.xaml">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewKeyboardAndGamepadNavigationPage.xaml.cs">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewPage.xaml">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewPage.xaml.cs">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewsWithSimpleContentsPage.xaml">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewsWithSimpleContentsPage.xaml.cs">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewTestHooksHelper.cs">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewWithRTLFlowDirectionPage.xaml">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewWithRTLFlowDirectionPage.xaml.cs">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewWithScrollControllersPage.xaml">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
-    <None Include="ScrollView\TestUI\ScrollViewWithScrollControllersPage.xaml.cs">
-      <Filter>ScrollView\Tests\TestUI</Filter>
-    </None>
+    <PRIResource Include="TitleBar\Strings\en-us\Resources.resw">
+      <Filter>TitleBar\Strings</Filter>
+    </PRIResource>
+    <PRIResource Include="TitleBar\Strings\zh-CN\Resources.resw">
+      <Filter>TitleBar\Strings</Filter>
+    </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Islands.UI.Xaml.Controls.def" />
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
