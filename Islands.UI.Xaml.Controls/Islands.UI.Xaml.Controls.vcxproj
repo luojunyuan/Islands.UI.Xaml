@@ -322,32 +322,22 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.UI.Xaml" Version="2.8.7" />
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3719.77" />
-    <PackageReference Include="Microsoft.Windows.CppWinRT" Version="2.0.250303.1" />
+    <PackageReference Include="Microsoft.Windows.CppWinRT" Version="3.0.260520.1" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(MsAppxPackageTargets)" />
   <Target Name="AddProcessedXamlFilesToCopyLocal" />
-  <Target Name="PatchXamlTypeInfoActivationIncludes"
-          BeforeTargets="CompileXamlGeneratedFiles"
-          Condition="Exists('$(XamlGeneratedOutputPath)XamlTypeInfo.g.cpp')">
+  <Target Name="PatchXamlTypeInfoActivationIncludes" BeforeTargets="CompileXamlGeneratedFiles" Condition="Exists('$(XamlGeneratedOutputPath)XamlTypeInfo.g.cpp')">
     <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\PatchXamlTypeInfo.ps1&quot; -Path &quot;$(XamlGeneratedOutputPath)XamlTypeInfo.g.cpp&quot;" />
   </Target>
-  <Target Name="InvalidateCppWinRTMdMergeWhenMergedWinMDMissing"
-          BeforeTargets="CppWinRTMergeProjectWinMDInputs"
-          Condition="'$(CppWinRTGenerateWindowsMetadata)' == 'true' And !Exists('$(CppWinRTMergedDir)$(RootNamespace).winmd')">
+  <Target Name="InvalidateCppWinRTMdMergeWhenMergedWinMDMissing" BeforeTargets="CppWinRTMergeProjectWinMDInputs" Condition="'$(CppWinRTGenerateWindowsMetadata)' == 'true' And !Exists('$(CppWinRTMergedDir)$(RootNamespace).winmd')">
     <Delete Files="$(CppWinRTMdMergeResponseFile)" />
   </Target>
-  <Target Name="KeepCppWinRTWinMDOutputs"
-          AfterTargets="CppWinRTCopyWinMDToOutputDirectory"
-          Condition="'$(CppWinRTGenerateWindowsMetadata)' == 'true'">
+  <Target Name="KeepCppWinRTWinMDOutputs" AfterTargets="CppWinRTCopyWinMDToOutputDirectory" Condition="'$(CppWinRTGenerateWindowsMetadata)' == 'true'">
     <ItemGroup>
       <_IslandsMergedWinMD Include="$(CppWinRTMergedDir)$(RootNamespace).winmd" Condition="Exists('$(CppWinRTMergedDir)$(RootNamespace).winmd')" />
     </ItemGroup>
-    <Copy SourceFiles="@(_IslandsMergedWinMD)"
-          DestinationFiles="$(CppWinRTProjectWinMD)"
-          SkipUnchangedFiles="false"
-          Condition="'@(_IslandsMergedWinMD)' != '' And !Exists('$(CppWinRTProjectWinMD)')" />
+    <Copy SourceFiles="@(_IslandsMergedWinMD)" DestinationFiles="$(CppWinRTProjectWinMD)" SkipUnchangedFiles="false" Condition="'@(_IslandsMergedWinMD)' != '' And !Exists('$(CppWinRTProjectWinMD)')" />
     <ItemGroup>
       <FileWrites Include="@(_IslandsMergedWinMD)" />
       <FileWrites Include="$(CppWinRTProjectWinMD)" Condition="Exists('$(CppWinRTProjectWinMD)')" />

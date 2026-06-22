@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v10.0": {
       "Islands.UI.Xaml.Controls.Interop/1.0.0": {
         "dependencies": {
+          "Microsoft.UI.Xaml": "2.8.7",
           "Microsoft.Windows.CsWinRT": "2.2.0",
+          "Microsoft.Web.WebView2.Core.Projection": "1.0.2849.39",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.26100.57"
         },
         "runtime": {
@@ -31,11 +33,49 @@
           }
         }
       },
+      "Microsoft.UI.Xaml/2.8.7": {
+        "dependencies": {
+          "Microsoft.Web.WebView2": "1.0.2849.39"
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.22621.0/Microsoft.UI.Xaml.Projection.dll": {
+            "assemblyVersion": "2.8.7.0",
+            "fileVersion": "2.8.7.0"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2/1.0.2849.39": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/WebView2Loader.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "1.0.2849.39"
+          },
+          "runtimes/win-x64/native/WebView2Loader.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "1.0.2849.39"
+          },
+          "runtimes/win-x86/native/WebView2Loader.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "1.0.2849.39"
+          }
+        }
+      },
       "Microsoft.Windows.CsWinRT/2.2.0": {
         "runtime": {
           "lib/net8.0/WinRT.Runtime.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.48161"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2.Core.Projection/1.0.2849.39": {
+        "runtime": {
+          "Microsoft.Web.WebView2.Core.Projection.dll": {
+            "assemblyVersion": "1.0.2849.39",
+            "fileVersion": "1.0.2849.39"
           }
         }
       }
@@ -52,12 +92,31 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Microsoft.UI.Xaml/2.8.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GuYRY8KcB0K4IufFqxob40qUL6Gh+zi4RjHXVMENlJTRsXcVGl+QFNIyZVGbHDRgwIN8n0We9TBk0rUQP41Yig==",
+      "path": "microsoft.ui.xaml/2.8.7",
+      "hashPath": "microsoft.ui.xaml.2.8.7.nupkg.sha512"
+    },
+    "Microsoft.Web.WebView2/1.0.2849.39": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mWyurCfuOGF2odk+Orflzpk017oBmLy11qiQTXpcc9ZWqhx2SfYDr2izplyxy2bCkWDSXCQpBDhU5u9+mhHlDQ==",
+      "path": "microsoft.web.webview2/1.0.2849.39",
+      "hashPath": "microsoft.web.webview2.1.0.2849.39.nupkg.sha512"
+    },
     "Microsoft.Windows.CsWinRT/2.2.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-R8MDVawukHrKgYCFgYaoLfbAna/FrImEFRxDK9k8ITbrXv3KLE5uN6tRqrNV83H4MFdqJ/uiA/hg1cSsXkl0vw==",
       "path": "microsoft.windows.cswinrt/2.2.0",
       "hashPath": "microsoft.windows.cswinrt.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.Web.WebView2.Core.Projection/1.0.2849.39": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

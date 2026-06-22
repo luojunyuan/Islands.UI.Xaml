@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="CoreIslandApp1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:CoreIslandApp1"
+    xmlns:islands="using:Islands.UI.Xaml.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel>
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+            <TextBlock Text=" sdfsdfsdf" />
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock
+                Text="Hello from CoreIsland!"
+                Style="{StaticResource BodyTextBlockStyle}" />
+            <Button
+                Margin="0,12,0,0"
+                HorizontalAlignment="Center"
+                Click="Button_Click"
+                Content="Click me!" />
+            <islands:TitleBar
+                Margin="0,12,0,0"
+                HorizontalAlignment="Center"
+                Title="Islands Title Bar" />
+            </StackPanel>
+    </StackPanel>
+    </ScrollViewer>
+</Page>

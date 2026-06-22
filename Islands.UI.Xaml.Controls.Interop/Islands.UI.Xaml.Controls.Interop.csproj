@@ -18,7 +18,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <CsWinRTInputs Include="$(SolutionDir)bin\$(IslandsNativePlatform)\$(Configuration)\Islands.UI.Xaml.Controls.winmd" />
+    <CsWinRTInputs Include="$(PkgMicrosoft_UI_Xaml)\lib\uap10.0\Microsoft.UI.Xaml.winmd" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.2.0" />
+    <PackageReference Include="Microsoft.UI.Xaml" Version="2.8.7" GeneratePathProperty="true" />
   </ItemGroup>
 
   <ItemGroup>
