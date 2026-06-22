@@ -14,6 +14,8 @@
     <DisableRuntimeMarshalling>true</DisableRuntimeMarshalling>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <CoreIslandPackaging>false</CoreIslandPackaging>
+    <IslandsNativePlatform Condition="'$(Platform)' == 'x86'">Win32</IslandsNativePlatform>
+    <IslandsNativePlatform Condition="'$(IslandsNativePlatform)' == ''">$(Platform)</IslandsNativePlatform>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,5 +26,17 @@
   <ItemGroup>
     <ProjectReference Include="..\Islands.UI.Xaml.Controls.Interop\Islands.UI.Xaml.Controls.Interop.csproj" />
   </ItemGroup>
+
+  <Target Name="CopyIslandsNativeDllToOutput" AfterTargets="Build">
+    <PropertyGroup>
+      <IslandsNativeDll>$(MSBuildProjectDirectory)\..\bin\$(IslandsNativePlatform)\$(Configuration)\Islands.UI.Xaml.Controls.dll</IslandsNativeDll>
+    </PropertyGroup>
+
+    <Error Text="Islands.UI.Xaml.Controls.dll was not found at $(IslandsNativeDll). Build Islands.UI.Xaml.Controls for $(IslandsNativePlatform)|$(Configuration) first."
+           Condition="!Exists('$(IslandsNativeDll)')" />
+    <Copy SourceFiles="$(IslandsNativeDll)"
+          DestinationFolder="$(TargetDir)"
+          SkipUnchangedFiles="true" />
+  </Target>
 
 </Project>

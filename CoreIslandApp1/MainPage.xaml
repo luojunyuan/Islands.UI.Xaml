@@ -41,16 +41,18 @@
             <TextBlock
                 Text="Hello from CoreIsland!"
                 Style="{StaticResource BodyTextBlockStyle}" />
+                <islands:TitleBar
+                HorizontalAlignment="Center"
+                Title="Islands Title Bar" >
+
+                    <TextBlock Text="fsdfsd" />
+                </islands:TitleBar>
+            </StackPanel>
             <Button
                 Margin="0,12,0,0"
                 HorizontalAlignment="Center"
                 Click="Button_Click"
                 Content="Click me!" />
-            <islands:TitleBar
-                Margin="0,12,0,0"
-                HorizontalAlignment="Center"
-                Title="Islands Title Bar" />
-            </StackPanel>
     </StackPanel>
     </ScrollViewer>
 </Page>

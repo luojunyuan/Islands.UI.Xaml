@@ -2,9 +2,15 @@
 #include "winrt/base.h"
 
 void* winrt_make_Islands_UI_Xaml_Automation_Peers_ScrollPresenterAutomationPeer();
+void* winrt_make_Islands_UI_Xaml_Controls_AppWindowTitleBar();
+void* winrt_make_Islands_UI_Xaml_Controls_InputNonClientPointerSource();
 void* winrt_make_Islands_UI_Xaml_Controls_ScrollView();
 void* winrt_make_Islands_UI_Xaml_Controls_ScrollingScrollOptions();
 void* winrt_make_Islands_UI_Xaml_Controls_ScrollingZoomOptions();
+void* winrt_make_Islands_UI_Xaml_Controls_TitleBar();
+void* winrt_make_Islands_UI_Xaml_Controls_TitleBarAutomationPeer();
+void* winrt_make_Islands_UI_Xaml_Controls_TitleBarTemplateSettings();
+void* winrt_make_Islands_UI_Xaml_Controls_TitleBarWindowAdapter();
 void* winrt_make_Islands_UI_Xaml_Controls_XamlMetaDataProvider();
 void* winrt_make_Islands_UI_Xaml_Controls_Primitives_MUXControlsTestHooks();
 void* winrt_make_Islands_UI_Xaml_Controls_Primitives_RepeatedScrollSnapPoint();
@@ -42,6 +48,16 @@ void* __stdcall winrt_get_activation_factory(std::wstring_view const& name)
         return winrt_make_Islands_UI_Xaml_Automation_Peers_ScrollPresenterAutomationPeer();
     }
 
+    if (requal(name, L"Islands.UI.Xaml.Controls.AppWindowTitleBar"))
+    {
+        return winrt_make_Islands_UI_Xaml_Controls_AppWindowTitleBar();
+    }
+
+    if (requal(name, L"Islands.UI.Xaml.Controls.InputNonClientPointerSource"))
+    {
+        return winrt_make_Islands_UI_Xaml_Controls_InputNonClientPointerSource();
+    }
+
     if (requal(name, L"Islands.UI.Xaml.Controls.ScrollView"))
     {
         return winrt_make_Islands_UI_Xaml_Controls_ScrollView();
@@ -55,6 +71,26 @@ void* __stdcall winrt_get_activation_factory(std::wstring_view const& name)
     if (requal(name, L"Islands.UI.Xaml.Controls.ScrollingZoomOptions"))
     {
         return winrt_make_Islands_UI_Xaml_Controls_ScrollingZoomOptions();
+    }
+
+    if (requal(name, L"Islands.UI.Xaml.Controls.TitleBar"))
+    {
+        return winrt_make_Islands_UI_Xaml_Controls_TitleBar();
+    }
+
+    if (requal(name, L"Islands.UI.Xaml.Controls.TitleBarAutomationPeer"))
+    {
+        return winrt_make_Islands_UI_Xaml_Controls_TitleBarAutomationPeer();
+    }
+
+    if (requal(name, L"Islands.UI.Xaml.Controls.TitleBarTemplateSettings"))
+    {
+        return winrt_make_Islands_UI_Xaml_Controls_TitleBarTemplateSettings();
+    }
+
+    if (requal(name, L"Islands.UI.Xaml.Controls.TitleBarWindowAdapter"))
+    {
+        return winrt_make_Islands_UI_Xaml_Controls_TitleBarWindowAdapter();
     }
 
     if (requal(name, L"Islands.UI.Xaml.Controls.XamlMetaDataProvider"))
