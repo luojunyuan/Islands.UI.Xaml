@@ -4,6 +4,10 @@
     xmlns:controls="using:Islands.UI.Xaml.Controls"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///Islands.UI.Xaml.Controls/TitleBar/TitleBar_themeresources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <Style TargetType="controls:TitleBar" BasedOn="{StaticResource DefaultTitleBarStyle}"/>
 
     <Style x:Key="DefaultTitleBarStyle" TargetType="controls:TitleBar">

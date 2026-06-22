@@ -9,50 +9,60 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <ScrollViewer>
-        <StackPanel>
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-            <TextBlock Text=" sdfsdfsdf" />
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock
-                Text="Hello from CoreIsland!"
-                Style="{StaticResource BodyTextBlockStyle}" />
-                <islands:TitleBar
-                HorizontalAlignment="Center"
-                Title="Islands Title Bar" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-                    <TextBlock Text="fsdfsd" />
-                </islands:TitleBar>
+        <islands:TitleBar
+            x:Name="TitleBar"
+            Grid.Row="0"
+            Canvas.ZIndex="1"
+            AutoRefreshDragRegions="True"
+            HorizontalAlignment="Stretch"
+            IsBackButtonEnabled="True"
+            IsBackButtonVisible="True"
+            IsPaneToggleButtonVisible="True"
+            Title="My App" />
+
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Margin="24,16,24,24">
+                <TextBlock
+                    Style="{StaticResource BodyTextBlockStyle}"
+                    Text="Hello from CoreIsland!" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <TextBlock Text=" sdfsdfsdf" />
+                <Button
+                    Margin="0,12,0,0"
+                    HorizontalAlignment="Center"
+                    Click="Button_Click"
+                    Content="Click me!" />
             </StackPanel>
-            <Button
-                Margin="0,12,0,0"
-                HorizontalAlignment="Center"
-                Click="Button_Click"
-                Content="Click me!" />
-    </StackPanel>
-    </ScrollViewer>
+        </ScrollViewer>
+    </Grid>
 </Page>

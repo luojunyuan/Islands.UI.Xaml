@@ -54,6 +54,7 @@
     <ClCompile>
       <AdditionalIncludeDirectories>.;inc;Generated;Collections;ScrollPresenter;ScrollView;Telemetry;ResourceHelper;TestHooks;$(GeneratedFilesDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINRT_DLL;SCROLLPRESENTER_INCLUDED;SCROLLVIEW_INCLUDED;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions Condition="!$(UseClangCL)">/Zm200 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Midl>
       <AdditionalIncludeDirectories>.;ScrollPresenter;ScrollView;TestHooks;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
