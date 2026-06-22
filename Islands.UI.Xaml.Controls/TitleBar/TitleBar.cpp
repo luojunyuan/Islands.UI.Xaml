@@ -67,20 +67,12 @@ TitleBar::TitleBar()
 {
     EnsureProperties();
 
-    DefaultStyleKey(Box(winrt::xaml_typename<winrt::Islands::UI::Xaml::Controls::TitleBar>()));
-    if (!Style())
-    {
-        try
-        {
-            auto themeResources = winrt::xaml::ResourceDictionary();
-            themeResources.Source(winrt::Windows::Foundation::Uri{ L"ms-appx:///Islands.UI.Xaml.Controls/TitleBar/TitleBar.xaml" });
-            Style(themeResources.Lookup(Box(winrt::hstring{ L"DefaultTitleBarStyle" })).as<winrt::xaml::Style>());
-        }
-        catch (...)
-        {
-        }
-    }
     SetValue(TemplateSettingsProperty(), winrt::make<TitleBarTemplateSettings>());
+    DefaultStyleKey(Box(winrt::xaml_typename<winrt::Islands::UI::Xaml::Controls::TitleBar>()));
+    if (const auto control5 = this->try_as<winrt::IControl5>())
+    {
+        control5.DefaultStyleResourceUri(winrt::Uri{ L"ms-appx:///Islands.UI.Xaml.Controls/TitleBar/TitleBar.xaml" });
+    }
 
     m_sizeChangedRevoker = SizeChanged(winrt::auto_revoke, { this, &TitleBar::OnSizeChanged });
     m_flowDirectionChangedToken = RegisterPropertyChangedCallback(
