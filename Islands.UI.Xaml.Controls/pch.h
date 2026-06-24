@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <SDKDDKVer.h>
 
@@ -39,20 +39,20 @@
 #include "inc/CppWinRTIncludes.h"
 #include "inc/BuildMacros.h"
 
-#include <winrt/base.h>
-#include <winrt/Windows.ApplicationModel.Resources.h>
-#include <winrt/Windows.Foundation.h>
-#include <winrt/Windows.Foundation.Collections.h>
-#include <winrt/Windows.UI.Xaml.h>
-#include <winrt/Windows.UI.Xaml.Automation.h>
-#include <winrt/Windows.UI.Xaml.Automation.Peers.h>
-#include <winrt/Windows.UI.Xaml.Automation.Provider.h>
-#include <winrt/Windows.UI.Xaml.Controls.h>
-#include <winrt/Windows.UI.Xaml.Controls.Primitives.h>
-#include <winrt/Windows.UI.Xaml.Data.h>
-#include <winrt/Windows.UI.Xaml.Interop.h>
-#include <winrt/Windows.UI.Xaml.Markup.h>
-#include <winrt/Windows.UI.Xaml.Media.h>
+//#include <winrt/base.h>
+//#include <winrt/Windows.ApplicationModel.Resources.h>
+//#include <winrt/Windows.Foundation.h>
+//#include <winrt/Windows.Foundation.Collections.h>
+//#include <winrt/Windows.UI.Xaml.h>
+//#include <winrt/Windows.UI.Xaml.Automation.h>
+//#include <winrt/Windows.UI.Xaml.Automation.Peers.h>
+//#include <winrt/Windows.UI.Xaml.Automation.Provider.h>
+//#include <winrt/Windows.UI.Xaml.Controls.h>
+//#include <winrt/Windows.UI.Xaml.Controls.Primitives.h>
+//#include <winrt/Windows.UI.Xaml.Data.h>
+//#include <winrt/Windows.UI.Xaml.Interop.h>
+//#include <winrt/Windows.UI.Xaml.Markup.h>
+//#include <winrt/Windows.UI.Xaml.Media.h>
 #include <winrt/Microsoft.UI.Xaml.Controls.AnimatedVisuals.h>
 #include <winrt/Microsoft.UI.Xaml.Controls.h>
 #include <winrt/Microsoft.UI.Xaml.XamlTypeInfo.h>
@@ -74,7 +74,7 @@ namespace muxc = Microsoft::UI::Xaml::Controls;
 using namespace std::string_view_literals;
 using namespace std::chrono_literals;
 
-using winrt::operator co_await;
+//using winrt::operator co_await;
 
 #ifndef MUX_ASSERT
 #define MUX_ASSERT(condition) assert(condition)

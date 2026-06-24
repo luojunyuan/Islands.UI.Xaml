@@ -136,9 +136,7 @@
     <ClCompile Include="IslandsXamlHelpers.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="IslandsSupport.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="IslandsSupport.cpp" />
   </ItemGroup>
 
   <ItemGroup>
