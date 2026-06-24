@@ -50,7 +50,7 @@ void ScrollView::SetDefaultStyleKey()
 
     if (const auto control5 = this->try_as<winrt::IControl5>())
     {
-        control5.DefaultStyleResourceUri(winrt::Uri{ L"ms-appx:///Islands.UI.Xaml.Controls/ScrollView/ScrollView.xaml" });
+        control5.DefaultStyleResourceUri(winrt::Uri{ L"ms-appx:///Islands.UI.Xaml.Controls/Themes/generic.xaml" });
     }
 }
 

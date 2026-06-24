@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{27D11F21-6C65-4D89-9EB5-E2C76021FBD4}</ItemsProjectGuid>
+    <ItemsProjectName>Collections</ItemsProjectName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Vector.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)VectorChangedEventArgs.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)VectorIterator.h" />
+  </ItemGroup>
+</Project>

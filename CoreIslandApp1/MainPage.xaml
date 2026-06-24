@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <islands:TitleBar
-            x:Name="TitleBar"
+            x:Name="MyTitleBar"
             Grid.Row="0"
             Canvas.ZIndex="1"
             AutoRefreshDragRegions="True"

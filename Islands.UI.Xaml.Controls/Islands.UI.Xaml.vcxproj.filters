@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Build">
+      <UniqueIdentifier>{594291E2-E731-48B7-A4D4-56EBD19F1EDA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{FB45F425-01FA-4B46-8565-98395248FB00}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="XamlTypeInfoActivationIncludes.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Build</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
+      <Filter>Build</Filter>
+    </ClCompile>
+    <ClCompile Include="IslandsXamlHelpers.cpp">
+      <Filter>Build</Filter>
+    </ClCompile>
+    <ClCompile Include="IslandsSupport.cpp">
+      <Filter>Build</Filter>
+    </ClCompile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Islands.UI.Xaml.def">
+      <Filter>Build</Filter>
+    </None>
+    <None Include="PatchXamlTypeInfo.ps1">
+      <Filter>Build</Filter>
+    </None>
+    <None Include="Build\ControlsResources.targets">
+      <Filter>Build</Filter>
+    </None>
+    <None Include="Build\MergeControlsResources.ps1">
+      <Filter>Build</Filter>
+    </None>
+  </ItemGroup>
+</Project>

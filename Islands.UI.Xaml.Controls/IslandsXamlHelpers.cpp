@@ -8,7 +8,7 @@ void SetDefaultStyleKeyWorker(winrt::IControlProtected const& controlProtected, 
 
     if (auto control = controlProtected.try_as<winrt::IControl5>())
     {
-        control.DefaultStyleResourceUri(winrt::Uri{ L"ms-appx:///Islands.UI.Xaml.Controls/ScrollView/ScrollView.xaml" });
+        control.DefaultStyleResourceUri(winrt::Uri{ L"ms-appx:///Islands.UI.Xaml.Controls/Themes/generic.xaml" });
     }
 }
 

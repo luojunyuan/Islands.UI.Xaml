@@ -1,4 +1,4 @@
-using Windows.ApplicationModel.Activation;
+﻿using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -6,7 +6,9 @@ namespace CoreIslandApp1
 {
     public sealed partial class App : CoreIsland.Application
     {
-        private CoreIsland.Window? _window;
+        public static CoreIsland.Window Window => _window!;
+
+        private static CoreIsland.Window? _window;
 
         public App()
         {
@@ -24,6 +26,8 @@ namespace CoreIslandApp1
             };
 
             rootFrame.Navigate(typeof(MainPage), e.Arguments);
+
+            _window.ExtendsContentIntoTitleBar = true;
 
             _window.Activate();
         }

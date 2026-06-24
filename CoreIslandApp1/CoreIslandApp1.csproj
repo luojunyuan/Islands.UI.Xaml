@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -20,21 +20,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CoreIsland" Version="1.0.2" />
+    <!--<PackageReference Include="CoreIsland" Version="1.0.2" />-->
     <PackageReference Include="Microsoft.UI.Xaml" Version="2.8.7" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Islands.UI.Xaml.Controls.Interop\Islands.UI.Xaml.Controls.Interop.csproj" />
+    <ProjectReference Include="..\..\CoreIsland\CoreIsland\CoreIsland.csproj" />
+    <ProjectReference Include="..\Islands.UI.Xaml.Controls.Interop\Islands.UI.Xaml.Projection.csproj" />
   </ItemGroup>
+
+	<!-- Not needed when consuming CoreIsland as a NuGet package -->
+	<Import Project="..\..\CoreIsland\CoreIsland\buildTransitive\CoreIsland.props" />
+	<Import Project="..\..\CoreIsland\CoreIsland\buildTransitive\CoreIsland.targets" />
 
   <Target Name="AddIslandsPriToAppResources" BeforeTargets="_GenerateProjectPriConfigurationFiles">
     <PropertyGroup>
-      <IslandsNativePri>$(IslandsNativeOutputDir)Islands.UI.Xaml.Controls.pri</IslandsNativePri>
+      <IslandsNativePri>$(IslandsNativeOutputDir)Islands.UI.Xaml.pri</IslandsNativePri>
     </PropertyGroup>
 
-    <Error Text="Islands.UI.Xaml.Controls.pri was not found at $(IslandsNativePri). Build Islands.UI.Xaml.Controls for $(IslandsNativePlatform)|$(Configuration) first."
-           Condition="'$(DesignTimeBuild)' != 'true' And !Exists('$(IslandsNativePri)')" />
+    <Error Text="Islands.UI.Xaml.pri was not found at $(IslandsNativePri). Build Islands.UI.Xaml for $(IslandsNativePlatform)|$(Configuration) first." Condition="'$(DesignTimeBuild)' != 'true' And !Exists('$(IslandsNativePri)')" />
     <ItemGroup Condition="Exists('$(IslandsNativePri)')">
       <_PriFile Include="$(IslandsNativePri)" />
     </ItemGroup>
@@ -42,16 +46,13 @@
 
   <Target Name="CopyIslandsNativeOutputsToOutput" AfterTargets="Build">
     <ItemGroup>
-      <IslandsNativeOutput Include="$(IslandsNativeOutputDir)Islands.UI.Xaml.Controls.dll" />
-      <IslandsNativeOutput Include="$(IslandsNativeOutputDir)Islands.UI.Xaml.Controls.pri" />
-      <IslandsNativeOutput Include="$(IslandsNativeOutputDir)Islands.UI.Xaml.Controls.winmd" />
+      <IslandsNativeOutput Include="$(IslandsNativeOutputDir)Islands.UI.Xaml.dll" />
+      <IslandsNativeOutput Include="$(IslandsNativeOutputDir)Islands.UI.Xaml.pri" />
+      <IslandsNativeOutput Include="$(IslandsNativeOutputDir)Islands.UI.Xaml.winmd" />
     </ItemGroup>
 
-    <Error Text="Required Islands native output was not found: %(IslandsNativeOutput.Identity). Build Islands.UI.Xaml.Controls for $(IslandsNativePlatform)|$(Configuration) first."
-           Condition="!Exists('%(IslandsNativeOutput.FullPath)')" />
-    <Copy SourceFiles="@(IslandsNativeOutput)"
-          DestinationFolder="$(TargetDir)"
-          SkipUnchangedFiles="true" />
+    <Error Text="Required Islands native output was not found: %(IslandsNativeOutput.Identity). Build Islands.UI.Xaml for $(IslandsNativePlatform)|$(Configuration) first." Condition="!Exists('%(IslandsNativeOutput.FullPath)')" />
+    <Copy SourceFiles="@(IslandsNativeOutput)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
   </Target>
 
 </Project>

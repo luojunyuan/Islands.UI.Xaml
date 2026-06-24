@@ -71,7 +71,7 @@ TitleBar::TitleBar()
     DefaultStyleKey(Box(winrt::xaml_typename<winrt::Islands::UI::Xaml::Controls::TitleBar>()));
     if (const auto control5 = this->try_as<winrt::IControl5>())
     {
-        control5.DefaultStyleResourceUri(winrt::Uri{ L"ms-appx:///Islands.UI.Xaml.Controls/TitleBar/TitleBar.xaml" });
+        control5.DefaultStyleResourceUri(winrt::Uri{ L"ms-appx:///Islands.UI.Xaml.Controls/Themes/generic.xaml" });
     }
 
     m_sizeChangedRevoker = SizeChanged(winrt::auto_revoke, { this, &TitleBar::OnSizeChanged });

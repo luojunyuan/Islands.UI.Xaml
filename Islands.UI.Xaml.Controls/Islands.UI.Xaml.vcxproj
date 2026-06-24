@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <CppWinRTFastAbi>true</CppWinRTFastAbi>
+    <CppWinRTOptimized>true</CppWinRTOptimized>
+    <CppWinRTRootNamespaceAutoMerge>true</CppWinRTRootNamespaceAutoMerge>
+    <CppWinRTGenerateWindowsMetadata>true</CppWinRTGenerateWindowsMetadata>
+    <CppWinRTVerbosity>low</CppWinRTVerbosity>
+    <MinimalCoreWin>true</MinimalCoreWin>
+    <ProjectGuid>{268a3f9f-34c9-480b-892d-d32f672ce9ce}</ProjectGuid>
+    <ProjectName>Islands.UI.Xaml</ProjectName>
+    <TargetName>Islands.UI.Xaml</TargetName>
+    <ProjectPriFileName>Islands.UI.Xaml.pri</ProjectPriFileName>
+    <XamlProjectName>Islands.UI.Xaml</XamlProjectName>
+    <RootNamespace>Islands.UI.Xaml.Controls</RootNamespace>
+    <SolutionDir Condition="'$(SolutionDir)' == '' Or '$(SolutionDir)' == '*Undefined*'">$(MSBuildProjectDirectory)\..\</SolutionDir>
+    <AppContainerApplication>false</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+    <WindowsTargetPlatformVersion Condition="'$(WindowsTargetPlatformVersion)' == ''">10.0.26100.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.18362.0</WindowsTargetPlatformMinVersion>
+    <IntDir>$(SolutionDir)\obj\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <GeneratedFilesDir>$(IntDir)Generated Files\</GeneratedFilesDir>
+    <IslandsProjectionWinMD>$(OutDir)Islands.UI.Xaml.winmd</IslandsProjectionWinMD>
+    <AppxBundlePlatforms>x86|x64|arm64</AppxBundlePlatforms>
+    <DesktopCompatible>true</DesktopCompatible>
+    <EnableNativePackageReferenceSupport>true</EnableNativePackageReferenceSupport>
+    <DisableEmbeddedXbf>false</DisableEmbeddedXbf>
+    <XamlComponentResourceLocation>nested</XamlComponentResourceLocation>
+    <GenerateLibraryLayout>true</GenerateLibraryLayout>
+    <GenerateBuildCompilePassWinMD>false</GenerateBuildCompilePassWinMD>
+  </PropertyGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="..\Common.Pre.props" />
+
+  <PropertyGroup Label="Globals">
+    <OutDir Condition="$(IsPackaged)">$(SolutionDir)\bin\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</OutDir>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset Condition="$(VS17)">v143</PlatformToolset>
+    <PlatformToolset Condition="!$(VS17)">v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+
+  <ImportGroup Label="Shared">
+    <Import Project="Collections\Collections.vcxitems" Label="Shared" />
+    <Import Project="ResourceHelper\ResourceHelper.vcxitems" Label="Shared" />
+    <Import Project="Telemetry\Telemetry.vcxitems" Label="Shared" />
+    <Import Project="TitleBar\TitleBar.vcxitems" Label="Shared" />
+    <Import Project="ScrollPresenter\ScrollPresenter.vcxitems" Label="Shared" />
+    <Import Project="ScrollView\ScrollView.vcxitems" Label="Shared" />
+    <Import Project="TestHooks\TestHooks.vcxitems" Label="Shared" />
+  </ImportGroup>
+
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\Common.Post.props" />
+    <Import Project="..\WinUI.targets" />
+    <Import Project="Build\ControlsResources.targets" />
+  </ImportGroup>
+
+  <PropertyGroup Label="UserMacros" />
+
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;inc;Generated;Collections;ScrollPresenter;ScrollView;TitleBar;Telemetry;ResourceHelper;TestHooks;$(GeneratedFilesDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINRT_DLL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions Condition="!$(UseClangCL)">/Zm200 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>.;ScrollPresenter;ScrollView;TitleBar;TestHooks;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalMetadataDirectories>$(WindowsSDK_UnionMetadataPath)</AdditionalMetadataDirectories>
+    </Midl>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <ModuleDefinitionFile>Islands.UI.Xaml.def</ModuleDefinitionFile>
+      <AdditionalDependencies>advapi32.lib;user32.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <ItemDefinitionGroup Condition="'$(Configuration)' == 'Release'">
+    <ClCompile>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+    </ClCompile>
+  </ItemDefinitionGroup>
+
+  <Import Project="..\UWPClangCL.props" Condition="$(UseClangCL)" />
+
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="XamlTypeInfoActivationIncludes.h" />
+    <ClInclude Include="inc\*.h" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="IslandsXamlHelpers.cpp" />
+    <ClCompile Include="IslandsSupport.cpp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Islands.UI.Xaml.def" />
+    <None Include="PatchXamlTypeInfo.ps1" />
+    <None Include="Build\ControlsResources.targets" />
+    <None Include="Build\MergeControlsResources.ps1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.UI.Xaml" Version="2.8.7" />
+    <PackageReference Include="Microsoft.Windows.CppWinRT" Version="3.0.260520.1" />
+  </ItemGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(MsAppxPackageTargets)" />
+
+  <Target Name="AddProcessedXamlFilesToCopyLocal" />
+
+  <Target Name="PatchXamlTypeInfoActivationIncludes" BeforeTargets="CompileXamlGeneratedFiles" Condition="Exists('$(XamlGeneratedOutputPath)XamlTypeInfo.g.cpp')">
+    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\PatchXamlTypeInfo.ps1&quot; -Path &quot;$(XamlGeneratedOutputPath)XamlTypeInfo.g.cpp&quot;" />
+  </Target>
+
+  <Target Name="InvalidateCppWinRTMdMergeWhenMergedWinMDMissing" BeforeTargets="CppWinRTMergeProjectWinMDInputs" Condition="'$(CppWinRTGenerateWindowsMetadata)' == 'true' And !Exists('$(CppWinRTMergedDir)$(RootNamespace).winmd')">
+    <Delete Files="$(CppWinRTMdMergeResponseFile)" />
+  </Target>
+
+  <Target Name="KeepCppWinRTWinMDOutputs" AfterTargets="CppWinRTCopyWinMDToOutputDirectory" Condition="'$(CppWinRTGenerateWindowsMetadata)' == 'true'">
+    <ItemGroup>
+      <_IslandsMergedWinMD Include="$(CppWinRTMergedDir)$(RootNamespace).winmd" Condition="Exists('$(CppWinRTMergedDir)$(RootNamespace).winmd')" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_IslandsMergedWinMD)" DestinationFiles="$(IslandsProjectionWinMD)" SkipUnchangedFiles="false" Condition="'@(_IslandsMergedWinMD)' != ''" />
+    <ItemGroup>
+      <FileWrites Include="@(_IslandsMergedWinMD)" />
+      <FileWrites Include="$(CppWinRTProjectWinMD)" Condition="Exists('$(CppWinRTProjectWinMD)')" />
+      <FileWrites Include="$(IslandsProjectionWinMD)" Condition="Exists('$(IslandsProjectionWinMD)')" />
+    </ItemGroup>
+  </Target>
+</Project>
