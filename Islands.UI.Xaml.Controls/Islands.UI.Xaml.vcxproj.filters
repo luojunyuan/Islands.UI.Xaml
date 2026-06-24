@@ -2,19 +2,25 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Build">
-      <UniqueIdentifier>{594291E2-E731-48B7-A4D4-56EBD19F1EDA}</UniqueIdentifier>
+      <UniqueIdentifier>{594291e2-e731-48b7-a4d4-56ebd19f1eda}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Headers">
-      <UniqueIdentifier>{FB45F425-01FA-4B46-8565-98395248FB00}</UniqueIdentifier>
+    <Filter Include="Generated">
+      <UniqueIdentifier>{f89a4cc8-2be8-49ad-91b6-f259b3c25e38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public Headers">
+      <UniqueIdentifier>{fb45f425-01fa-4b46-8565-98395248fb00}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 
   <ItemGroup>
     <ClInclude Include="pch.h">
-      <Filter>Headers</Filter>
+      <Filter>Build</Filter>
     </ClInclude>
     <ClInclude Include="XamlTypeInfoActivationIncludes.h">
-      <Filter>Headers</Filter>
+      <Filter>Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\*.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
   </ItemGroup>
 
@@ -22,14 +28,14 @@
     <ClCompile Include="pch.cpp">
       <Filter>Build</Filter>
     </ClCompile>
-    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
-      <Filter>Build</Filter>
-    </ClCompile>
     <ClCompile Include="IslandsXamlHelpers.cpp">
       <Filter>Build</Filter>
     </ClCompile>
     <ClCompile Include="IslandsSupport.cpp">
       <Filter>Build</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp">
+      <Filter>Generated</Filter>
     </ClCompile>
   </ItemGroup>
 

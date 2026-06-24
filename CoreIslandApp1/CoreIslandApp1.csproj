@@ -20,18 +20,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!--<PackageReference Include="CoreIsland" Version="1.0.2" />-->
+    <PackageReference Include="CoreIsland" Version="1.0.2" />
     <PackageReference Include="Microsoft.UI.Xaml" Version="2.8.7" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CoreIsland\CoreIsland\CoreIsland.csproj" />
-    <ProjectReference Include="..\Islands.UI.Xaml.Controls.Interop\Islands.UI.Xaml.Projection.csproj" />
+    <ProjectReference Include="..\Islands.UI.Xaml.Projection\Islands.UI.Xaml.Projection.csproj" />
   </ItemGroup>
-
-	<!-- Not needed when consuming CoreIsland as a NuGet package -->
-	<Import Project="..\..\CoreIsland\CoreIsland\buildTransitive\CoreIsland.props" />
-	<Import Project="..\..\CoreIsland\CoreIsland\buildTransitive\CoreIsland.targets" />
 
   <Target Name="AddIslandsPriToAppResources" BeforeTargets="_GenerateProjectPriConfigurationFiles">
     <PropertyGroup>

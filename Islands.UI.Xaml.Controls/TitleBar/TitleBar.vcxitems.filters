@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{8d4ea638-27b1-4758-93d6-4221eb74a447}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{29633ecf-82f7-4af0-a651-5eff3bd6c7b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IDL">
+      <UniqueIdentifier>{2e4f187e-1136-467c-a3ed-113879b69320}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Styles">
+      <UniqueIdentifier>{1f3b7779-54e7-4e6a-a18a-1869558e6723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings">
+      <UniqueIdentifier>{da6cf2d2-4b11-4f9b-a326-4de2c97df805}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)AppWindowTitleBar.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)InputNonClientPointerSource.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBar.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarAutomationPeer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarTemplateSettings.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarWindowAdapter.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)AppWindowTitleBar.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)InputNonClientPointerSource.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)TitleBar.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)TitleBarAutomationPeer.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)TitleBarTemplateSettings.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)TitleBarTrace.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)TitleBarWindowAdapter.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="$(MSBuildThisFileDirectory)TitleBar.idl">
+      <Filter>IDL</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)TitleBar.xaml">
+      <Filter>Styles</Filter>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)TitleBar_themeresources.xaml">
+      <Filter>Styles</Filter>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)TitleBar_themeresources_perf2026.xaml">
+      <Filter>Styles</Filter>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)TitleBar.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en-us\Resources.resw">
+      <Filter>Strings</Filter>
+    </PRIResource>
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\zh-CN\Resources.resw">
+      <Filter>Strings</Filter>
+    </PRIResource>
+  </ItemGroup>
+</Project>
