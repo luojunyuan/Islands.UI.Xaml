@@ -3,9 +3,6 @@
 
 #pragma once
 
-#include <codecvt>
-#include <string>
-
 namespace StringUtil
 {
     /// <summary>
@@ -23,17 +20,17 @@ namespace StringUtil
 class VisualStateUtil
 {
 public:
-    static winrt::VisualStateGroup GetVisualStateGroup(const winrt::FrameworkElement& control, const std::wstring_view& groupName);
-    static bool VisualStateGroupExists(const winrt::FrameworkElement& control, const std::wstring_view& groupName);
-    static void GoToStateIfGroupExists(const winrt::Control& control, const std::wstring_view& groupName, const std::wstring_view& stateName, bool useTransitions);
+    static winrt::Windows::UI::Xaml::VisualStateGroup GetVisualStateGroup(const winrt::Windows::UI::Xaml::FrameworkElement& control, const std::wstring_view& groupName);
+    static bool VisualStateGroupExists(const winrt::Windows::UI::Xaml::FrameworkElement& control, const std::wstring_view& groupName);
+    static void GoToStateIfGroupExists(const winrt::Windows::UI::Xaml::Controls::Control& control, const std::wstring_view& groupName, const std::wstring_view& stateName, bool useTransitions);
 };
 
 namespace LayoutUtils
 {
-    inline constexpr winrt::Size c_infSize{ std::numeric_limits<float>::infinity(), std::numeric_limits<float>::infinity() };
+    inline constexpr winrt::Windows::Foundation::Size c_infSize{ std::numeric_limits<float>::infinity(), std::numeric_limits<float>::infinity() };
 
     template<class UIElementType>
-    inline float MeasureAndGetDesiredWidthFor(UIElementType element, winrt::Size const& availableSize)
+    inline float MeasureAndGetDesiredWidthFor(UIElementType element, winrt::Windows::Foundation::Size const& availableSize)
     {
         float desiredWidth = 0;
         if (element)
@@ -45,7 +42,7 @@ namespace LayoutUtils
     }
 
     template<class UIElementType>
-    inline float MeasureAndGetDesiredHeightFor(UIElementType element, winrt::Size const& availableSize)
+    inline float MeasureAndGetDesiredHeightFor(UIElementType element, winrt::Windows::Foundation::Size const& availableSize)
     {
         float desiredHeight = 0;
         if (element)
@@ -65,8 +62,8 @@ namespace LayoutUtils
 
 namespace Util
 {
-    inline winrt::Visibility constexpr VisibilityFromBool(bool visible) 
+    inline winrt::Windows::UI::Xaml::Visibility constexpr VisibilityFromBool(bool visible)
     { 
-        return visible ? winrt::Visibility::Visible : winrt::Visibility::Collapsed;
+        return visible ? winrt::Windows::UI::Xaml::Visibility::Visible : winrt::Windows::UI::Xaml::Visibility::Collapsed;
     }
 }

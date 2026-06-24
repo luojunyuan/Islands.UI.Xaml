@@ -1,14 +1,21 @@
-#include "pch.h"
-#include "common.h"
+#include <windows.h>
+
+import std;
+import winrt_base;
+import winrt.Windows.Foundation;
+import winrt.Windows.UI.Xaml.Controls;
+
 #include "RuntimeProfiler.h"
 
-void SetDefaultStyleKeyWorker(winrt::IControlProtected const& controlProtected, std::wstring_view const& className)
+void SetDefaultStyleKeyWorker(
+    winrt::Windows::UI::Xaml::Controls::IControlProtected const& controlProtected,
+    std::wstring_view const& className)
 {
     controlProtected.DefaultStyleKey(winrt::box_value(className));
 
-    if (auto control = controlProtected.try_as<winrt::IControl5>())
+    if (auto control = controlProtected.try_as<winrt::Windows::UI::Xaml::Controls::IControl5>())
     {
-        control.DefaultStyleResourceUri(winrt::Uri{ L"ms-appx:///Islands.UI.Xaml.Controls/Themes/generic.xaml" });
+        control.DefaultStyleResourceUri(winrt::Windows::Foundation::Uri{ L"ms-appx:///Islands.UI.Xaml.Controls/Themes/generic.xaml" });
     }
 }
 

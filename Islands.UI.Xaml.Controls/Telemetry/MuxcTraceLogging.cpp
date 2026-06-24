@@ -1,4 +1,5 @@
-#include "pch.h"
+#include <windows.h>
+
 #include "MuxcTraceLogging.h"
 
 TRACELOGGING_DEFINE_PROVIDER(

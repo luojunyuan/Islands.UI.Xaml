@@ -1,5 +1,20 @@
-#include "pch.h"
+import winrt_base;
+import winrt.Windows.UI.Xaml;
+import winrt.Windows.UI.Xaml.Controls;
+import winrt.Windows.UI.Xaml.Interop;
+import winrt.Islands.UI.Xaml.Controls;
+
+namespace winrt
+{
+namespace xaml = Windows::UI::Xaml;
+namespace xaml_controls = Windows::UI::Xaml::Controls;
+namespace xaml_interop = Windows::UI::Xaml::Interop;
+}
+
+#define WINRT_IMPORT_MODULE
 #include "TitleBarTemplateSettings.h"
+#undef WINRT_IMPORT_MODULE
+
 #if __has_include("TitleBarTemplateSettings.g.cpp")
 #include "TitleBarTemplateSettings.g.cpp"
 #endif

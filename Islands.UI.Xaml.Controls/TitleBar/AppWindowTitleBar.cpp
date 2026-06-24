@@ -1,5 +1,9 @@
-#include "pch.h"
+import std;
+
+#define WINRT_IMPORT_MODULE
 #include "AppWindowTitleBar.h"
+#undef WINRT_IMPORT_MODULE
+
 #if __has_include("AppWindowTitleBar.g.cpp")
 #include "AppWindowTitleBar.g.cpp"
 #endif

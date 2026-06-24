@@ -6,10 +6,10 @@
 #include "Primitives.MUXControlsTestHooksLoggingMessageEventArgs.g.h"
 
 class MUXControlsTestHooksLoggingMessageEventArgs
-    : public winrt::implementation::MUXControlsTestHooksLoggingMessageEventArgsT<MUXControlsTestHooksLoggingMessageEventArgs>
+    : public winrt::Islands::UI::Xaml::Controls::Primitives::implementation::MUXControlsTestHooksLoggingMessageEventArgsT<MUXControlsTestHooksLoggingMessageEventArgs>
 {
 public:
-    void SetMessage(const wstring_view& message);
+    void SetMessage(const std::wstring_view& message);
     void SetIsVerboseLevel(bool isVerboseLevel);
 
     // IMUXControlsTestHooksLoggingMessageEventArgs overrides

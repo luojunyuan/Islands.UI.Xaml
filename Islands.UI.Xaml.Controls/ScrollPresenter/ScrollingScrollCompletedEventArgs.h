@@ -3,22 +3,16 @@
 
 #pragma once
 
-#include "ScrollPresenter.h"
+#include "ViewChangeBase.h"
 #include "ScrollingScrollCompletedEventArgs.g.h"
 
 class ScrollingScrollCompletedEventArgs :
-    public winrt::implementation::ScrollingScrollCompletedEventArgsT<ScrollingScrollCompletedEventArgs>
+    public winrt::Islands::UI::Xaml::Controls::implementation::ScrollingScrollCompletedEventArgsT<ScrollingScrollCompletedEventArgs>
 {
 public:
-    ScrollingScrollCompletedEventArgs()
-    {
-        SCROLLPRESENTER_TRACE_VERBOSE(nullptr, TRACE_MSG_METH, METH_NAME, this);
-    }
+    ScrollingScrollCompletedEventArgs();
 
-    ~ScrollingScrollCompletedEventArgs()
-    {
-        SCROLLPRESENTER_TRACE_VERBOSE(nullptr, TRACE_MSG_METH, METH_NAME, this);
-    }
+    ~ScrollingScrollCompletedEventArgs();
 
     // IScrollingScrollCompletedEventArgs overrides
     int32_t CorrelationId();

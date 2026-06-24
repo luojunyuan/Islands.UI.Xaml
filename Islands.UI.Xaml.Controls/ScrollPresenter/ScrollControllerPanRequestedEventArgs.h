@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include "pch.h"
 #include "Primitives.ScrollControllerPanRequestedEventArgs.g.h"
 #include "ScrollPresenterTrace.h"
 

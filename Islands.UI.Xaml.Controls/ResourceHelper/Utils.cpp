@@ -1,7 +1,15 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-#include "pch.h"
+#include <stdarg.h>
+#include <windows.h>
+
+import std;
+import winrt_base;
+import winrt.Windows.Foundation;
+import winrt.Windows.UI.Xaml;
+import winrt.Windows.UI.Xaml.Controls;
+
 #include "Utils.h"
 
 winrt::hstring StringUtil::FormatString(std::wstring_view formatString, ...)
@@ -76,10 +84,12 @@ std::string StringUtil::Utf16ToUtf8(const std::wstring_view& utf16Str)
     return converted;
 }
 
-winrt::VisualStateGroup VisualStateUtil::GetVisualStateGroup(const winrt::FrameworkElement& control, const std::wstring_view& groupName)
+winrt::Windows::UI::Xaml::VisualStateGroup VisualStateUtil::GetVisualStateGroup(
+    const winrt::Windows::UI::Xaml::FrameworkElement& control,
+    const std::wstring_view& groupName)
 {
-    winrt::VisualStateGroup group{};
-    auto visualStateGroups = winrt::VisualStateManager::GetVisualStateGroups(control);
+    winrt::Windows::UI::Xaml::VisualStateGroup group{};
+    auto visualStateGroups = winrt::Windows::UI::Xaml::VisualStateManager::GetVisualStateGroups(control);
     for (auto const& visualStateGroup : visualStateGroups)
     {
         if (visualStateGroup.Name() == groupName)
@@ -91,16 +101,20 @@ winrt::VisualStateGroup VisualStateUtil::GetVisualStateGroup(const winrt::Framew
     return group;
 }
 
-bool VisualStateUtil::VisualStateGroupExists(const winrt::FrameworkElement& control, const std::wstring_view& groupName)
+bool VisualStateUtil::VisualStateGroupExists(const winrt::Windows::UI::Xaml::FrameworkElement& control, const std::wstring_view& groupName)
 {
     return static_cast<bool>(GetVisualStateGroup(control, groupName));
 }
 
-void VisualStateUtil::GoToStateIfGroupExists(const winrt::Control& control, const std::wstring_view& groupName, const std::wstring_view& stateName, bool useTransitions)
+void VisualStateUtil::GoToStateIfGroupExists(
+    const winrt::Windows::UI::Xaml::Controls::Control& control,
+    const std::wstring_view& groupName,
+    const std::wstring_view& stateName,
+    bool useTransitions)
 {
     auto visualStateGroup = GetVisualStateGroup(control, groupName);
     if (visualStateGroup)
     {
-        winrt::VisualStateManager::GoToState(control, stateName, useTransitions);
+        winrt::Windows::UI::Xaml::VisualStateManager::GoToState(control, stateName, useTransitions);
     }
 }

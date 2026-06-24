@@ -24,12 +24,22 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)TitleBarWindowAdapter.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)AppWindowTitleBar.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)InputNonClientPointerSource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)AppWindowTitleBar.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)InputNonClientPointerSource.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)TitleBar.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarAutomationPeer.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarTemplateSettings.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarWindowAdapter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarAutomationPeer.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarTemplateSettings.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarWindowAdapter.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)TitleBar.xaml">

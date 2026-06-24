@@ -3,20 +3,20 @@
 
 #pragma once
 
-#include "pch.h"
-
 class ResourceAccessor final
 {
 private:
     ResourceAccessor() = delete;
 
 public:
-    static winrt::hstring GetLocalizedStringResource(const wstring_view& resourceName);
-    static winrt::LoadedImageSurface GetImageSurface(const wstring_view& assetName, winrt::Size imageSize);
-    static winrt::Windows::Foundation::IAsyncOperation<winrt::hstring> GetFileContents(const wstring_view& assetFileName);
-    static winrt::IInspectable ResourceLookup(const winrt::Control& control, const winrt::IInspectable& key);
+    static winrt::hstring GetLocalizedStringResource(const std::wstring_view& resourceName);
+    static winrt::Windows::UI::Xaml::Media::LoadedImageSurface GetImageSurface(const std::wstring_view& assetName, winrt::Windows::Foundation::Size imageSize);
+    static winrt::Windows::Foundation::IAsyncOperation<winrt::hstring> GetFileContents(const std::wstring_view& assetFileName);
+    static winrt::Windows::Foundation::IInspectable ResourceLookup(
+        const winrt::Windows::UI::Xaml::Controls::Control& control,
+        const winrt::Windows::Foundation::IInspectable& key);
 
-    static bool IsResourceIdNull(ResourceIdType resourceId)
+    static bool IsResourceIdNull(const winrt::hstring& resourceId)
     {
         return resourceId.empty();
     }

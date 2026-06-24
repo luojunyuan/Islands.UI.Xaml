@@ -15,8 +15,12 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)ResourceAccessor.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Utils.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ResourceAccessor.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Utils.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)ResourceAccessor.h" />

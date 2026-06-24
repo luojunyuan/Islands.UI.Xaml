@@ -6,10 +6,10 @@
 #include "Primitives.ScrollPresenterTestHooksExpressionAnimationStatusChangedEventArgs.g.h"
 
 class ScrollPresenterTestHooksExpressionAnimationStatusChangedEventArgs :
-    public winrt::implementation::ScrollPresenterTestHooksExpressionAnimationStatusChangedEventArgsT<ScrollPresenterTestHooksExpressionAnimationStatusChangedEventArgs>
+    public winrt::Islands::UI::Xaml::Controls::Primitives::implementation::ScrollPresenterTestHooksExpressionAnimationStatusChangedEventArgsT<ScrollPresenterTestHooksExpressionAnimationStatusChangedEventArgs>
 {
 public:
-    ScrollPresenterTestHooksExpressionAnimationStatusChangedEventArgs(bool isExpressionAnimationStarted, wstring_view const& propertyName);
+    ScrollPresenterTestHooksExpressionAnimationStatusChangedEventArgs(bool isExpressionAnimationStarted, std::wstring_view const& propertyName);
 
     // IScrollPresenterTestHooksExpressionAnimationStatusChangedEventArgs overrides
     bool IsExpressionAnimationStarted();

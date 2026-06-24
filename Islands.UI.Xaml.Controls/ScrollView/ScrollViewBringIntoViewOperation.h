@@ -3,8 +3,6 @@
 
 #pragma once
 
-#include "common.h"
-
 class ScrollViewBringIntoViewOperation
 {
 public:
@@ -27,7 +25,7 @@ private:
     static constexpr int8_t s_maxTicksCount{ 3 };
 
     int8_t m_ticksCount{ 0 };
-    weak_ref<winrt::UIElement> m_targetElement;
+    winrt::weak_ref<winrt::UIElement> m_targetElement;
     bool m_cancelBringIntoView;
 };
 

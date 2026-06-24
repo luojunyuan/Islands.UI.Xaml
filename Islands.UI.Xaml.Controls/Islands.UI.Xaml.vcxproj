@@ -6,6 +6,7 @@
     <CppWinRTRootNamespaceAutoMerge>true</CppWinRTRootNamespaceAutoMerge>
     <CppWinRTGenerateWindowsMetadata>true</CppWinRTGenerateWindowsMetadata>
     <CppWinRTVerbosity>low</CppWinRTVerbosity>
+    <CppWinRTBuildModule>true</CppWinRTBuildModule>
     <MinimalCoreWin>true</MinimalCoreWin>
     <ProjectGuid>{268a3f9f-34c9-480b-892d-d32f672ce9ce}</ProjectGuid>
     <ProjectName>Islands.UI.Xaml</ProjectName>
@@ -73,6 +74,7 @@
     <ClCompile>
       <AdditionalIncludeDirectories>.;inc;Generated;Collections;ScrollPresenter;ScrollView;TitleBar;Telemetry;ResourceHelper;TestHooks;$(GeneratedFilesDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINRT_DLL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BuildStlModules>true</BuildStlModules>
       <AdditionalOptions Condition="!$(UseClangCL)">/Zm200 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Midl>
@@ -99,7 +101,31 @@
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="XamlTypeInfoActivationIncludes.h" />
-    <ClInclude Include="inc\*.h" />
+    <ClInclude Include="inc\AutoHandle.h" />
+    <ClInclude Include="inc\BoxHelpers.h" />
+    <ClInclude Include="inc\BuildMacros.h" />
+    <ClInclude Include="inc\CastHelpers.h" />
+    <ClInclude Include="inc\CollectionHelper.h" />
+    <ClInclude Include="inc\CommandingHelpers.h" />
+    <ClInclude Include="inc\common.h" />
+    <ClInclude Include="inc\CppWinRTHelpers.h" />
+    <ClInclude Include="inc\CppWinRTIncludes.h" />
+    <ClInclude Include="inc\DispatcherHelper.h" />
+    <ClInclude Include="inc\DoubleUtil.h" />
+    <ClInclude Include="inc\enum_array.h" />
+    <ClInclude Include="inc\enum_vector.h" />
+    <ClInclude Include="inc\ErrorHandling.h" />
+    <ClInclude Include="inc\event.h" />
+    <ClInclude Include="inc\FloatUtil.h" />
+    <ClInclude Include="inc\FocusHelper.h" />
+    <ClInclude Include="inc\GlobalDependencyProperty.h" />
+    <ClInclude Include="inc\RegUtil.h" />
+    <ClInclude Include="inc\RoutedEventHelpers.h" />
+    <ClInclude Include="inc\RuntimeClassHelpers.h" />
+    <ClInclude Include="inc\SharedHelpers.h" />
+    <ClInclude Include="inc\StaticAssertFalse.h" />
+    <ClInclude Include="inc\tracker_ref.h" />
+    <ClInclude Include="inc\WinEventLogLevels.h" />
   </ItemGroup>
 
   <ItemGroup>
@@ -107,8 +133,12 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
-    <ClCompile Include="IslandsXamlHelpers.cpp" />
-    <ClCompile Include="IslandsSupport.cpp" />
+    <ClCompile Include="IslandsXamlHelpers.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="IslandsSupport.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
 
   <ItemGroup>

@@ -6,37 +6,31 @@
 #include "ScrollingZoomAnimationStartingEventArgs.g.h"
 
 class ScrollingZoomAnimationStartingEventArgs :
-    public winrt::implementation::ScrollingZoomAnimationStartingEventArgsT<ScrollingZoomAnimationStartingEventArgs>
+    public winrt::Islands::UI::Xaml::Controls::implementation::ScrollingZoomAnimationStartingEventArgsT<ScrollingZoomAnimationStartingEventArgs>
 {
 public:
-    ScrollingZoomAnimationStartingEventArgs()
-    {
-        SCROLLPRESENTER_TRACE_VERBOSE(nullptr, TRACE_MSG_METH, METH_NAME, this);
-    }
+    ScrollingZoomAnimationStartingEventArgs();
 
-    ~ScrollingZoomAnimationStartingEventArgs()
-    {
-        SCROLLPRESENTER_TRACE_VERBOSE(nullptr, TRACE_MSG_METH, METH_NAME, this);
-    }
+    ~ScrollingZoomAnimationStartingEventArgs();
 
     // IScrollingZoomAnimationStartingEventArgs overrides
-    winrt::float2 CenterPoint();
+    winrt::Windows::Foundation::Numerics::float2 CenterPoint();
     float StartZoomFactor();
     float EndZoomFactor();
-    winrt::CompositionAnimation Animation();
-    void Animation(winrt::CompositionAnimation const& value);
+    winrt::Windows::UI::Composition::CompositionAnimation Animation();
+    void Animation(winrt::Windows::UI::Composition::CompositionAnimation const& value);
     int32_t CorrelationId();
 
     void SetZoomFactorChangeCorrelationId(int32_t zoomFactorChangeCorrelationId);
-    winrt::CompositionAnimation GetAnimation() const;
-    void SetAnimation(const winrt::CompositionAnimation& animation);
-    void SetCenterPoint(const winrt::float2& centerPoint);
+    winrt::Windows::UI::Composition::CompositionAnimation GetAnimation() const;
+    void SetAnimation(const winrt::Windows::UI::Composition::CompositionAnimation& animation);
+    void SetCenterPoint(const winrt::Windows::Foundation::Numerics::float2& centerPoint);
     void SetStartZoomFactor(const float& startZoomFactor);
     void SetEndZoomFactor(const float& endZoomFactor);
 
 private:
-    winrt::CompositionAnimation m_animation{ nullptr };
-    winrt::float2 m_centerPoint{ };
+    winrt::Windows::UI::Composition::CompositionAnimation m_animation{ nullptr };
+    winrt::Windows::Foundation::Numerics::float2 m_centerPoint{ };
     float m_startZoomFactor{ 1.0f };
     float m_endZoomFactor{ 1.0f };
     int32_t m_zoomFactorChangeCorrelationId{ -1 };

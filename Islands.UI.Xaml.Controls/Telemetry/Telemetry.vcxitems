@@ -20,7 +20,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)TypeLogging.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MuxcTraceLogging.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)TypeLogging.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MuxcTraceLogging.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TypeLogging.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
 </Project>

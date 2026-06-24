@@ -3,22 +3,15 @@
 
 #pragma once
 
-#include "ScrollPresenter.h"
 #include "ScrollingZoomStartingEventArgs.g.h"
 
 class ScrollingZoomStartingEventArgs :
-    public winrt::implementation::ScrollingZoomStartingEventArgsT<ScrollingZoomStartingEventArgs>
+    public winrt::Islands::UI::Xaml::Controls::implementation::ScrollingZoomStartingEventArgsT<ScrollingZoomStartingEventArgs>
 {
 public:
-    ScrollingZoomStartingEventArgs()
-    {
-        SCROLLPRESENTER_TRACE_VERBOSE(nullptr, TRACE_MSG_METH, METH_NAME, this);
-    }
+    ScrollingZoomStartingEventArgs();
 
-    ~ScrollingZoomStartingEventArgs()
-    {
-        SCROLLPRESENTER_TRACE_VERBOSE(nullptr, TRACE_MSG_METH, METH_NAME, this);
-    }
+    ~ScrollingZoomStartingEventArgs();
 
     // IScrollingZoomStartingEventArgs overrides
     int32_t CorrelationId() const;

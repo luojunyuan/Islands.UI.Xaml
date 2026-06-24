@@ -1,5 +1,13 @@
-#include "pch.h"
+import std;
+import winrt_base;
+import winrt.Windows.Foundation;
+import winrt.Windows.Foundation.Collections;
+import winrt.Islands.UI.Xaml.Controls;
+
+#define WINRT_IMPORT_MODULE
 #include "InputNonClientPointerSource.h"
+#undef WINRT_IMPORT_MODULE
+
 #if __has_include("InputNonClientPointerSource.g.cpp")
 #include "InputNonClientPointerSource.g.cpp"
 #endif

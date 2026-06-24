@@ -1,8 +1,32 @@
-#include "pch.h"
+#include <windows.h>
+
+import std;
+import winrt_base;
+import winrt.Windows.Foundation;
+import winrt.Windows.Foundation.Collections;
+import winrt.Windows.UI.Xaml;
+import winrt.Windows.UI.Xaml.Automation.Peers;
+import winrt.Windows.UI.Xaml.Controls;
+import winrt.Microsoft.UI.Xaml.Controls;
+import winrt.Islands.UI.Xaml.Controls;
+
+namespace winrt
+{
+namespace xaml = Windows::UI::Xaml;
+namespace xaml_peers = Windows::UI::Xaml::Automation::Peers;
+namespace xaml_controls = Windows::UI::Xaml::Controls;
+namespace muxc = Microsoft::UI::Xaml::Controls;
+}
+
+using namespace std::string_view_literals;
+
+#define WINRT_IMPORT_MODULE
 #include "TitleBar.h"
 #include "AppWindowTitleBar.h"
 #include "InputNonClientPointerSource.h"
 #include "TitleBarWindowAdapter.h"
+#undef WINRT_IMPORT_MODULE
+
 #if __has_include("TitleBarWindowAdapter.g.cpp")
 #include "TitleBarWindowAdapter.g.cpp"
 #endif

@@ -1,9 +1,14 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-#include "pch.h"
-#include "common.h"
+import std;
+import winrt_base;
+import winrt.Windows.Foundation;
+import winrt.Islands.UI.Xaml.Controls.Primitives;
+
+#define WINRT_IMPORT_MODULE
 #include "MUXControlsTestHooks.h"
+#undef WINRT_IMPORT_MODULE
 
 MUXControlsTestHooks* MUXControlsTestHooks::s_testHooks = nullptr;
 
@@ -27,13 +32,19 @@ void MUXControlsTestHooks::SetLoggingLevelForType(winrt::hstring const& type, bo
     s_testHooks->SetLoggingLevelForTypeImpl(type, isLoggingInfoLevel, isLoggingVerboseLevel);
 }
 
-void MUXControlsTestHooks::SetLoggingLevelForInstance(winrt::IInspectable const& sender, bool isLoggingInfoLevel, bool isLoggingVerboseLevel)
+void MUXControlsTestHooks::SetLoggingLevelForInstance(
+    winrt::Windows::Foundation::IInspectable const& sender,
+    bool isLoggingInfoLevel,
+    bool isLoggingVerboseLevel)
 {
     EnsureHooks();
     s_testHooks->SetLoggingLevelForInstanceImpl(sender, isLoggingInfoLevel, isLoggingVerboseLevel);
 }
 
-winrt::event_token MUXControlsTestHooks::LoggingMessage(winrt::TypedEventHandler<winrt::IInspectable, winrt::MUXControlsTestHooksLoggingMessageEventArgs> const& value)
+winrt::event_token MUXControlsTestHooks::LoggingMessage(
+    winrt::Windows::Foundation::TypedEventHandler<
+        winrt::Windows::Foundation::IInspectable,
+        winrt::Islands::UI::Xaml::Controls::Primitives::MUXControlsTestHooksLoggingMessageEventArgs> const& value)
 {
     EnsureHooks();
     return s_testHooks->LoggingMessageImpl(value);

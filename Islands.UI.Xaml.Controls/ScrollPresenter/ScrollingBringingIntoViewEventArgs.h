@@ -6,23 +6,17 @@
 #include "ScrollingBringingIntoViewEventArgs.g.h"
 
 class ScrollingBringingIntoViewEventArgs :
-    public winrt::implementation::ScrollingBringingIntoViewEventArgsT<ScrollingBringingIntoViewEventArgs>
+    public winrt::Islands::UI::Xaml::Controls::implementation::ScrollingBringingIntoViewEventArgsT<ScrollingBringingIntoViewEventArgs>
 {
 public:
-    ScrollingBringingIntoViewEventArgs()
-    {
-        SCROLLPRESENTER_TRACE_VERBOSE(nullptr, TRACE_MSG_METH, METH_NAME, this);
-    }
+    ScrollingBringingIntoViewEventArgs();
 
-    ~ScrollingBringingIntoViewEventArgs()
-    {
-        SCROLLPRESENTER_TRACE_VERBOSE(nullptr, TRACE_MSG_METH, METH_NAME, this);
-    }
+    ~ScrollingBringingIntoViewEventArgs();
 
     // IScrollingBringingIntoViewEventArgs overrides
-    winrt::ScrollingSnapPointsMode SnapPointsMode();
-    void SnapPointsMode(winrt::ScrollingSnapPointsMode snapPointsMode);
-    winrt::BringIntoViewRequestedEventArgs RequestEventArgs();
+    winrt::Islands::UI::Xaml::Controls::ScrollingSnapPointsMode SnapPointsMode();
+    void SnapPointsMode(winrt::Islands::UI::Xaml::Controls::ScrollingSnapPointsMode snapPointsMode);
+    winrt::Windows::UI::Xaml::BringIntoViewRequestedEventArgs RequestEventArgs();
     double TargetHorizontalOffset();
     double TargetVerticalOffset();
     int32_t CorrelationId();
@@ -45,12 +39,12 @@ public:
     }
 
     void OffsetsChangeCorrelationId(int32_t offsetsChangeCorrelationId);
-    void RequestEventArgs(const winrt::BringIntoViewRequestedEventArgs& requestEventArgs);
+    void RequestEventArgs(const winrt::Windows::UI::Xaml::BringIntoViewRequestedEventArgs& requestEventArgs);
     void TargetOffsets(double targetHorizontalOffset, double targetVerticalOffset);
 
 private:
-    winrt::ScrollingSnapPointsMode m_snapPointsMode{ winrt::ScrollingSnapPointsMode::Ignore };
-    winrt::BringIntoViewRequestedEventArgs m_requestEventArgs{ nullptr };
+    winrt::Islands::UI::Xaml::Controls::ScrollingSnapPointsMode m_snapPointsMode{ winrt::Islands::UI::Xaml::Controls::ScrollingSnapPointsMode::Ignore };
+    winrt::Windows::UI::Xaml::BringIntoViewRequestedEventArgs m_requestEventArgs{ nullptr };
     double m_targetHorizontalOffset{ 0.0 };
     double m_targetVerticalOffset{ 0.0 };
     bool m_cancel{ false };

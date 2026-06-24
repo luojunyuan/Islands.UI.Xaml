@@ -1,12 +1,16 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-#include "pch.h"
-#include "common.h"
+import winrt_base;
+import winrt.Islands.UI.Xaml.Controls.Primitives;
+import winrt.Windows.UI.Xaml;
+
+#define WINRT_IMPORT_MODULE
 #include "ScrollPresenterTestHooksAnchorEvaluatedEventArgs.h"
+#undef WINRT_IMPORT_MODULE
 
 ScrollPresenterTestHooksAnchorEvaluatedEventArgs::ScrollPresenterTestHooksAnchorEvaluatedEventArgs(
-    const winrt::UIElement& anchorElement,
+    const winrt::Windows::UI::Xaml::UIElement& anchorElement,
     double viewportAnchorPointHorizontalOffset,
     double viewportAnchorPointVerticalOffset)
 {
@@ -20,7 +24,7 @@ ScrollPresenterTestHooksAnchorEvaluatedEventArgs::ScrollPresenterTestHooksAnchor
 
 #pragma region IScrollPresenterTestHooksAnchorEvaluatedEventArgs
 
-winrt::UIElement ScrollPresenterTestHooksAnchorEvaluatedEventArgs::AnchorElement()
+winrt::Windows::UI::Xaml::UIElement ScrollPresenterTestHooksAnchorEvaluatedEventArgs::AnchorElement()
 {
     return m_anchorElement.get();
 }

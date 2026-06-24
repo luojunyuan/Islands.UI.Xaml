@@ -7,8 +7,6 @@
 // these types at runtime in release will return null (no factory), which is safe
 // because tests that use test hooks only run against debug builds.
 
-#include "pch.h"
-
 void* winrt_make_Microsoft_UI_Private_Controls_AnimatedIconTestHooks() { return nullptr; }
 void* winrt_make_Microsoft_UI_Private_Controls_TeachingTipTestHooks() { return nullptr; }
 void* winrt_make_Microsoft_UI_Private_Controls_RadioButtonsTestHooks() { return nullptr; }
@@ -16,3 +14,5 @@ void* winrt_make_Microsoft_UI_Private_Controls_SwipeTestHooks() { return nullptr
 void* winrt_make_Microsoft_UI_Private_Controls_ItemsViewTestHooks() { return nullptr; }
 void* winrt_make_Microsoft_UI_Private_Controls_ScrollViewTestHooks() { return nullptr; }
 void* winrt_make_Microsoft_UI_Private_Controls_ScrollPresenterTestHooks() { return nullptr; }
+void* winrt_make_Islands_UI_Xaml_Controls_Primitives_ScrollViewTestHooks() { return nullptr; }
+void* winrt_make_Islands_UI_Xaml_Controls_Primitives_ScrollPresenterTestHooks() { return nullptr; }

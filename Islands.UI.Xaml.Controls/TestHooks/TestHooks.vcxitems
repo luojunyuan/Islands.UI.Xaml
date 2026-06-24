@@ -15,9 +15,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MUXControlsTestHooks.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)MUXControlsTestHooksFactory.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)MUXControlsTestHooksLoggingMessageEventArgs.cpp" />
-    <ClCompile Condition="'$(Configuration)'!='Debug'" Include="$(MSBuildThisFileDirectory)TestHooksReleaseStubs.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MUXControlsTestHooksFactory.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MUXControlsTestHooksLoggingMessageEventArgs.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Condition="'$(Configuration)'!='Debug'" Include="$(MSBuildThisFileDirectory)TestHooksReleaseStubs.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MUXControlsTestHooks.h" />

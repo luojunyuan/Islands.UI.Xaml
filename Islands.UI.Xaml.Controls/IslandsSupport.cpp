@@ -1,7 +1,36 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-#include "pch.h"
+#include <SDKDDKVer.h>
+
+#include <windows.h>
+
+#undef GetCurrentTime
+
+#include <algorithm>
+#include <cassert>
+#include <cstdint>
+#include <functional>
+#include <limits>
+#include <map>
+#include <memory>
+#include <string>
+#include <string_view>
+#include <type_traits>
+
+#include <unknwn.h>
+#include <inspectable.h>
+#include <restrictederrorinfo.h>
+#include <hstring.h>
+#include <windows.ui.xaml.hosting.referencetracker.h>
+
+#include "inc/CppWinRTIncludes.h"
+#include "inc/BuildMacros.h"
+
+#ifndef MUX_ASSERT
+#define MUX_ASSERT(condition) assert(condition)
+#endif
+
 #include "common.h"
 #include "DoubleUtil.h"
 #include "FloatUtil.h"

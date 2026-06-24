@@ -1,36 +1,45 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-#include "pch.h"
-#include "common.h"
+import std;
+import winrt_base;
+import winrt.Windows.Foundation;
+import winrt.Windows.UI.Xaml;
+import winrt.Windows.UI.Xaml.Controls;
+import winrt.Windows.UI.Xaml.Media;
+
 #include "ResourceAccessor.h"
 
-winrt::hstring ResourceAccessor::GetLocalizedStringResource(const wstring_view& resourceName)
+winrt::hstring ResourceAccessor::GetLocalizedStringResource(const std::wstring_view& resourceName)
 {
     // This component intentionally avoids Windows App SDK MRT APIs. Keep a stable
     // fallback for callers that ask for optional automation/resource strings.
     return winrt::hstring{ resourceName };
 }
 
-winrt::LoadedImageSurface ResourceAccessor::GetImageSurface(const wstring_view& assetName, winrt::Size imageSize)
+winrt::Windows::UI::Xaml::Media::LoadedImageSurface ResourceAccessor::GetImageSurface(
+    const std::wstring_view& assetName,
+    winrt::Windows::Foundation::Size imageSize)
 {
     const std::wstring assetUri = L"ms-appx:///Islands.UI.Xaml.Controls/Assets/" + std::wstring{ assetName } + L".png";
-    return winrt::LoadedImageSurface::StartLoadFromUri(winrt::Uri{ assetUri }, imageSize);
+    return winrt::Windows::UI::Xaml::Media::LoadedImageSurface::StartLoadFromUri(winrt::Windows::Foundation::Uri{ assetUri }, imageSize);
 }
 
-winrt::Windows::Foundation::IAsyncOperation<winrt::hstring> ResourceAccessor::GetFileContents(const wstring_view&)
+winrt::Windows::Foundation::IAsyncOperation<winrt::hstring> ResourceAccessor::GetFileContents(const std::wstring_view&)
 {
     co_return L"";
 }
 
-winrt::IInspectable ResourceAccessor::ResourceLookup(const winrt::Control& control, const winrt::IInspectable& key)
+winrt::Windows::Foundation::IInspectable ResourceAccessor::ResourceLookup(
+    const winrt::Windows::UI::Xaml::Controls::Control& control,
+    const winrt::Windows::Foundation::IInspectable& key)
 {
     if (control && control.Resources().HasKey(key))
     {
         return control.Resources().Lookup(key);
     }
 
-    if (const auto app = winrt::Application::Current())
+    if (const auto app = winrt::Windows::UI::Xaml::Application::Current())
     {
         return app.Resources().TryLookup(key);
     }

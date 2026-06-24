@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include "pch.h"
 #include "inc/common.h"
 #include "ScrollPresenter/ScrollPresenter.h"
 #include "ScrollView/ScrollView.h"

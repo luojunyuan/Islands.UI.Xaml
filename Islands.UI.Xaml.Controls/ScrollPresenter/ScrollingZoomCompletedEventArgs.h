@@ -3,22 +3,16 @@
 
 #pragma once
 
-#include "ScrollPresenter.h"
+#include "ViewChangeBase.h"
 #include "ScrollingZoomCompletedEventArgs.g.h"
 
 class ScrollingZoomCompletedEventArgs :
-    public winrt::implementation::ScrollingZoomCompletedEventArgsT<ScrollingZoomCompletedEventArgs>
+    public winrt::Islands::UI::Xaml::Controls::implementation::ScrollingZoomCompletedEventArgsT<ScrollingZoomCompletedEventArgs>
 {
 public:
-    ScrollingZoomCompletedEventArgs()
-    {
-        SCROLLPRESENTER_TRACE_VERBOSE(nullptr, TRACE_MSG_METH, METH_NAME, this);
-    }
+    ScrollingZoomCompletedEventArgs();
 
-    ~ScrollingZoomCompletedEventArgs()
-    {
-        SCROLLPRESENTER_TRACE_VERBOSE(nullptr, TRACE_MSG_METH, METH_NAME, this);
-    }
+    ~ScrollingZoomCompletedEventArgs();
 
     // IScrollingZoomCompletedEventArgs overrides
     int32_t CorrelationId();

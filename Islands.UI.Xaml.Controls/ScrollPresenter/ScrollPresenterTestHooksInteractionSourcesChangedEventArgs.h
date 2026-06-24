@@ -6,7 +6,7 @@
 #include "Primitives.ScrollPresenterTestHooksInteractionSourcesChangedEventArgs.g.h"
 
 class ScrollPresenterTestHooksInteractionSourcesChangedEventArgs :
-    public winrt::implementation::ScrollPresenterTestHooksInteractionSourcesChangedEventArgsT<ScrollPresenterTestHooksInteractionSourcesChangedEventArgs>
+    public winrt::Islands::UI::Xaml::Controls::Primitives::implementation::ScrollPresenterTestHooksInteractionSourcesChangedEventArgsT<ScrollPresenterTestHooksInteractionSourcesChangedEventArgs>
 {
 public:
     ScrollPresenterTestHooksInteractionSourcesChangedEventArgs(const winrt::Windows::UI::Composition::Interactions::CompositionInteractionSourceCollection& interactionSources);

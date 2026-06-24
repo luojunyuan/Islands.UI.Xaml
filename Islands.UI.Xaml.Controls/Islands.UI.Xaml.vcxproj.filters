@@ -19,7 +19,79 @@
     <ClInclude Include="XamlTypeInfoActivationIncludes.h">
       <Filter>Generated</Filter>
     </ClInclude>
-    <ClInclude Include="inc\*.h">
+    <ClInclude Include="inc\AutoHandle.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\BoxHelpers.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\BuildMacros.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\CastHelpers.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\CollectionHelper.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\CommandingHelpers.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\common.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\CppWinRTHelpers.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\CppWinRTIncludes.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\DispatcherHelper.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\DoubleUtil.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\enum_array.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\enum_vector.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ErrorHandling.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\event.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\FloatUtil.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\FocusHelper.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GlobalDependencyProperty.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\RegUtil.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\RoutedEventHelpers.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\RuntimeClassHelpers.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SharedHelpers.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\StaticAssertFalse.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\tracker_ref.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\WinEventLogLevels.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
   </ItemGroup>

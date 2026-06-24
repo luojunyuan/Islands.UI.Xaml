@@ -22,7 +22,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)ScrollViewLightup.cpp">
       <XamlLightup>true</XamlLightup>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollViewBringIntoViewOperation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollViewBringIntoViewOperation.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Condition="'$(Configuration)'=='Debug'" Include="$(MSBuildThisFileDirectory)ScrollViewTestHooks.cpp" />
     <ClCompile Condition="'$(Configuration)'=='Debug'" Include="$(MSBuildThisFileDirectory)ScrollViewTestHooksFactory.cpp" />
   </ItemGroup>
