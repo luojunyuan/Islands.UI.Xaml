@@ -75,9 +75,6 @@
     <Page Include="$(MSBuildThisFileDirectory)TitleBar_themeresources_perf2026.xaml">
       <Filter>Styles</Filter>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)TitleBar.xaml" />
-    <Page Include="$(MSBuildThisFileDirectory)TitleBar.xaml" />
-    <Page Include="$(MSBuildThisFileDirectory)TitleBar.xaml" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en-us\Resources.resw">
