@@ -2,6 +2,10 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #include "pch.h"
+
+#include "CppBaseIncludes.h"
+
+import CppWinRTModules;
 #include "common.h"
 #include "DoubleUtil.h"
 #include "FloatUtil.h"

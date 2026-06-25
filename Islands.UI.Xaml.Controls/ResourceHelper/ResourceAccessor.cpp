@@ -1,12 +1,9 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-import std;
-import winrt_base;
-import winrt.Windows.Foundation;
-import winrt.Windows.UI.Xaml;
-import winrt.Windows.UI.Xaml.Controls;
-import winrt.Windows.UI.Xaml.Media;
+#include "CppBaseIncludes.h"
+
+import CppWinRTModules;
 
 #include "ResourceAccessor.h"
 

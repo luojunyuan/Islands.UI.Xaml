@@ -3,9 +3,8 @@
 
 #pragma once
 
+#include "BuildMacros.h"
 #include "tracker_ref.h"
-
-#include <winrt\Windows.UI.Xaml.h>
 
 // This type is a helper to make ReferenceTracker work with winrt::implements intead of a concrete implementation type
 template <typename D, typename WinRTClassType, template <typename, typename ...> class ImplT, typename ... I>

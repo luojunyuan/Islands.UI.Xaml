@@ -43,7 +43,7 @@
     <ClInclude Include="inc\CppWinRTHelpers.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="inc\CppWinRTIncludes.h">
+    <ClInclude Include="inc\CppBaseIncludes.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
     <ClInclude Include="inc\DispatcherHelper.h">
@@ -94,11 +94,14 @@
     <ClInclude Include="inc\WinEventLogLevels.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
+    <ClInclude Include="XamlWorkaround.h">
+      <Filter>Build</Filter>
+    </ClInclude>
   </ItemGroup>
 
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
-      <Filter>Build</Filter>
+    <ClCompile Include="CppWinRTModules.ixx">
+      <Filter>Public Headers</Filter>
     </ClCompile>
     <ClCompile Include="IslandsXamlHelpers.cpp">
       <Filter>Build</Filter>

@@ -3,17 +3,9 @@
 
 #include <cassert>
 
-import std;
-import winrt_base;
-import winrt.Windows.Devices.Input;
-import winrt.Windows.Foundation;
-import winrt.Windows.Foundation.Numerics;
-import winrt.Windows.Graphics;
-import winrt.Windows.UI.Input;
-import winrt.Windows.UI.Xaml;
-import winrt.Windows.UI.Xaml.Controls;
-import winrt.Windows.UI.Xaml.Controls.Primitives;
-import winrt.Windows.UI.Xaml.Input;
+#include "CppBaseIncludes.h"
+
+import CppWinRTModules;
 
 #include "TypeLogging.h"
 #include "Utils.h"

@@ -1,9 +1,9 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-import winrt_base;
-import winrt.Islands.UI.Xaml.Controls.Primitives;
-import winrt.Windows.UI.Composition.Interactions;
+#include "CppBaseIncludes.h"
+
+import CppWinRTModules;
 
 #define WINRT_IMPORT_MODULE
 #include "ScrollPresenterTestHooksInteractionSourcesChangedEventArgs.h"

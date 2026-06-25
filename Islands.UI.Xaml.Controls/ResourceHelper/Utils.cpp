@@ -4,11 +4,9 @@
 #include <stdarg.h>
 #include <windows.h>
 
-import std;
-import winrt_base;
-import winrt.Windows.Foundation;
-import winrt.Windows.UI.Xaml;
-import winrt.Windows.UI.Xaml.Controls;
+#include "CppBaseIncludes.h"
+
+import CppWinRTModules;
 
 #include "Utils.h"
 

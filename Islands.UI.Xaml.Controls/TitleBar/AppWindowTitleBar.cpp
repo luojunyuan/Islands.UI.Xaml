@@ -1,4 +1,6 @@
-import std;
+#include "CppBaseIncludes.h"
+
+import CppWinRTModules;
 
 #define WINRT_IMPORT_MODULE
 #include "AppWindowTitleBar.h"

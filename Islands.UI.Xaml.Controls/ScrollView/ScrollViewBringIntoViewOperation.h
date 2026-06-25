@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include "BuildMacros.h"
+
 class ScrollViewBringIntoViewOperation
 {
 public:

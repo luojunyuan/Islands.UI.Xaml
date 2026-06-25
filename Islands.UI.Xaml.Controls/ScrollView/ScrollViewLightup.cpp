@@ -2,6 +2,10 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #include "pch.h"    // This is a direct (non-PCH) compile
+
+#include "CppBaseIncludes.h"
+
+import CppWinRTModules;
 #include "common.h"
 #include "TypeLogging.h"
 #include "ScrollPresenterTypeLogging.h"

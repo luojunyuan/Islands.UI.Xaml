@@ -3,6 +3,9 @@
 
 #pragma once
 
+#include "CppBaseIncludes.h"
+#include "BuildMacros.h"
+
 using namespace ::winrt::Windows::Foundation;
 using namespace ::winrt::Windows::Foundation::Numerics;
 

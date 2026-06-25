@@ -1,8 +1,6 @@
-import std;
-import winrt_base;
-import winrt.Windows.Foundation;
-import winrt.Windows.Foundation.Collections;
-import winrt.Islands.UI.Xaml.Controls;
+#include "CppBaseIncludes.h"
+
+import CppWinRTModules;
 
 #define WINRT_IMPORT_MODULE
 #include "InputNonClientPointerSource.h"

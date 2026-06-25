@@ -1,4 +1,8 @@
 #include "pch.h"
+
+#include "CppBaseIncludes.h"
+
+import CppWinRTModules;
 #include "TitleBar.h"
 #include "TitleBarAutomationPeer.h"
 #include "TitleBarTemplateSettings.h"

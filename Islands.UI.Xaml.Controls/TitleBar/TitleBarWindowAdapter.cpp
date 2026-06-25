@@ -1,22 +1,8 @@
 #include <windows.h>
 
-import std;
-import winrt_base;
-import winrt.Windows.Foundation;
-import winrt.Windows.Foundation.Collections;
-import winrt.Windows.UI.Xaml;
-import winrt.Windows.UI.Xaml.Automation.Peers;
-import winrt.Windows.UI.Xaml.Controls;
-import winrt.Microsoft.UI.Xaml.Controls;
-import winrt.Islands.UI.Xaml.Controls;
+#include "CppBaseIncludes.h"
 
-namespace winrt
-{
-namespace xaml = Windows::UI::Xaml;
-namespace xaml_peers = Windows::UI::Xaml::Automation::Peers;
-namespace xaml_controls = Windows::UI::Xaml::Controls;
-namespace muxc = Microsoft::UI::Xaml::Controls;
-}
+import CppWinRTModules;
 
 using namespace std::string_view_literals;
 

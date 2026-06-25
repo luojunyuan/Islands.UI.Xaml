@@ -91,8 +91,9 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalIncludeDirectories>.;inc;Generated;Collections;ScrollPresenter;ScrollView;TitleBar;Telemetry;ResourceHelper;TestHooks;$(GeneratedFilesDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_WINRT_DLL;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINRT_DLL;WINRT_ENABLE_LEGACY_COM;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BuildStlModules>true</BuildStlModules>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AdditionalOptions Condition="!$(UseClangCL)">/Zm200 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Midl>
@@ -126,10 +127,8 @@
     <ClInclude Include="inc\CollectionHelper.h" />
     <ClInclude Include="inc\CommandingHelpers.h" />
     <ClInclude Include="inc\common.h" />
-    <ClInclude Include="inc\CppWinRTModules.h" />
-    <ClInclude Include="inc\CppWinRTNamespaceAliases.h" />
+    <ClInclude Include="inc\CppBaseIncludes.h" />
     <ClInclude Include="inc\CppWinRTHelpers.h" />
-    <ClInclude Include="inc\CppWinRTIncludes.h" />
     <ClInclude Include="inc\DispatcherHelper.h" />
     <ClInclude Include="inc\DoubleUtil.h" />
     <ClInclude Include="inc\enum_array.h" />
@@ -146,12 +145,11 @@
     <ClInclude Include="inc\StaticAssertFalse.h" />
     <ClInclude Include="inc\tracker_ref.h" />
     <ClInclude Include="inc\WinEventLogLevels.h" />
+    <ClInclude Include="XamlWorkaround.h" />
   </ItemGroup>
 
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader>Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="CppWinRTModules.ixx" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="IslandsXamlHelpers.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -177,7 +175,12 @@
   <Target Name="AddProcessedXamlFilesToCopyLocal" />
 
   <Target Name="PatchXamlTypeInfoActivationIncludes" BeforeTargets="CompileXamlGeneratedFiles" Condition="Exists('$(XamlGeneratedOutputPath)XamlTypeInfo.g.cpp')">
-    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\PatchXamlTypeInfo.ps1&quot; -Path &quot;$(XamlGeneratedOutputPath)XamlTypeInfo.g.cpp&quot;" />
+    <ItemGroup>
+      <_IslandsXamlGeneratedCpp Include="$(XamlGeneratedOutputPath)XamlTypeInfo.g.cpp" />
+      <_IslandsXamlGeneratedCpp Include="$(XamlGeneratedOutputPath)XamlTypeInfo.Impl.g.cpp" Condition="Exists('$(XamlGeneratedOutputPath)XamlTypeInfo.Impl.g.cpp')" />
+      <_IslandsXamlGeneratedCpp Include="$(XamlGeneratedOutputPath)XamlMetaDataProvider.cpp" Condition="Exists('$(XamlGeneratedOutputPath)XamlMetaDataProvider.cpp')" />
+    </ItemGroup>
+    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\PatchXamlTypeInfo.ps1&quot; -Path &quot;%(_IslandsXamlGeneratedCpp.Identity)&quot;" />
   </Target>
 
   <Target Name="InvalidateCppWinRTMdMergeWhenMergedWinMDMissing" BeforeTargets="CppWinRTMergeProjectWinMDInputs" Condition="'$(CppWinRTGenerateWindowsMetadata)' == 'true' And !Exists('$(CppWinRTMergedDir)$(RootNamespace).winmd')">
