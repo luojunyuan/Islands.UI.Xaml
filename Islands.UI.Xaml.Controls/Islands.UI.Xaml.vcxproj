@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <PropertyGroup Label="CppWinRTModules">
-    <CppWinRTMakePlatformProjectionDependsOn>CleanCppWinRTFilteredModuleInterfaces;$(CppWinRTMakePlatformProjectionDependsOn)</CppWinRTMakePlatformProjectionDependsOn>
     <CppWinRTModuleInclude>Islands.UI.Xaml.Automation.Peers;Islands.UI.Xaml.Controls;Islands.UI.Xaml.Controls.Primitives;Microsoft.UI.Xaml.Controls;Microsoft.UI.Xaml.Controls.AnimatedVisuals;Microsoft.UI.Xaml.XamlTypeInfo;Microsoft.Web.WebView2.Core</CppWinRTModuleInclude>
     <CppWinRTModuleInclude>$(CppWinRTModuleInclude);Windows.ApplicationModel;Windows.ApplicationModel.Activation;Windows.ApplicationModel.Appointments;Windows.ApplicationModel.Appointments.AppointmentsProvider;Windows.ApplicationModel.AppService;Windows.ApplicationModel.Background;Windows.ApplicationModel.Calls.Background;Windows.ApplicationModel.Contacts;Windows.ApplicationModel.Core;Windows.ApplicationModel.DataTransfer;Windows.ApplicationModel.DataTransfer.DragDrop;Windows.ApplicationModel.DataTransfer.DragDrop.Core;Windows.ApplicationModel.DataTransfer.ShareTarget;Windows.ApplicationModel.Email;Windows.ApplicationModel.Resources;Windows.ApplicationModel.Resources.Core;Windows.ApplicationModel.Search;Windows.ApplicationModel.UserDataAccounts;Windows.ApplicationModel.UserDataAccounts.Provider;Windows.ApplicationModel.UserDataTasks</CppWinRTModuleInclude>
     <CppWinRTModuleInclude>$(CppWinRTModuleInclude);Windows.Data.Json;Windows.Data.Text;Windows.Data.Xml.Dom;Windows.Devices.Bluetooth;Windows.Devices.Bluetooth.Advertisement;Windows.Devices.Bluetooth.Background;Windows.Devices.Bluetooth.GenericAttributeProfile;Windows.Devices.Bluetooth.Rfcomm;Windows.Devices.Enumeration;Windows.Devices.Geolocation;Windows.Devices.Haptics;Windows.Devices.Input;Windows.Devices.Radios;Windows.Devices.Sensors;Windows.Devices.SmartCards;Windows.Devices.Sms</CppWinRTModuleInclude>
@@ -176,25 +175,6 @@
   <Import Project="$(MsAppxPackageTargets)" />
 
   <Target Name="AddProcessedXamlFilesToCopyLocal" />
-
-  <Target Name="CleanCppWinRTFilteredModuleInterfaces" Condition="'$(CppWinRTBuildModule)' == 'true' And ('$(CppWinRTModuleInclude)' != '' Or '$(CppWinRTModuleExclude)' != '')">
-    <PropertyGroup>
-      <_CppWinRTModuleFilterCache>$(IntDir)$(MSBuildProjectFile).cppwinrt_modules.cache</_CppWinRTModuleFilterCache>
-      <_CppWinRTModuleFilterValue>$(CppWinRTModuleInclude)|$(CppWinRTModuleExclude)</_CppWinRTModuleFilterValue>
-      <_CppWinRTPreviousModuleFilterValue Condition="Exists('$(_CppWinRTModuleFilterCache)')">$([System.IO.File]::ReadAllText('$(_CppWinRTModuleFilterCache)'))</_CppWinRTPreviousModuleFilterValue>
-    </PropertyGroup>
-    <ItemGroup Condition="'$(_CppWinRTPreviousModuleFilterValue)' != '$(_CppWinRTModuleFilterValue)'">
-      <_StaleCppWinRTModuleInterface Include="$(GeneratedFilesDir)winrt\*.ixx" />
-      <_StaleCppWinRTProjectionResponse Include="$(CppWinRTPlatformProjectionResponseFile)" />
-      <_StaleCppWinRTProjectionResponse Include="$(CppWinRTReferenceProjectionResponseFile)" />
-      <_StaleCppWinRTProjectionResponse Include="$(CppWinRTComponentProjectionResponseFile)" />
-    </ItemGroup>
-    <Delete Files="@(_StaleCppWinRTModuleInterface);@(_StaleCppWinRTProjectionResponse)" />
-    <WriteLinesToFile File="$(_CppWinRTModuleFilterCache)" Lines="$(_CppWinRTModuleFilterValue)" Overwrite="true" WriteOnlyWhenDifferent="true" />
-    <ItemGroup>
-      <FileWrites Include="$(_CppWinRTModuleFilterCache)" />
-    </ItemGroup>
-  </Target>
 
   <Target Name="PatchXamlTypeInfoActivationIncludes" BeforeTargets="CompileXamlGeneratedFiles" Condition="Exists('$(XamlGeneratedOutputPath)XamlTypeInfo.g.cpp')">
     <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\PatchXamlTypeInfo.ps1&quot; -Path &quot;$(XamlGeneratedOutputPath)XamlTypeInfo.g.cpp&quot;" />

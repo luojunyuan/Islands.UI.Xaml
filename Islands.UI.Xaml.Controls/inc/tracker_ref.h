@@ -110,7 +110,7 @@ struct IUnknownAccessor<com_ptr<T>>
         // com_ptr<T> is not necessarily an IUnknown so QI for it.
         if (value)
         {
-            return value.as<::IUnknown>();
+            return value.template as<::IUnknown>();
         }
 
         return nullptr;
@@ -268,7 +268,7 @@ public:
 
             // Check if the pointers are identical or, if not, that their IUnknowns QI to the same thing
             MUX_ASSERT(
-                unknown.as<winrt::IUnknown>() == (reinterpret_cast<const T&>(m_valueNoRef)).as<winrt::IUnknown>());
+                unknown.as<winrt::IUnknown>() == (reinterpret_cast<const T&>(m_valueNoRef)).template as<winrt::IUnknown>());
         }
 #endif
         return reinterpret_cast<const T &>(m_valueNoRef);
@@ -299,7 +299,7 @@ public:
                 // Always safe to use values in fallback mode or "!useSafeGet".
                 // useSafeGet is an optimization for callers who mostly want to use the faster get() version but the 
                 // call site may be called during the destructor path.
-                return get().as<V>();
+                return get().template as<V>();
             }
         }
     }
@@ -335,13 +335,13 @@ public:
     template <typename U>
     U as() const
     {
-        return get().as<U>();
+        return get().template as<U>();
     }
 
     template <typename U>
     U try_as() const
     {
-        return get().try_as<U>();
+        return get().template try_as<U>();
     }
 
 private:
