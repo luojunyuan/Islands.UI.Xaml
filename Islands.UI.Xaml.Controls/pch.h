@@ -1,5 +1,9 @@
 ﻿#pragma once
 
+#pragma warning(disable: 4100) // unused parameter
+#pragma warning(disable: 4189) // unused local variable
+#pragma warning(disable: 4875) // gsl::suppress deprecated syntax
+
 #include <SDKDDKVer.h>
 
 #include <windows.h>
