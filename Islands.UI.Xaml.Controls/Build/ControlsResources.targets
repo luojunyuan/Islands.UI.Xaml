@@ -48,7 +48,7 @@
           Outputs="$(IslandsControlsResourcesOutputDir)\generic.xaml;$(IslandsControlsResourcesOutputDir)\themeresources.xaml;$(IslandsControlsResourcesOutputDir)\generic_perf2026.xaml;$(IslandsControlsResourcesOutputDir)\themeresources_perf2026.xaml">
     <MakeDir Directories="$(IslandsControlsResourcesOutputDir)" />
     <Error Text="Controls resource page '%(_IslandsControlsResourcePage.Identity)' does not declare Type metadata."
-           Condition="'%(_IslandsControlsResourcePage.Type)' == ''" />
+           Condition="'@(_IslandsControlsResourcePage)' != '' And '%(_IslandsControlsResourcePage.Type)' == ''" />
     <WriteLinesToFile File="$(IslandsControlsResourcesManifest)"
                       Lines="@(_IslandsControlsResourcePage->'%(Type)|%(FullPath)')"
                       Overwrite="true"

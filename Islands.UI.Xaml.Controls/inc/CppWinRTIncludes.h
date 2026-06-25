@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
+﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #pragma once
@@ -41,8 +41,8 @@
 #include <winrt/Windows.UI.Xaml.Shapes.h>
 
 #include <winrt/Islands.UI.Xaml.Controls.h>
-#include <winrt/Islands.UI.Xaml.Controls.Primitives.h>
-#include <winrt/Islands.UI.Xaml.Automation.Peers.h>
+//#include <winrt/Islands.UI.Xaml.Controls.Primitives.h>
+//#include <winrt/Islands.UI.Xaml.Automation.Peers.h>
 
 class ScrollPresenter;
 class ScrollPresenterAutomationPeer;

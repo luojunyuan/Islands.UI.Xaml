@@ -92,6 +92,8 @@ using namespace std::chrono_literals;
 #define MUX_ASSERT_MSG(condition, message) assert((condition) && (message))
 #endif
 
+#ifdef TITLEBAR_INCLUDED
 #include "AppWindowTitleBar.h"
 #include "InputNonClientPointerSource.h"
 #include "TitleBar.h"
+#endif

@@ -143,6 +143,7 @@ function Update-NamespacePrefixes {
 function Merge-ResourceDictionaries {
     param(
         [Parameter(Mandatory = $true)]
+        [AllowEmptyCollection()]
         [string[]]$InputFiles,
 
         [Parameter(Mandatory = $true)]
