@@ -81,5 +81,7 @@
     <Page Include="$(MSBuildThisFileDirectory)ScrollView_perf2026.xaml">
       <Filter>Styles</Filter>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)ScrollView_themeresources.xaml" />
+    <Page Include="$(MSBuildThisFileDirectory)ScrollView_themeresources.xaml" />
   </ItemGroup>
 </Project>
