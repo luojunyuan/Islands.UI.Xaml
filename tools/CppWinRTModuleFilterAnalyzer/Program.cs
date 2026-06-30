@@ -220,6 +220,7 @@ internal sealed record ProjectInfo(
     string ProjectPath,
     string ProjectDirectory,
     string RepositoryRoot,
+    string? IntDirectory,
     string ProjectName,
     string RootNamespace,
     string ProjectRootPrefix,
@@ -236,14 +237,29 @@ internal sealed record ProjectInfo(
 
         var doc = XDocument.Load(projectPath);
         var ns = doc.Root?.Name.Namespace ?? XNamespace.None;
+        string? RawElementValue(string name) =>
+            doc.Descendants(ns + name)
+                .Select(e => e.Value.Trim())
+                .FirstOrDefault(v => !string.IsNullOrWhiteSpace(v));
         string? ElementValue(string name) =>
             doc.Descendants(ns + name)
                 .Select(e => e.Value.Trim())
                 .FirstOrDefault(v => !string.IsNullOrWhiteSpace(v) && !v.Contains("$(", StringComparison.Ordinal));
 
         var projectDirectory = Path.GetDirectoryName(projectPath)!;
+        var msBuildProjectName = Path.GetFileNameWithoutExtension(projectPath);
         var projectName = ElementValue("ProjectName") ?? Path.GetFileNameWithoutExtension(projectPath);
         var rootNamespace = ElementValue("RootNamespace") ?? projectName;
+        var properties = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+        {
+            ["Configuration"] = configuration,
+            ["Platform"] = platform,
+            ["MSBuildProjectDirectory"] = projectDirectory,
+            ["MSBuildProjectName"] = msBuildProjectName,
+            ["ProjectName"] = projectName,
+            ["RootNamespace"] = rootNamespace
+        };
+        var intDirectory = ExpandDirectory(RawElementValue("IntDir"), projectDirectory, properties);
         var packageVersion = doc.Descendants(ns + "PackageReference")
             .Where(e => string.Equals((string?)e.Attribute("Include"), "Microsoft.Windows.CppWinRT", StringComparison.OrdinalIgnoreCase))
             .Select(e => (string?)e.Attribute("Version"))
@@ -253,12 +269,36 @@ internal sealed record ProjectInfo(
             projectPath,
             projectDirectory,
             FindRepositoryRoot(projectDirectory),
+            intDirectory,
             projectName,
             rootNamespace,
             ProjectRootPrefixFrom(rootNamespace),
             configuration,
             platform,
             packageVersion);
+    }
+
+    private static string? ExpandDirectory(string? value, string projectDirectory, IReadOnlyDictionary<string, string> properties)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return null;
+        }
+
+        var expanded = Regex.Replace(value, @"\$\((?<name>[^)]+)\)", match =>
+        {
+            var name = match.Groups["name"].Value;
+            return properties.TryGetValue(name, out var propertyValue) ? propertyValue : match.Value;
+        });
+
+        if (expanded.Contains("$(", StringComparison.Ordinal))
+        {
+            return null;
+        }
+
+        return Path.GetFullPath(Path.IsPathRooted(expanded)
+            ? expanded
+            : Path.Combine(projectDirectory, expanded));
     }
 
     private static string ProjectRootPrefixFrom(string rootNamespace)
@@ -319,24 +359,33 @@ internal sealed record ResponseFileSet(IReadOnlyList<ResponseFile> Files)
 {
     public static ResponseFileSet Find(ProjectInfo project)
     {
-        var intDir = Path.Combine(project.RepositoryRoot, "obj", project.Platform, project.Configuration, project.ProjectName);
-        if (!Directory.Exists(intDir))
-        {
-            throw new DirectoryNotFoundException($"Could not find {intDir}. Build the project once before running the analyzer.");
-        }
+        var intDirs = CandidateIntDirectories(project).Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
 
         var projectFileName = Path.GetFileName(project.ProjectPath);
-        var files = Directory.EnumerateFiles(intDir, $"{projectFileName}.cppwinrt_*.rsp", SearchOption.TopDirectoryOnly)
+        var files = intDirs
+            .Where(Directory.Exists)
+            .SelectMany(intDir => Directory.EnumerateFiles(intDir, $"{projectFileName}.cppwinrt_*.rsp", SearchOption.TopDirectoryOnly))
             .Select(path => new ResponseFile(path, KindFromPath(path)))
             .OrderBy(file => file.Kind switch { "platform" => 0, "reference" => 1, "component" => 2, _ => 3 })
             .ToList();
 
         if (files.Count == 0)
         {
-            throw new FileNotFoundException($"No C++/WinRT response files found in {intDir}. Build the project once before running the analyzer.");
+            var searched = string.Join(Environment.NewLine, intDirs.Select(path => "  " + path));
+            throw new FileNotFoundException($"No C++/WinRT response files found. Build the project once before running the analyzer. Searched:{Environment.NewLine}{searched}");
         }
 
         return new ResponseFileSet(files);
+    }
+
+    private static IEnumerable<string> CandidateIntDirectories(ProjectInfo project)
+    {
+        if (!string.IsNullOrWhiteSpace(project.IntDirectory))
+        {
+            yield return project.IntDirectory;
+        }
+
+        yield return Path.Combine(project.RepositoryRoot, "obj", project.Platform, project.Configuration, project.ProjectName);
     }
 
     private static string KindFromPath(string path)
@@ -987,26 +1036,27 @@ internal static class XmlSnippetFormatter
         builder.AppendLine($"Validation exact: {report.ValidationExact}");
         builder.AppendLine();
         builder.AppendLine("<PropertyGroup Label=\"CppWinRTModules\">");
-        AppendProperty(builder, "CppWinRTModuleInclude", "Project component modules", report.Include.ProjectComponentModules, useAppend: false);
-        AppendProperty(builder, "CppWinRTModuleInclude", "Third-party modules", report.Include.ThirdPartyModules, useAppend: true);
+        AppendProperty(builder, "CppWinRTModuleInclude", "Islands modules", report.Include.ProjectComponentModules, useAppend: false);
+        AppendProperty(builder, "CppWinRTModuleInclude", "Microsoft modules", report.Include.ThirdPartyModules, useAppend: true);
         AppendProperty(builder, "CppWinRTModuleInclude", "Windows SDK modules", report.Include.WindowsSdkModules, useAppend: true);
-        AppendProperty(builder, "CppWinRTModuleExclude", "Prefix overmatches", Flatten(report.Exclude), useAppend: false);
+        AppendModuleGroupProperties(builder, "CppWinRTModuleExclude", report.Exclude);
         builder.AppendLine("</PropertyGroup>");
         return builder.ToString();
     }
 
-    private static ImmutableArray<string> Flatten(ModuleGroups groups) =>
-        groups.ProjectComponentModules
-            .Concat(groups.ThirdPartyModules)
-            .Concat(groups.WindowsSdkModules)
-            .OrderBy(m => m, StringComparer.Ordinal)
-            .ToImmutableArray();
+    private static void AppendModuleGroupProperties(StringBuilder builder, string property, ModuleGroups groups)
+    {
+        var hasValue = false;
+        hasValue |= AppendProperty(builder, property, "Islands prefix overmatches", groups.ProjectComponentModules, useAppend: hasValue);
+        hasValue |= AppendProperty(builder, property, "Microsoft prefix overmatches", groups.ThirdPartyModules, useAppend: hasValue);
+        AppendProperty(builder, property, "Windows SDK prefix overmatches", groups.WindowsSdkModules, useAppend: hasValue);
+    }
 
-    private static void AppendProperty(StringBuilder builder, string property, string label, ImmutableArray<string> values, bool useAppend)
+    private static bool AppendProperty(StringBuilder builder, string property, string label, ImmutableArray<string> values, bool useAppend)
     {
         if (values.Length == 0)
         {
-            return;
+            return false;
         }
 
         builder.AppendLine($"  <!-- {label} -->");
@@ -1016,5 +1066,6 @@ internal static class XmlSnippetFormatter
             value = $"$({property});" + value;
         }
         builder.AppendLine($"  <{property}>{System.Security.SecurityElement.Escape(value)}</{property}>");
+        return true;
     }
 }
