@@ -4,43 +4,50 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Folder Name="/Source/">
-    <Project Path="Islands.UI.Xaml.Controls/Islands.UI.Xaml.vcxproj" Id="268a3f9f-34c9-480b-892d-d32f672ce9ce" />
+  <Folder Name="/Controls/" />
+  <Folder Name="/Controls/ScrollPresenter/">
+    <Project Path="Islands.UI.Xaml/ScrollPresenter/APITests/ScrollPresenter_APITests.shproj" Id="474b92f7-cd58-fed9-8569-9640529d1871" />
+    <Project Path="Islands.UI.Xaml/ScrollPresenter/InteractionTests/ScrollPresenter_InteractionTests.shproj" Id="8faad013-139c-8d2a-2285-45f717d9e64a" />
+    <Project Path="Islands.UI.Xaml/ScrollPresenter/TestUI/ScrollPresenter_TestUI.shproj" Id="0ec52fd5-42fe-3eb4-84e0-79ec9b5a014e" />
+    <Project Path="Islands.UI.Xaml/ScrollPresenter/ScrollPresenter.vcxitems" Id="359544aa-a8cd-715c-cc36-f770e6e81aa0" />
   </Folder>
-  <Folder Name="/Source/Controls/" />
-  <Folder Name="/Source/Controls/ScrollPresenter/">
-    <Project Path="Islands.UI.Xaml.Controls/ScrollPresenter/APITests/ScrollPresenter_APITests.shproj" Id="474b92f7-cd58-fed9-8569-9640529d1871" />
-    <Project Path="Islands.UI.Xaml.Controls/ScrollPresenter/InteractionTests/ScrollPresenter_InteractionTests.shproj" Id="8faad013-139c-8d2a-2285-45f717d9e64a" />
-    <Project Path="Islands.UI.Xaml.Controls/ScrollPresenter/ScrollPresenter.vcxitems" Id="359544aa-a8cd-715c-cc36-f770e6e81aa0" />
-    <Project Path="Islands.UI.Xaml.Controls/ScrollPresenter/TestUI/ScrollPresenter_TestUI.shproj" Id="0ec52fd5-42fe-3eb4-84e0-79ec9b5a014e" />
+  <Folder Name="/Controls/ScrollView/">
+    <Project Path="Islands.UI.Xaml/ScrollView/APITests/ScrollView_APITests.shproj" Id="374b93f8-dd19-5eda-c56a-1640529d187c" />
+    <Project Path="Islands.UI.Xaml/ScrollView/InteractionTests/ScrollView_InteractionTests.shproj" Id="bfaad015-232d-5d2b-b28f-5ef717d3e648" />
+    <Project Path="Islands.UI.Xaml/ScrollView/TestUI/ScrollView_TestUI.shproj" Id="20c52fd5-62fd-53b4-a4a0-995c9b5a014d" />
+    <Project Path="Islands.UI.Xaml/ScrollView/ScrollView.vcxitems" Id="755f5da9-087c-55a0-98d2-b884881c3ed0" />
   </Folder>
-  <Folder Name="/Source/Controls/ScrollView/">
-    <Project Path="Islands.UI.Xaml.Controls/ScrollView/APITests/ScrollView_APITests.shproj" Id="374b93f8-dd19-5eda-c56a-1640529d187c" />
-    <Project Path="Islands.UI.Xaml.Controls/ScrollView/InteractionTests/ScrollView_InteractionTests.shproj" Id="bfaad015-232d-5d2b-b28f-5ef717d3e648" />
-    <Project Path="Islands.UI.Xaml.Controls/ScrollView/ScrollView.vcxitems" Id="755f5da9-087c-55a0-98d2-b884881c3ed0" />
-    <Project Path="Islands.UI.Xaml.Controls/ScrollView/TestUI/ScrollView_TestUI.shproj" Id="20c52fd5-62fd-53b4-a4a0-995c9b5a014d" />
+  <Folder Name="/Controls/TitleBar/">
+    <Project Path="Islands.UI.Xaml/TitleBar/InteractionTests/TitleBar_InteractionTests.shproj" Id="aec0baee-7a86-4539-9e07-a5363f7b9a8c" />
+    <Project Path="Islands.UI.Xaml/TitleBar/TestUI/TitleBar_TestUI.shproj" Id="0c05e2f0-f21f-4e60-a5bd-b4f5eb655c1d" />
+    <Project Path="Islands.UI.Xaml/TitleBar/TitleBar.vcxitems" Id="b122b4a6-ba38-4738-984b-3dab2177d5e2" />
   </Folder>
-  <Folder Name="/Source/Controls/TitleBar/">
-    <Project Path="Islands.UI.Xaml.Controls/TitleBar/TitleBar.vcxitems" Id="b122b4a6-ba38-4738-984b-3dab2177d5e2" />
+  <Folder Name="/Shared/">
+    <Project Path="Islands.UI.Xaml/Collections/Collections.vcxitems" Id="395a71a1-4327-477b-85d4-af0851732ccb" />
+    <Project Path="Islands.UI.Xaml/ResourceHelper/ResourceHelper.vcxitems" Id="45d41acc-2c3c-43d2-bc10-02aa73ffc7c7" />
+    <Project Path="Islands.UI.Xaml/Telemetry/Telemetry.vcxitems" Id="0db22ba9-6053-459b-baf5-e82ea1c78ab3" />
+    <Project Path="Islands.UI.Xaml/TestHooks/TestHooks.vcxitems" Id="848448d5-f717-4f88-8f99-311cd60587fa" />
   </Folder>
-  <Folder Name="/Source/Shared/">
-    <Project Path="Islands.UI.Xaml.Controls/Collections/Collections.vcxitems" Id="27d11f21-6c65-4d89-9eb5-e2c76021fbd4" />
-    <Project Path="Islands.UI.Xaml.Controls/ResourceHelper/ResourceHelper.vcxitems" Id="45d41acc-2c3c-43d2-bc10-02aa73ffc7c7" />
-    <Project Path="Islands.UI.Xaml.Controls/Telemetry/Telemetry.vcxitems" Id="0db22ba9-6053-459b-baf5-e82ea1c78ab3" />
-    <Project Path="Islands.UI.Xaml.Controls/TestHooks/TestHooks.vcxitems" Id="848448d5-f717-4f88-8f99-311cd60587fa" />
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
   </Folder>
-  <Folder Name="/Projection/">
-    <Project Path="Islands.UI.Xaml.Projection/Islands.UI.Xaml.Projection.csproj" Id="fc257154-369d-4ba3-b3f4-7303c1696d63">
-      <Platform Solution="*|ARM64" Project="arm64" />
-      <Platform Solution="*|x64" Project="x64" />
-      <Platform Solution="*|x86" Project="x86" />
-    </Project>
-  </Folder>
-  <Folder Name="/Samples/">
-    <Project Path="CoreIslandApp1/CoreIslandApp1.csproj" Id="880c66be-65e1-4c51-944e-60c3ef1f83dc">
+  <Folder Name="/Tests/">
+    <Project Path="Tests/IUXControlsTestApp/IUXControlsTestApp.csproj">
       <Platform Solution="*|ARM64" Project="ARM64" />
       <Platform Solution="*|x64" Project="x64" />
       <Platform Solution="*|x86" Project="x86" />
     </Project>
+    <Project Path="Tests/SmokeTests/SmokeTests.vcxproj" Id="8a22e752-f1a3-4c28-bba4-6beec9d4f2f2">
+      <BuildDependency Project="Islands.UI.Xaml/Islands.UI.Xaml.vcxproj" />
+    </Project>
   </Folder>
+  <Project Path="CppWinRTModuleBuilder/CppWinRTModuleBuilder.vcxproj" Id="16e7b8c8-7b54-47e2-ae22-38e491ac5375" />
+  <Project Path="Islands.UI.Xaml.Controls.Projection/Islands.UI.Xaml.Controls.Projection.csproj">
+    <Platform Solution="*|ARM64" Project="ARM64" />
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+  <Project Path="Islands.UI.Xaml/Islands.UI.Xaml.vcxproj" Id="0d391c0c-4566-a4d8-e955-3ffd1dfe0fe1">
+    <BuildDependency Project="CppWinRTModuleBuilder/CppWinRTModuleBuilder.vcxproj" />
+  </Project>
 </Solution>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{848448d5-f717-4f88-8f99-311cd60587fa}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory);$(MSBuildThisFileDirectory)..\Generated</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MUXControlsTestHooks.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MUXControlsTestHooks.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\Generated\MUXControlsTestHooks.properties.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MUXControlsTestHooksFactory.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MUXControlsTestHooksLoggingMessageEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MUXControlsTestHooksLoggingMessageEventArgs.ixx" />
+    <ClCompile Condition="'$(Configuration)'!='Debug'" Include="$(MSBuildThisFileDirectory)TestHooksReleaseStubs.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="$(MSBuildThisFileDirectory)MUXControlsTestHooks.idl" />
+  </ItemGroup>
+</Project>

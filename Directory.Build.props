@@ -1,0 +1,19 @@
+<Project>
+  <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
+  <PropertyGroup>
+    <ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MSBuildProjectExtension)' == '.vcxproj'">
+    <ArtifactsPivots Condition="'$(ArtifactsPivots)' == ''">$(Configuration)_$(Platform)</ArtifactsPivots>
+    <OutDir>$(ArtifactsPath)\bin\$(MSBuildProjectName)\$(ArtifactsPivots)\</OutDir>
+    <IntDir>$(ArtifactsPath)\obj\$(MSBuildProjectName)\$(ArtifactsPivots)\</IntDir>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MSBuildProjectExtension)' != '.vcxproj'">
+    <ArtifactsPivots Condition="'$(ArtifactsPivots)' == ''">$(Configuration)_$(Platform)</ArtifactsPivots>
+    <PlatformTarget Condition="'$(Platform)' == 'x86'">x86</PlatformTarget>
+    <PlatformTarget Condition="'$(Platform)' == 'x64'">x64</PlatformTarget>
+    <PlatformTarget Condition="'$(Platform)' == 'ARM64'">ARM64</PlatformTarget>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{6771ed66-d863-408b-a7bb-c92b663d25e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{cab7bc6c-07fd-4bce-95ff-f9a42d35b22f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IDL">
+      <UniqueIdentifier>{ea00a7dc-93d6-4211-a46a-a41cdbda9fe2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Styles">
+      <UniqueIdentifier>{997de820-7ce7-434d-9ddd-9b78981045d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated">
+      <UniqueIdentifier>{15b869b5-fd9b-4893-b12b-4643750f6ce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Hooks">
+      <UniqueIdentifier>{33ca1104-9464-4560-9778-7a847339c857}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\Generated\ScrollView.properties.cpp">
+      <Filter>Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollBarController.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollView.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollViewLightup.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollViewBringIntoViewOperation.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollViewTestHooks.cpp">
+      <Filter>Test Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollViewTestHooksFactory.cpp">
+      <Filter>Test Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\Generated\ScrollView.properties.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollBarController.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollView.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollViewBringIntoViewOperation.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollViewTrace.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollViewTestHooks.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollViewTestHooksFactory.ixx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="$(MSBuildThisFileDirectory)ScrollView.idl">
+      <Filter>IDL</Filter>
+    </Midl>
+    <Midl Include="$(MSBuildThisFileDirectory)ScrollViewTestHooks.idl">
+      <Filter>Test Hooks</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)ScrollView.xaml">
+      <Filter>Styles</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)ScrollView_themeresources.xaml">
+      <Filter>Styles</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)ScrollView_perf2026.xaml">
+      <Filter>Styles</Filter>
+    </None>
+  </ItemGroup>
+</Project>

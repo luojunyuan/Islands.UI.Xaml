@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
+    <AssemblyName>Islands.UI.Xaml.Controls.Projection</AssemblyName>
+    <RootNamespace>Islands.UI.Xaml</RootNamespace>
+    <UseUwp>true</UseUwp>
+    <Platforms>x86;x64;ARM64</Platforms>
+    <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+    <DefaultLanguage>zh-CN</DefaultLanguage>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <IslandsNativePlatform Condition="'$(Platform)' == 'x86'">Win32</IslandsNativePlatform>
+    <IslandsNativePlatform Condition="'$(Platform)' == 'AnyCPU'">x64</IslandsNativePlatform>
+    <IslandsNativePlatform Condition="'$(IslandsNativePlatform)' == ''">$(Platform)</IslandsNativePlatform>
+    <IslandsNativeOutputDir>$(ArtifactsPath)\bin\Islands.UI.Xaml\$(Configuration)_$(IslandsNativePlatform)\</IslandsNativeOutputDir>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CsWinRTIncludes>Islands.UI.Xaml.Controls;Islands.UI.Xaml.Controls.Primitives;Islands.UI.Xaml.Automation.Peers</CsWinRTIncludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <CsWinRTInputs Include="$(IslandsNativeOutputDir)Islands.UI.Xaml.Controls.winmd" />
+    <CsWinRTInputs Include="$(PkgMicrosoft_UI_Xaml)\lib\uap10.0\Microsoft.UI.Xaml.winmd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.2.0" />
+    <PackageReference Include="Microsoft.UI.Xaml" Version="2.8.7" GeneratePathProperty="true" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Islands.UI.Xaml\Islands.UI.Xaml.vcxproj"
+                      PrivateAssets="all"
+                      ReferenceOutputAssembly="false"
+                      SkipGetTargetFrameworkProperties="true">
+      <SetConfiguration>Configuration=$(Configuration)</SetConfiguration>
+      <SetPlatform>Platform=$(IslandsNativePlatform)</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+
+  <Target Name="ValidateIslandsWinmdForProjection" BeforeTargets="GenerateProjection">
+    <Error Text="Islands.UI.Xaml.Controls.winmd was not found at $(IslandsNativeOutputDir). Build Islands.UI.Xaml for $(IslandsNativePlatform)|$(Configuration) first."
+           Condition="'$(DesignTimeBuild)' != 'true' And !Exists('$(IslandsNativeOutputDir)Islands.UI.Xaml.Controls.winmd')" />
+  </Target>
+</Project>

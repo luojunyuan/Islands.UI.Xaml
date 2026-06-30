@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{B122B4A6-BA38-4738-984B-3DAB2177D5E2}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory);$(MSBuildThisFileDirectory)..\Generated</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);TITLEBAR_INCLUDED</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)AppWindowTitleBar.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)AppWindowTitleBar.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)InputNonClientPointerSource.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)InputNonClientPointerSource.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\Generated\TitleBar.properties.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\Generated\TitleBar.properties.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\Generated\TitleBarTemplateSettings.properties.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\Generated\TitleBarTemplateSettings.properties.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBar.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBar.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBar.interop.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarTrace.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarAutomationPeer.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarAutomationPeer.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarTemplateSettings.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarTemplateSettings.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarWindowAdapter.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarWindowAdapter.ixx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)TitleBar.xaml" />
+    <None Include="$(MSBuildThisFileDirectory)TitleBar_themeresources.xaml" />
+    <None Include="$(MSBuildThisFileDirectory)TitleBar_themeresources_perf2026.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <IslandsControlsResource Include="$(MSBuildThisFileDirectory)TitleBar.xaml">
+      <ControlsResourcesVersion>Any</ControlsResourcesVersion>
+      <Version>RS1</Version>
+      <Type>DefaultStyle</Type>
+      <Visible>false</Visible>
+    </IslandsControlsResource>
+    <IslandsControlsResource Include="$(MSBuildThisFileDirectory)TitleBar_themeresources.xaml">
+      <ControlsResourcesVersion>Any</ControlsResourcesVersion>
+      <Version>RS1</Version>
+      <Type>ThemeResources</Type>
+      <Visible>false</Visible>
+    </IslandsControlsResource>
+    <IslandsControlsResource Include="$(MSBuildThisFileDirectory)TitleBar.xaml">
+      <ControlsResourcesVersion>Any</ControlsResourcesVersion>
+      <Version>RS1</Version>
+      <Type>StylePerf2026</Type>
+      <Visible>false</Visible>
+    </IslandsControlsResource>
+    <IslandsControlsResource Include="$(MSBuildThisFileDirectory)TitleBar_themeresources_perf2026.xaml">
+      <ControlsResourcesVersion>Any</ControlsResourcesVersion>
+      <Version>RS1</Version>
+      <Type>ThemeResourcesPerf2026</Type>
+      <Visible>false</Visible>
+    </IslandsControlsResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="$(MSBuildThisFileDirectory)TitleBar.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en-us\Resources.resw" />
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\zh-CN\Resources.resw" />
+  </ItemGroup>
+</Project>

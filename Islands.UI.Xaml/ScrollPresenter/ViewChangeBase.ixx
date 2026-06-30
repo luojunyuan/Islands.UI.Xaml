@@ -1,0 +1,24 @@
+export module ixx.ViewChangeBase;
+
+import inc.common;
+import std;
+
+export
+{
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
+
+enum class ScrollPresenterViewChangeResult
+{
+    Completed = 0,
+    Interrupted = 1,
+    Ignored = 2,
+};
+
+class ViewChangeBase
+{
+};
+
+
+}

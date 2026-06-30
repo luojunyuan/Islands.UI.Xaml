@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{359544AA-A8CD-715C-CC36-F770E6E81AA0}</ItemsProjectGuid>
+    <ItemsProjectName>ScrollPresenter</ItemsProjectName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory);$(MSBuildThisFileDirectory)..\Generated</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);SCROLLPRESENTER_INCLUDED</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="$(MSBuildThisFileDirectory)ScrollPresenter.idl" />
+    <Midl Include="$(MSBuildThisFileDirectory)ScrollPresenterPrimitives.idl" />
+    <Midl Include="$(MSBuildThisFileDirectory)ScrollPresenterAutomationPeer.idl" />
+    <Midl Include="$(MSBuildThisFileDirectory)ScrollPresenterTestHooks.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\Generated\ScrollPresenter.properties.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\Generated\ScrollPresenter.properties.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BringIntoViewOffsetsChange.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BringIntoViewOffsetsChange.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)InteractionTrackerAsyncOperation.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)InteractionTrackerAsyncOperation.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)InteractionTrackerOwner.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)InteractionTrackerOwner.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)OffsetsChange.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)OffsetsChange.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)OffsetsChangeWithAdditionalVelocity.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)OffsetsChangeWithAdditionalVelocity.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RepeatedScrollSnapPoint.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RepeatedZoomSnapPoint.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollControllerAddScrollVelocityRequestedEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollControllerAddScrollVelocityRequestedEventArgs.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollControllerPanRequestedEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollControllerPanRequestedEventArgs.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollControllerScrollByRequestedEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollControllerScrollByRequestedEventArgs.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollControllerScrollToRequestedEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollControllerScrollToRequestedEventArgs.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingAnchorRequestedEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingAnchorRequestedEventArgs.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingBringingIntoViewEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingBringingIntoViewEventArgs.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingScrollAnimationStartingEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingScrollAnimationStartingEventArgs.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingScrollCompletedEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingScrollCompletedEventArgs.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingScrollOptions.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingScrollOptions.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingScrollStartingEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingScrollStartingEventArgs.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingZoomAnimationStartingEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingZoomAnimationStartingEventArgs.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingZoomCompletedEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingZoomCompletedEventArgs.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingZoomOptions.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingZoomOptions.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingZoomStartingEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollingZoomStartingEventArgs.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollPresenter.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollPresenter.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollPresenterAnchoring.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollPresenterAutomationPeer.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollPresenterAutomationPeer.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollPresenterPrivate.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollPresenterTrace.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollPresenterTypeLogging.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollPresenterTypeLogging.ixx" />
+    <ClCompile Condition="'$(Configuration)'=='Debug'" Include="$(MSBuildThisFileDirectory)ScrollPresenterTestHooks.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Condition="'$(Configuration)'=='Debug'" Include="$(MSBuildThisFileDirectory)ScrollPresenterTestHooks.ixx" />
+    <ClCompile Condition="'$(Configuration)'=='Debug'" Include="$(MSBuildThisFileDirectory)ScrollPresenterTestHooksAnchorEvaluatedEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Condition="'$(Configuration)'=='Debug'" Include="$(MSBuildThisFileDirectory)ScrollPresenterTestHooksAnchorEvaluatedEventArgs.ixx" />
+    <ClCompile Condition="'$(Configuration)'=='Debug'" Include="$(MSBuildThisFileDirectory)ScrollPresenterTestHooksExpressionAnimationStatusChangedEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Condition="'$(Configuration)'=='Debug'" Include="$(MSBuildThisFileDirectory)ScrollPresenterTestHooksExpressionAnimationStatusChangedEventArgs.ixx" />
+    <ClCompile Condition="'$(Configuration)'=='Debug'" Include="$(MSBuildThisFileDirectory)ScrollPresenterTestHooksFactory.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Condition="'$(Configuration)'=='Debug'" Include="$(MSBuildThisFileDirectory)ScrollPresenterTestHooksFactory.ixx" />
+    <ClCompile Condition="'$(Configuration)'=='Debug'" Include="$(MSBuildThisFileDirectory)ScrollPresenterTestHooksInteractionSourcesChangedEventArgs.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Condition="'$(Configuration)'=='Debug'" Include="$(MSBuildThisFileDirectory)ScrollPresenterTestHooksInteractionSourcesChangedEventArgs.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ScrollSnapPoint.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SnapPoint.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SnapPoint.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SnapPointWrapper.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SnapPointWrapper.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ViewChange.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ViewChange.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ViewChangeBase.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ZoomFactorChange.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ZoomFactorChange.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ZoomFactorChangeWithAdditionalVelocity.cpp">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WINRT_IMPORT_MODULE</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ZoomFactorChangeWithAdditionalVelocity.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ZoomSnapPoint.ixx" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,63 @@
+<UserControl
+    x:Class="IUXControlsTestApp.TitleBarPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Islands.UI.Xaml.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d">
+
+    <StackPanel Spacing="12">
+        <controls:TitleBar
+            x:Name="SampleTitleBar"
+            AutoRefreshDragRegions="True"
+            IsBackButtonEnabled="True"
+            IsBackButtonVisible="True"
+            IsPaneToggleButtonVisible="True"
+            Title="Sample Title"
+            Subtitle="Subtitle">
+            <controls:TitleBar.IconSource>
+                <muxc:SymbolIconSource Symbol="Mail" />
+            </controls:TitleBar.IconSource>
+            <AutoSuggestBox
+                MinWidth="260"
+                PlaceholderText="Search"
+                QueryIcon="Find" />
+            <controls:TitleBar.RightHeader>
+                <Button Content="RightHeader" />
+            </controls:TitleBar.RightHeader>
+        </controls:TitleBar>
+
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <CheckBox
+                x:Name="BackButtonVisibleCheckBox"
+                IsChecked="True"
+                Checked="BackButtonVisibleCheckBox_Changed"
+                Content="Back button"
+                Unchecked="BackButtonVisibleCheckBox_Changed" />
+            <CheckBox
+                x:Name="PaneToggleVisibleCheckBox"
+                IsChecked="True"
+                Checked="PaneToggleVisibleCheckBox_Changed"
+                Content="Pane toggle"
+                Unchecked="PaneToggleVisibleCheckBox_Changed" />
+            <CheckBox
+                x:Name="IconVisibleCheckBox"
+                IsChecked="True"
+                Checked="IconVisibleCheckBox_Changed"
+                Content="Icon"
+                Unchecked="IconVisibleCheckBox_Changed" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <TextBox
+                x:Name="TitleTextBox"
+                Width="180"
+                PlaceholderText="Title text" />
+            <Button
+                Click="SetTitleButton_Click"
+                Content="Set title" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

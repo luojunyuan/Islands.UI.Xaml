@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <CppWinRTBuildModule>true</CppWinRTBuildModule>
+    <CppWinRTOptimized>true</CppWinRTOptimized>
+    <CppWinRTRootNamespaceAutoMerge>true</CppWinRTRootNamespaceAutoMerge>
+    <MinimalCoreWin>true</MinimalCoreWin>
+    <ProjectGuid>{0D391C0C-4566-A4D8-E955-3FFD1DFE0FE1}</ProjectGuid>
+    <ProjectName>Islands.UI.Xaml.Controls</ProjectName>
+    <TargetName>Islands.UI.Xaml.Controls</TargetName>
+    <ProjectPriFileName>Islands.UI.Xaml.Controls.pri</ProjectPriFileName>
+    <XamlProjectName>Islands.UI.Xaml.Controls</XamlProjectName>
+    <RootNamespace>Islands.UI.Xaml.Controls</RootNamespace>
+    <DefaultLanguage>zh-CN</DefaultLanguage>
+    <MinimumVisualStudioVersion>16.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>false</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+    <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0.26100.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.18362.0</WindowsTargetPlatformMinVersion>
+    <DesktopCompatible>true</DesktopCompatible>
+    <EnableNativePackageReferenceSupport>true</EnableNativePackageReferenceSupport>
+    <DisableEmbeddedXbf>false</DisableEmbeddedXbf>
+    <XamlComponentResourceLocation>nested</XamlComponentResourceLocation>
+    <GenerateLibraryLayout>true</GenerateLibraryLayout>
+    <AppxBundlePlatforms>x86|x64|arm64</AppxBundlePlatforms>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' &gt;= '18.0'">v145</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' &lt; '18.0'">v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <GenerateManifest>false</GenerateManifest>
+    <DesktopCompatible>true</DesktopCompatible>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+    <Import Project="Collections\Collections.vcxitems" Label="Shared" />
+    <Import Project="ResourceHelper\ResourceHelper.vcxitems" Label="Shared" />
+    <Import Project="Telemetry\Telemetry.vcxitems" Label="Shared" />
+    <Import Project="TestHooks\TestHooks.vcxitems" Label="Shared" />
+    <Import Project="TitleBar\TitleBar.vcxitems" Label="Shared" />
+    <Import Project="ScrollPresenter\ScrollPresenter.vcxitems" Label="Shared" />
+    <Import Project="ScrollView\ScrollView.vcxitems" Label="Shared" />
+    <Import Project="Build\ControlsResources.targets" Label="Shared" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <BuildStlModules>true</BuildStlModules>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <LanguageStandard Condition="'$(VisualStudioVersion)' &gt;= '18.0'">stdcpplatest</LanguageStandard>
+      <LanguageStandard Condition="'$(VisualStudioVersion)' &lt; '18.0'">stdcpp17</LanguageStandard>
+      <!-- C4002: GetCurrentTime macro from Win32 headers collides with generated WinRT projection methods -->
+      <!-- C4100: unused parameter -->
+      <!-- C4189: tracing-only locals are sometimes compiled out by trace macros -->
+      <!-- C4702: unreachable fallback returns after assert/throw-style control flow -->
+      <!-- C4840: WinRT wrapper types intentionally flow through tracing/formatting varargs -->
+      <!-- C4875: generated DependencyPropertyCodeGen output still uses deprecated gsl::suppress syntax -->
+      <DisableSpecificWarnings>4002;4100;4189;4702;4840;4875;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj /utf-8</AdditionalOptions>
+      <PreprocessorDefinitions>_WINRT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory);$(MSBuildProjectDirectory)\inc;$(MSBuildProjectDirectory)\TitleBar;$(MSBuildProjectDirectory)\ScrollPresenter;$(MSBuildProjectDirectory)\ScrollView;$(MSBuildProjectDirectory)\Generated;$(GeneratedFilesDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\ScrollPresenter;$(MSBuildProjectDirectory)\ScrollView;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </Midl>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateWindowsMetadata>true</GenerateWindowsMetadata>
+      <ModuleDefinitionFile>Islands.UI.Xaml.def</ModuleDefinitionFile>
+      <AdditionalDependencies>advapi32.lib;user32.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="CppWinRTModules.ixx" />
+    <ClCompile Include="dll\SharedHelpers.cpp" />
+    <ClCompile Include="dll\XamlControlsResources.cpp" />
+    <ClCompile Include="inc\AutoHandle.ixx" />
+    <ClCompile Include="inc\BoxHelpers.ixx" />
+    <ClCompile Include="inc\CastHelpers.ixx" />
+    <ClCompile Include="inc\CollectionHelper.ixx" />
+    <ClCompile Include="inc\common_base.ixx" />
+    <ClCompile Include="inc\common.ixx" />
+    <ClCompile Include="inc\CppWinRTHelpers.ixx" />
+    <ClCompile Include="inc\DoubleUtil.ixx" />
+    <ClCompile Include="inc\ErrorHandling.ixx" />
+    <ClCompile Include="inc\event.ixx" />
+    <ClCompile Include="inc\FloatUtil.ixx" />
+    <ClCompile Include="inc\FocusHelper.ixx" />
+    <ClCompile Include="inc\GlobalDependencyProperty.ixx" />
+    <ClCompile Include="inc\RegUtil.cpp" />
+    <ClCompile Include="inc\RegUtil.ixx" />
+    <ClCompile Include="inc\RoutedEventHelpers.ixx" />
+    <ClCompile Include="inc\RuntimeClassHelpers.ixx" />
+    <ClCompile Include="inc\RuntimeClassHelpers.cpp" />
+    <ClCompile Include="inc\SharedHelpers.ixx" />
+    <ClCompile Include="inc\StaticAssertFalse.ixx" />
+    <ClCompile Include="inc\tracker_ref.ixx" />
+    <ClCompile Include="inc\WinEventLogLevels.ixx" />
+    <ClCompile Include="inc\win32.ixx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Islands.UI.Xaml.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.UI.Xaml">
+      <Version>2.8.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.CppWinRT">
+      <Version>3.0.260520.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.ImplementationLibrary">
+      <Version>1.0.260126.7</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CppWinRTModuleBuilder\CppWinRTModuleBuilder.vcxproj">
+      <Project>{16e7b8c8-7b54-47e2-ae22-38e491ac5375}</Project>
+      <CppWinRTConsumeModule>true</CppWinRTConsumeModule>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(MsAppxPackageTargets)" />
+  <Target Name="AddProcessedXamlFilesToCopyLocal" />
+</Project>

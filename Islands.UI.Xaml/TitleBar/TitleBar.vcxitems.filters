@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Styles">
+      <UniqueIdentifier>{1f3b7779-54e7-4e6a-a18a-1869558e6723}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)TitleBar.xaml">
+      <Filter>Styles</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)TitleBar_themeresources.xaml">
+      <Filter>Styles</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)TitleBar_themeresources_perf2026.xaml">
+      <Filter>Styles</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en-us\Resources.resw" />
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\zh-CN\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)AppWindowTitleBar.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)AppWindowTitleBar.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)InputNonClientPointerSource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)InputNonClientPointerSource.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\Generated\TitleBar.properties.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\Generated\TitleBar.properties.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\Generated\TitleBarTemplateSettings.properties.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\Generated\TitleBarTemplateSettings.properties.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBar.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBar.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBar.interop.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarTrace.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarAutomationPeer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarAutomationPeer.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarTemplateSettings.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarTemplateSettings.ixx" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarWindowAdapter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TitleBarWindowAdapter.ixx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="$(MSBuildThisFileDirectory)TitleBar.idl" />
+  </ItemGroup>
+</Project>

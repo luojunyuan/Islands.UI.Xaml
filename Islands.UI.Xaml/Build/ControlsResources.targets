@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IslandsControlsResourcesOutputDir>$(IntDir)ControlsResources</IslandsControlsResourcesOutputDir>
+    <IslandsControlsResourcesManifest>$(IslandsControlsResourcesOutputDir)\ControlsResources.items</IslandsControlsResourcesManifest>
+    <IslandsControlsResourcesScript>$(MSBuildThisFileDirectory)MergeControlsResources.ps1</IslandsControlsResourcesScript>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <_IslandsControlsResource Include="@(IslandsControlsResource)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="$(IslandsControlsResourcesOutputDir)\generic.xaml">
+      <Link>Themes\generic.xaml</Link>
+      <SubType>Designer</SubType>
+      <ThemeResource>true</ThemeResource>
+      <IsPublic>false</IsPublic>
+      <FileType>Document</FileType>
+    </Page>
+    <Page Include="$(IslandsControlsResourcesOutputDir)\themeresources.xaml">
+      <Link>Themes\themeresources.xaml</Link>
+      <SubType>Designer</SubType>
+      <ThemeResource>true</ThemeResource>
+      <IsPublic>false</IsPublic>
+      <FileType>Document</FileType>
+    </Page>
+    <Page Include="$(IslandsControlsResourcesOutputDir)\generic_perf2026.xaml">
+      <Link>Themes\generic_perf2026.xaml</Link>
+      <SubType>Designer</SubType>
+      <ThemeResource>true</ThemeResource>
+      <IsPublic>false</IsPublic>
+      <FileType>Document</FileType>
+    </Page>
+    <Page Include="$(IslandsControlsResourcesOutputDir)\themeresources_perf2026.xaml">
+      <Link>Themes\themeresources_perf2026.xaml</Link>
+      <SubType>Designer</SubType>
+      <ThemeResource>true</ThemeResource>
+      <IsPublic>false</IsPublic>
+      <FileType>Document</FileType>
+    </Page>
+  </ItemGroup>
+
+  <Target Name="GenerateIslandsControlsResources"
+          BeforeTargets="PrepareForBuild;CompileXaml;MarkupCompilePass1"
+          Inputs="$(MSBuildAllProjects);@(_IslandsControlsResource);$(IslandsControlsResourcesScript)"
+          Outputs="$(IslandsControlsResourcesOutputDir)\generic.xaml;$(IslandsControlsResourcesOutputDir)\themeresources.xaml;$(IslandsControlsResourcesOutputDir)\generic_perf2026.xaml;$(IslandsControlsResourcesOutputDir)\themeresources_perf2026.xaml">
+    <MakeDir Directories="$(IslandsControlsResourcesOutputDir)" />
+    <Error Text="Controls resource '%(_IslandsControlsResource.Identity)' does not declare Type metadata."
+           Condition="'%(_IslandsControlsResource.Type)' == ''" />
+    <WriteLinesToFile File="$(IslandsControlsResourcesManifest)"
+                      Lines="@(_IslandsControlsResource->'%(Type)|%(FullPath)')"
+                      Overwrite="true"
+                      Encoding="UTF-8" />
+    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(IslandsControlsResourcesScript)&quot; -ManifestPath &quot;$(IslandsControlsResourcesManifest)&quot; -OutputDirectory &quot;$(IslandsControlsResourcesOutputDir)&quot; -ResourceRoot &quot;$(RootNamespace)&quot;" />
+    <ItemGroup>
+      <FileWrites Include="$(IslandsControlsResourcesManifest)" />
+      <FileWrites Include="$(IslandsControlsResourcesOutputDir)\generic.xaml" />
+      <FileWrites Include="$(IslandsControlsResourcesOutputDir)\themeresources.xaml" />
+      <FileWrites Include="$(IslandsControlsResourcesOutputDir)\generic_perf2026.xaml" />
+      <FileWrites Include="$(IslandsControlsResourcesOutputDir)\themeresources_perf2026.xaml" />
+    </ItemGroup>
+  </Target>
+</Project>

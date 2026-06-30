@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_IslandsUIXamlControlsPackageRoot>$(MSBuildThisFileDirectory)..\..\</_IslandsUIXamlControlsPackageRoot>
+    <IslandsUIXamlControlsArchitecture Condition="'$(IslandsUIXamlControlsArchitecture)' == '' and ('$(Platform)' == 'Win32' or '$(Platform)' == 'x86')">x86</IslandsUIXamlControlsArchitecture>
+    <IslandsUIXamlControlsArchitecture Condition="'$(IslandsUIXamlControlsArchitecture)' == '' and '$(Platform)' == 'x64'">x64</IslandsUIXamlControlsArchitecture>
+    <IslandsUIXamlControlsArchitecture Condition="'$(IslandsUIXamlControlsArchitecture)' == '' and ('$(Platform)' == 'ARM64' or '$(Platform)' == 'arm64')">arm64</IslandsUIXamlControlsArchitecture>
+    <_IslandsUIXamlControlsRid Condition="'$(IslandsUIXamlControlsArchitecture)' == 'x86'">win-x86</_IslandsUIXamlControlsRid>
+    <_IslandsUIXamlControlsRid Condition="'$(IslandsUIXamlControlsArchitecture)' == 'x64'">win-x64</_IslandsUIXamlControlsRid>
+    <_IslandsUIXamlControlsRid Condition="'$(IslandsUIXamlControlsArchitecture)' == 'arm64'">win-arm64</_IslandsUIXamlControlsRid>
+    <_IslandsUIXamlControlsNativeDir Condition="'$(_IslandsUIXamlControlsRid)' != ''">$(_IslandsUIXamlControlsPackageRoot)runtimes\$(_IslandsUIXamlControlsRid)\native\</_IslandsUIXamlControlsNativeDir>
+    <_IslandsUIXamlControlsLibDir Condition="'$(IslandsUIXamlControlsArchitecture)' != ''">$(_IslandsUIXamlControlsPackageRoot)build\native\lib\$(IslandsUIXamlControlsArchitecture)\</_IslandsUIXamlControlsLibDir>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup Condition="'$(_IslandsUIXamlControlsRid)' != ''">
+    <ClCompile>
+      <AdditionalUsingDirectories>$(_IslandsUIXamlControlsNativeDir);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(_IslandsUIXamlControlsLibDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <ItemGroup Condition="'$(_IslandsUIXamlControlsRid)' != ''">
+    <Reference Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd')" />
+    <Reference Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Automation.winmd" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Automation.winmd')" />
+    <IslandsUIXamlControlsNativeCopy Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.dll" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.dll')" />
+    <IslandsUIXamlControlsNativeCopy Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri')" />
+    <IslandsUIXamlControlsNativeCopy Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd')" />
+    <IslandsUIXamlControlsNativeCopy Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Automation.winmd" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Automation.winmd')" />
+    <IslandsUIXamlControlsNativeCopy Include="$(_IslandsUIXamlControlsNativeDir)Microsoft.Web.WebView2.Core.dll" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Microsoft.Web.WebView2.Core.dll')" />
+  </ItemGroup>
+
+  <Target Name="_IslandsUIXamlControlsValidateNativeAssets" BeforeTargets="PrepareForBuild" Condition="'$(DesignTimeBuild)' != 'true'">
+    <Error Text="Islands.UI.Xaml could not map Platform='$(Platform)' to x86, x64, or arm64."
+           Condition="'$(_IslandsUIXamlControlsRid)' == ''" />
+    <Error Text="Missing Islands.UI.Xaml native asset: $(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.dll"
+           Condition="'$(_IslandsUIXamlControlsRid)' != '' and !Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.dll')" />
+    <Error Text="Missing Islands.UI.Xaml native metadata: $(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd"
+           Condition="'$(_IslandsUIXamlControlsRid)' != '' and !Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd')" />
+    <Error Text="Missing Islands.UI.Xaml resources: $(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri"
+           Condition="'$(_IslandsUIXamlControlsRid)' != '' and !Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri')" />
+  </Target>
+
+  <Target Name="_IslandsUIXamlControlsAddNativePri" BeforeTargets="_GenerateProjectPriConfigurationFiles" Condition="'$(_IslandsUIXamlControlsRid)' != '' and Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri')">
+    <ItemGroup>
+      <_PriFile Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="_IslandsUIXamlControlsCopyNativeAssets" AfterTargets="Build" Condition="'$(_IslandsUIXamlControlsRid)' != '' and '@(IslandsUIXamlControlsNativeCopy)' != ''">
+    <Copy SourceFiles="@(IslandsUIXamlControlsNativeCopy)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
+  </Target>
+</Project>

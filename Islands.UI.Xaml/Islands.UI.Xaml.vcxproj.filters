@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>accd3aa8-1ba0-4223-9bbe-0c431709210b</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{926ab91d-31b4-48c3-b9a4-e681349f27f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{d196e16d-ea5c-41b6-a07d-6c2a4060c682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dll">
+      <UniqueIdentifier>{205910fb-3429-482d-9c90-fef8e2c9575f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="CppWinRTModules.ixx" />
+    <ClCompile Include="dll\SharedHelpers.cpp">
+      <Filter>dll</Filter>
+    </ClCompile>
+    <ClCompile Include="dll\XamlControlsResources.cpp">
+      <Filter>dll</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\AutoHandle.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\BoxHelpers.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\CastHelpers.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\CollectionHelper.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\common_base.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\common.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\CppWinRTHelpers.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\ErrorHandling.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\event.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\GlobalDependencyProperty.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\RoutedEventHelpers.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\RuntimeClassHelpers.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\RuntimeClassHelpers.cpp">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\SharedHelpers.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\StaticAssertFalse.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\tracker_ref.ixx">
+      <Filter>inc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="inc\win32.ixx">
+      <Filter>inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Islands.UI.Xaml.def" />
+  </ItemGroup>
+</Project>
