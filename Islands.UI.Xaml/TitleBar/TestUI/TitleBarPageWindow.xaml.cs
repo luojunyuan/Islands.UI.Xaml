@@ -16,6 +16,7 @@ namespace MUXControlsTestApp
     {
         private int backRequestedCount = 0;
         private int paneToggleRequestedCount = 0;
+        private CoreIsland.Window? window;
 
         private const int GWL_EXSTYLE = -20;
         private const int WS_EX_LAYOUTRTL = 0x00400000;
@@ -29,7 +30,7 @@ namespace MUXControlsTestApp
         // Called by parent page to activate (show) this control in a new CoreIsland window.
         public void Activate()
         {
-            var window = new CoreIsland.Window { Content = this };
+            window = new CoreIsland.Window { Content = this };
             window.ExtendsContentIntoTitleBar = true;
             window.SetTitleBar(this.WindowingTitleBar);
             window.Title = this.WindowingTitleBar.Title;
@@ -64,10 +65,8 @@ namespace MUXControlsTestApp
 
         private void UpdateCaptionButtonDirection(FlowDirection direction)
         {
-            // Get the HWND from the CoreIsland window hosting this UserControl.
-            var coreWindow = Windows.UI.Core.CoreWindow.GetForCurrentThread();
-            if (coreWindow == null) return;
-            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(coreWindow);
+            if (window == null) return;
+            var hwnd = CoreIsland.Windowing.WindowNative.GetWindowHandle(window);
             if (hwnd == IntPtr.Zero) return;
 
             var exStyle = GetWindowLongPtr(hwnd, GWL_EXSTYLE);
