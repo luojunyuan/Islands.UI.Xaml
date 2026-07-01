@@ -25,10 +25,6 @@
     <Reference Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd')" />
     <Reference Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Automation.winmd" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Automation.winmd')" />
     <IslandsUIXamlControlsNativeCopy Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.dll" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.dll')" />
-    <IslandsUIXamlControlsNativeCopy Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri')" />
-    <IslandsUIXamlControlsNativeCopy Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd')" />
-    <IslandsUIXamlControlsNativeCopy Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Automation.winmd" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Automation.winmd')" />
-    <IslandsUIXamlControlsNativeCopy Include="$(_IslandsUIXamlControlsNativeDir)Microsoft.Web.WebView2.Core.dll" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Microsoft.Web.WebView2.Core.dll')" />
   </ItemGroup>
 
   <Target Name="_IslandsUIXamlControlsValidateNativeAssets" BeforeTargets="PrepareForBuild" Condition="'$(DesignTimeBuild)' != 'true'">

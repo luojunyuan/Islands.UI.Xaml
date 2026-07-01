@@ -203,7 +203,6 @@ foreach ($architecture in $Architectures) {
 
     Copy-RequiredFile -Source (Join-Path $projectionDir "Islands.UI.Xaml.Controls.Projection.dll") -Destination (Join-Path $projectionTarget "Islands.UI.Xaml.Controls.Projection.dll") -Missing $architectureMissing
     Copy-OptionalFile -Source (Join-Path $projectionDir "Islands.UI.Xaml.Controls.Projection.deps.json") -Destination (Join-Path $projectionTarget "Islands.UI.Xaml.Controls.Projection.deps.json")
-    Copy-OptionalFile -Source (Join-Path $projectionDir "Islands.UI.Xaml.Controls.Projection.pri") -Destination (Join-Path $projectionTarget "Islands.UI.Xaml.Controls.Projection.pri")
     Copy-OptionalFile -Source (Join-Path $projectionDir "Microsoft.Web.WebView2.Core.Projection.dll") -Destination (Join-Path $projectionTarget "Microsoft.Web.WebView2.Core.Projection.dll")
 
     if ($IncludePdb) {

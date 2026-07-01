@@ -29,12 +29,6 @@
       <Private>true</Private>
     </Reference>
     <IslandsUIXamlControlsCopyLocal Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.dll" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.dll')" />
-    <IslandsUIXamlControlsCopyLocal Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri')" />
-    <IslandsUIXamlControlsCopyLocal Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd')" />
-    <IslandsUIXamlControlsCopyLocal Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Automation.winmd" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Automation.winmd')" />
-    <IslandsUIXamlControlsCopyLocal Include="$(_IslandsUIXamlControlsNativeDir)Microsoft.Web.WebView2.Core.dll" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Microsoft.Web.WebView2.Core.dll')" />
-    <IslandsUIXamlControlsCopyLocal Include="$(_IslandsUIXamlControlsProjectionDir)Islands.UI.Xaml.Controls.Projection.pri" Condition="Exists('$(_IslandsUIXamlControlsProjectionDir)Islands.UI.Xaml.Controls.Projection.pri')" />
-    <IslandsUIXamlControlsCopyLocal Include="$(_IslandsUIXamlControlsProjectionDir)Islands.UI.Xaml.Controls.Projection.deps.json" Condition="Exists('$(_IslandsUIXamlControlsProjectionDir)Islands.UI.Xaml.Controls.Projection.deps.json')" />
   </ItemGroup>
 
   <ItemGroup Condition="'@(IslandsUIXamlControlsCopyLocal)' != ''">
@@ -60,7 +54,6 @@
   <Target Name="_IslandsUIXamlControlsAddNetPriFiles" BeforeTargets="_GenerateProjectPriConfigurationFiles" Condition="'$(_IslandsUIXamlControlsIsSupportedNetTarget)' == 'true' and '$(_IslandsUIXamlControlsRid)' != ''">
     <ItemGroup>
       <_PriFile Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri')" />
-      <_PriFile Include="$(_IslandsUIXamlControlsProjectionDir)Islands.UI.Xaml.Controls.Projection.pri" Condition="Exists('$(_IslandsUIXamlControlsProjectionDir)Islands.UI.Xaml.Controls.Projection.pri')" />
     </ItemGroup>
   </Target>
 </Project>
