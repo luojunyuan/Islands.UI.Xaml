@@ -14,6 +14,7 @@
     <_IslandsUIXamlControlsRid Condition="'$(IslandsUIXamlControlsArchitecture)' == 'x64'">win-x64</_IslandsUIXamlControlsRid>
     <_IslandsUIXamlControlsRid Condition="'$(IslandsUIXamlControlsArchitecture)' == 'arm64'">win-arm64</_IslandsUIXamlControlsRid>
     <_IslandsUIXamlControlsNativeDir Condition="'$(_IslandsUIXamlControlsRid)' != ''">$(_IslandsUIXamlControlsPackageRoot)runtimes\$(_IslandsUIXamlControlsRid)\native\</_IslandsUIXamlControlsNativeDir>
+    <_IslandsUIXamlControlsPriDir Condition="'$(IslandsUIXamlControlsArchitecture)' != ''">$(_IslandsUIXamlControlsPackageRoot)build\native\pri\$(IslandsUIXamlControlsArchitecture)\</_IslandsUIXamlControlsPriDir>
     <_IslandsUIXamlControlsProjectionDir Condition="'$(_IslandsUIXamlControlsRid)' != ''">$(_IslandsUIXamlControlsPackageRoot)runtimes\$(_IslandsUIXamlControlsRid)\lib\$(_IslandsUIXamlControlsNetTfm)\</_IslandsUIXamlControlsProjectionDir>
     <_IslandsUIXamlControlsProjectionDll>$(_IslandsUIXamlControlsProjectionDir)Islands.UI.Xaml.Controls.Projection.dll</_IslandsUIXamlControlsProjectionDll>
     <_IslandsUIXamlControlsWebView2ProjectionDll>$(_IslandsUIXamlControlsProjectionDir)Microsoft.Web.WebView2.Core.Projection.dll</_IslandsUIXamlControlsWebView2ProjectionDll>
@@ -47,13 +48,13 @@
            Condition="'$(_IslandsUIXamlControlsRid)' != '' and !Exists('$(_IslandsUIXamlControlsProjectionDll)')" />
     <Error Text="Missing Islands.UI.Xaml native asset: $(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.dll"
            Condition="'$(_IslandsUIXamlControlsRid)' != '' and !Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.dll')" />
-    <Error Text="Missing Islands.UI.Xaml resources: $(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri"
-           Condition="'$(_IslandsUIXamlControlsRid)' != '' and !Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri')" />
+    <Error Text="Missing Islands.UI.Xaml resources: $(_IslandsUIXamlControlsPriDir)Islands.UI.Xaml.Controls.pri"
+           Condition="'$(_IslandsUIXamlControlsRid)' != '' and !Exists('$(_IslandsUIXamlControlsPriDir)Islands.UI.Xaml.Controls.pri')" />
   </Target>
 
   <Target Name="_IslandsUIXamlControlsAddNetPriFiles" BeforeTargets="_GenerateProjectPriConfigurationFiles" Condition="'$(_IslandsUIXamlControlsIsSupportedNetTarget)' == 'true' and '$(_IslandsUIXamlControlsRid)' != ''">
     <ItemGroup>
-      <_PriFile Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri')" />
+      <_PriFile Include="$(_IslandsUIXamlControlsPriDir)Islands.UI.Xaml.Controls.pri" Condition="Exists('$(_IslandsUIXamlControlsPriDir)Islands.UI.Xaml.Controls.pri')" />
     </ItemGroup>
   </Target>
 </Project>

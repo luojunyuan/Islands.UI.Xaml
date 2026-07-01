@@ -193,9 +193,10 @@ foreach ($architecture in $Architectures) {
     $nativeTarget = Join-Path $stagingRoot "runtimes\$rid\native"
     $projectionTarget = Join-Path $stagingRoot "runtimes\$rid\lib\$tfm"
     $libTarget = Join-Path $stagingRoot "build\native\lib\$key"
+    $priTarget = Join-Path $stagingRoot "build\native\pri\$key"
 
     Copy-RequiredFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Controls.dll") -Destination (Join-Path $nativeTarget "Islands.UI.Xaml.Controls.dll") -Missing $architectureMissing
-    Copy-RequiredFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Controls.pri") -Destination (Join-Path $nativeTarget "Islands.UI.Xaml.Controls.pri") -Missing $architectureMissing
+    Copy-RequiredFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Controls.pri") -Destination (Join-Path $priTarget "Islands.UI.Xaml.Controls.pri") -Missing $architectureMissing
     Copy-RequiredFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Controls.winmd") -Destination (Join-Path $nativeTarget "Islands.UI.Xaml.Controls.winmd") -Missing $architectureMissing
     Copy-OptionalFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Automation.winmd") -Destination (Join-Path $nativeTarget "Islands.UI.Xaml.Automation.winmd")
     Copy-OptionalFile -Source (Join-Path $nativeDir "Microsoft.Web.WebView2.Core.dll") -Destination (Join-Path $nativeTarget "Microsoft.Web.WebView2.Core.dll")

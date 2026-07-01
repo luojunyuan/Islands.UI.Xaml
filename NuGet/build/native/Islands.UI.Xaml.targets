@@ -10,6 +10,7 @@
     <_IslandsUIXamlControlsRid Condition="'$(IslandsUIXamlControlsArchitecture)' == 'arm64'">win-arm64</_IslandsUIXamlControlsRid>
     <_IslandsUIXamlControlsNativeDir Condition="'$(_IslandsUIXamlControlsRid)' != ''">$(_IslandsUIXamlControlsPackageRoot)runtimes\$(_IslandsUIXamlControlsRid)\native\</_IslandsUIXamlControlsNativeDir>
     <_IslandsUIXamlControlsLibDir Condition="'$(IslandsUIXamlControlsArchitecture)' != ''">$(_IslandsUIXamlControlsPackageRoot)build\native\lib\$(IslandsUIXamlControlsArchitecture)\</_IslandsUIXamlControlsLibDir>
+    <_IslandsUIXamlControlsPriDir Condition="'$(IslandsUIXamlControlsArchitecture)' != ''">$(_IslandsUIXamlControlsPackageRoot)build\native\pri\$(IslandsUIXamlControlsArchitecture)\</_IslandsUIXamlControlsPriDir>
   </PropertyGroup>
 
   <ItemDefinitionGroup Condition="'$(_IslandsUIXamlControlsRid)' != ''">
@@ -34,13 +35,13 @@
            Condition="'$(_IslandsUIXamlControlsRid)' != '' and !Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.dll')" />
     <Error Text="Missing Islands.UI.Xaml native metadata: $(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd"
            Condition="'$(_IslandsUIXamlControlsRid)' != '' and !Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.winmd')" />
-    <Error Text="Missing Islands.UI.Xaml resources: $(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri"
-           Condition="'$(_IslandsUIXamlControlsRid)' != '' and !Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri')" />
+    <Error Text="Missing Islands.UI.Xaml resources: $(_IslandsUIXamlControlsPriDir)Islands.UI.Xaml.Controls.pri"
+           Condition="'$(_IslandsUIXamlControlsRid)' != '' and !Exists('$(_IslandsUIXamlControlsPriDir)Islands.UI.Xaml.Controls.pri')" />
   </Target>
 
-  <Target Name="_IslandsUIXamlControlsAddNativePri" BeforeTargets="_GenerateProjectPriConfigurationFiles" Condition="'$(_IslandsUIXamlControlsRid)' != '' and Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri')">
+  <Target Name="_IslandsUIXamlControlsAddNativePri" BeforeTargets="_GenerateProjectPriConfigurationFiles" Condition="'$(_IslandsUIXamlControlsRid)' != '' and Exists('$(_IslandsUIXamlControlsPriDir)Islands.UI.Xaml.Controls.pri')">
     <ItemGroup>
-      <_PriFile Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.pri" />
+      <_PriFile Include="$(_IslandsUIXamlControlsPriDir)Islands.UI.Xaml.Controls.pri" />
     </ItemGroup>
   </Target>
 
