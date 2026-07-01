@@ -4,12 +4,13 @@
 using MUXControlsTestApp.Utilities;
 using System;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterWithCompositionScrollControllersPage : TestPage
+    public sealed partial class ScrollPresenterWithCompositionScrollControllersPage
     {
         public ScrollPresenterWithCompositionScrollControllersPage()
         {
@@ -23,7 +24,7 @@ namespace MUXControlsTestApp
             LogMessage(args);
         }
 
-        private void CmbHorizontalScrollController_SelectionChanged(object sender, Islands.UI.Xaml.Controls.SelectionChangedEventArgs e)
+        private void CmbHorizontalScrollController_SelectionChanged(object sender, Windows.UI.Xaml.Controls.SelectionChangedEventArgs e)
         {
             ComboBox cmbHorizontalScrollController = sender as ComboBox;
             ScrollPresenter scrollPresenter = cmbHorizontalScrollController == cmbHorizontalScrollController1 ? scrollPresenter1 : scrollPresenter2;
@@ -52,7 +53,7 @@ namespace MUXControlsTestApp
                 oldCompositionScrollController.IsEnabled = true;
         }
 
-        private void CmbVerticalScrollController_SelectionChanged(object sender, Islands.UI.Xaml.Controls.SelectionChangedEventArgs e)
+        private void CmbVerticalScrollController_SelectionChanged(object sender, Windows.UI.Xaml.Controls.SelectionChangedEventArgs e)
         {
             ComboBox cmbVerticalScrollController = sender as ComboBox;
             ScrollPresenter scrollPresenter = cmbVerticalScrollController == cmbVerticalScrollController1 ? scrollPresenter1 : scrollPresenter2;

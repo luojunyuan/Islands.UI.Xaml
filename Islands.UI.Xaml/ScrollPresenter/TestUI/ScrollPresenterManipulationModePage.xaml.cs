@@ -3,6 +3,7 @@
 
 using System.Collections.Generic;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Input;
@@ -11,7 +12,7 @@ using Islands.UI.Xaml.Controls.Primitives;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterManipulationModePage : TestPage
+    public sealed partial class ScrollPresenterManipulationModePage
     {
         private List<string> fullLogs = new List<string>();
 

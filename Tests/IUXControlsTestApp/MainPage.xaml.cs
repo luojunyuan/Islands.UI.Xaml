@@ -1,13 +1,12 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using MUXControlsTestApp;
+using MUXControlsTestApp.Utilities;
 
 namespace IUXControlsTestApp;
 
 public sealed partial class MainPage : Page
 {
-    private bool _isTitleBarAttached;
-    private ScrollViewPage? _scrollViewPage;
-
     public MainPage()
     {
         InitializeComponent();
@@ -15,53 +14,39 @@ public sealed partial class MainPage : Page
         Loaded += MainPage_Loaded;
         Unloaded += MainPage_Unloaded;
 
-        AttachTitleBar();
+        // Default to TitleBar hub
+        ContentFrame.Navigate(typeof(TitleBarPage));
     }
 
     private void MainPage_Loaded(object sender, RoutedEventArgs e)
     {
-        AttachTitleBar();
+        App.Window.SetTitleBar(WindowingTitleBar);
         WindowingTitleBar.RecomputeDragRegions();
     }
 
     private void MainPage_Unloaded(object sender, RoutedEventArgs e)
     {
-        if (!_isTitleBarAttached)
-        {
-            return;
-        }
-
         App.Window.SetTitleBar(null);
-        _isTitleBarAttached = false;
     }
 
-    private void AttachTitleBar()
+    private void WindowingTitleBar_BackRequested(Islands.UI.Xaml.Controls.TitleBar sender, object args)
     {
-        if (_isTitleBarAttached)
-        {
-            return;
-        }
-
-        App.Window.SetTitleBar(WindowingTitleBar);
-        _isTitleBarAttached = true;
+        if (ContentFrame.CanGoBack)
+            ContentFrame.GoBack();
     }
 
     private void TitleBarSampleButton_Click(object sender, RoutedEventArgs e)
     {
-        TitleBarSampleHost.Visibility = Visibility.Visible;
-        ScrollViewSampleHost.Visibility = Visibility.Collapsed;
+        ContentFrame.NavigateWithoutAnimation(typeof(TitleBarPage));
     }
 
     private void ScrollViewSampleButton_Click(object sender, RoutedEventArgs e)
     {
-        _scrollViewPage ??= new ScrollViewPage();
+        ContentFrame.NavigateWithoutAnimation(typeof(ScrollViewPage));
+    }
 
-        if (ScrollViewSampleHost.Children.Count == 0)
-        {
-            ScrollViewSampleHost.Children.Add(_scrollViewPage);
-        }
-
-        TitleBarSampleHost.Visibility = Visibility.Collapsed;
-        ScrollViewSampleHost.Visibility = Visibility.Visible;
+    private void ScrollPresenterSampleButton_Click(object sender, RoutedEventArgs e)
+    {
+        ContentFrame.NavigateWithoutAnimation(typeof(ScrollPresenterPage));
     }
 }

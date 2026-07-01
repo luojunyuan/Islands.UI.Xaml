@@ -9,6 +9,7 @@ using Windows.UI;
 using Windows.UI.Composition;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Hosting;
@@ -23,7 +24,7 @@ using Windows.System;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterDynamicPage : TestPage
+    public sealed partial class ScrollPresenterDynamicPage
     {
         private enum QueuedOperationType
         {
@@ -2308,7 +2309,7 @@ namespace MUXControlsTestApp
                     lstAsyncEventMessage.Add(msgHead);
                 }
 
-                var ignored = this.DispatcherQueue.TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
+                var ignored = Windows.System.DispatcherQueue.GetForCurrentThread().TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
             }
         }
 

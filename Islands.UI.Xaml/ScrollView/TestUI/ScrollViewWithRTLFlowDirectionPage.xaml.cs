@@ -2,10 +2,11 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollViewWithRTLFlowDirectionPage : TestPage
+    public sealed partial class ScrollViewWithRTLFlowDirectionPage
     {
         public ScrollViewWithRTLFlowDirectionPage()
         {

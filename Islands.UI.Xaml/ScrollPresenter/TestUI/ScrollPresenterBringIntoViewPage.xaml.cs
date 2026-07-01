@@ -7,17 +7,21 @@ using System.Linq;
 using Windows.Foundation;
 using Windows.UI.Composition;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
+using ItemsRepeater = Microsoft.UI.Xaml.Controls.ItemsRepeater;
+using ItemsRepeaterElementPreparedEventArgs = Microsoft.UI.Xaml.Controls.ItemsRepeaterElementPreparedEventArgs;
+using RecyclingElementFactory = Microsoft.UI.Xaml.Controls.RecyclingElementFactory;
+using RecyclePool = Microsoft.UI.Xaml.Controls.RecyclePool;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Islands.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Tests.MUXControls.ApiTests.RepeaterTests.Common;
 using Windows.System;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterBringIntoViewPage : TestPage
+    public sealed partial class ScrollPresenterBringIntoViewPage
     {
         private SampleDataSource dataSource = null;
         private Object asyncEventReportingLock = new Object();
@@ -683,7 +687,7 @@ namespace MUXControlsTestApp
                     lstAsyncEventMessage.Add(msgHead);
                 }
 
-                var ignored = this.DispatcherQueue.TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
+                var ignored = Windows.System.DispatcherQueue.GetForCurrentThread().TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
             }
         }
 

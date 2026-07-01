@@ -4,6 +4,7 @@
 using Common;
 using System;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 
@@ -14,7 +15,7 @@ using WEX.Logging.Interop;
 namespace MUXControlsTestApp
 {
     [TopLevelTestPage(Name = "ScrollPresenter", Icon = "ScrollPresenter.png")]
-    public sealed partial class ScrollPresenterPage : TestPage
+    public sealed partial class ScrollPresenterPage
     {
         public ScrollPresenterPage()
         {

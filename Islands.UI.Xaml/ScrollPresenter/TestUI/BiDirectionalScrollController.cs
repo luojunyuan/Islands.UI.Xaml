@@ -8,6 +8,8 @@ using Windows.Foundation;
 using Windows.UI.Composition;
 using Windows.UI.Input;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Hosting;
@@ -60,7 +62,7 @@ namespace MUXControlsTestApp.Utilities
 
             public UniScrollController(BiDirectionalScrollController owner, Orientation orientation)
             {
-                panningInfo = new CompositionScrollControllerPanningInfo(owner.DispatcherQueue, owner.IsRailEnabled, orientation);
+                panningInfo = new CompositionScrollControllerPanningInfo(Windows.System.DispatcherQueue.GetForCurrentThread(), owner.IsRailEnabled, orientation);
 
                 Owner = owner;
                 Orientation = orientation;
@@ -798,11 +800,11 @@ namespace MUXControlsTestApp.Utilities
 
             switch (e.Pointer.PointerDeviceType)
             {
-                case Windows.UI.Input.PointerDeviceType.Touch:
-                case Windows.UI.Input.PointerDeviceType.Pen:
+                case Windows.Devices.Input.PointerDeviceType.Touch:
+                case Windows.Devices.Input.PointerDeviceType.Pen:
                     RaisePanRequested(e.GetCurrentPoint(null));
                     break;
-                case Windows.UI.Input.PointerDeviceType.Mouse:
+                case Windows.Devices.Input.PointerDeviceType.Mouse:
                     if (!IsScrollingWithMouse)
                     {
                         IsScrollingWithMouse = true;

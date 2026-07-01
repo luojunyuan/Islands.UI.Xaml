@@ -8,6 +8,8 @@ using Windows.Foundation;
 using Windows.UI.Composition;
 using Windows.UI.Input;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Hosting;
@@ -531,7 +533,7 @@ namespace MUXControlsTestApp.Utilities
             RaiseLogMessage("CompositionScrollController: CompositionScrollController()");
 
             this.DefaultStyleKey = typeof(CompositionScrollController);
-            panningInfo = new CompositionScrollControllerPanningInfo(DispatcherQueue, true, orientation);
+            panningInfo = new CompositionScrollControllerPanningInfo(Windows.System.DispatcherQueue.GetForCurrentThread(), true, orientation);
             panningInfo.LogMessage += PanningInfo_LogMessage;
             IsScrollingWithMouse = false;
             OffsetChangeAnimationType = AnimationType.Default;
@@ -1073,12 +1075,12 @@ namespace MUXControlsTestApp.Utilities
 
             switch (e.Pointer.PointerDeviceType)
             {
-                case Windows.UI.Input.PointerDeviceType.Touch:
-                case Windows.UI.Input.PointerDeviceType.Pen:
+                case Windows.Devices.Input.PointerDeviceType.Touch:
+                case Windows.Devices.Input.PointerDeviceType.Pen:
                     // Attempt an UI-thread-independent pan.
                     panningInfo.RaisePanRequested(e.GetCurrentPoint(null));
                     break;
-                case Windows.UI.Input.PointerDeviceType.Mouse:
+                case Windows.Devices.Input.PointerDeviceType.Mouse:
                     if (!IsScrollingWithMouse)
                     {
                         // Starting a mouse-driven thumb drag.

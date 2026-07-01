@@ -8,6 +8,8 @@ using Windows.Foundation;
 using Windows.UI.Composition;
 using Windows.UI.Input;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Hosting;
@@ -16,7 +18,7 @@ using Windows.UI.Xaml.Media;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterWithSimpleScrollControllersPage : TestPage
+    public sealed partial class ScrollPresenterWithSimpleScrollControllersPage
     {
         private CanvasScrollControllerConsumer canvasScrollControllerConsumer = null;
         private IScrollController horizontalScrollController = null;

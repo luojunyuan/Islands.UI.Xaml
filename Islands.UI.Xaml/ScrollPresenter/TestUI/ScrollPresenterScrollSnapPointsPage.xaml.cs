@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Numerics;
 using Windows.UI;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
@@ -16,7 +17,7 @@ using Islands.UI.Xaml.Controls.Primitives;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterScrollSnapPointsPage : TestPage
+    public sealed partial class ScrollPresenterScrollSnapPointsPage
     {
         private const int snapPointColumns = 29;
         private const int snapPointColumnWidth = 10;

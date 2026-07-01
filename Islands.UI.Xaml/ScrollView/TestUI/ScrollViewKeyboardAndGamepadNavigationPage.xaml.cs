@@ -3,6 +3,7 @@
 
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Navigation;
@@ -11,7 +12,7 @@ using System.Collections.Generic;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollViewKeyboardAndGamepadNavigationPage : TestPage
+    public sealed partial class ScrollViewKeyboardAndGamepadNavigationPage
     {
         private Object asyncEventReportingLock = new Object();
         private List<string> lstAsyncEventMessage = new List<string>();
@@ -274,7 +275,7 @@ namespace MUXControlsTestApp
 
                     lstAsyncEventMessage.Add(msgHead);
                 }
-                var ignored = this.DispatcherQueue.TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
+                var ignored = Windows.System.DispatcherQueue.GetForCurrentThread().TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
 
             }
         }

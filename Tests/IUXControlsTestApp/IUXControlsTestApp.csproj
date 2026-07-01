@@ -20,6 +20,11 @@
     <IslandsNativeOutputDir>$(ArtifactsPath)\bin\Islands.UI.Xaml\$(Configuration)_$(IslandsNativePlatform)\</IslandsNativeOutputDir>
   </PropertyGroup>
 
+  <!-- TestUI shared projects: TitleBar, ScrollView, ScrollPresenter -->
+  <Import Project="..\..\Islands.UI.Xaml\TitleBar\TestUI\TitleBar_TestUI.projitems" Label="Shared" />
+  <Import Project="..\..\Islands.UI.Xaml\ScrollView\TestUI\ScrollView_TestUI.projitems" Label="Shared" />
+  <Import Project="..\..\Islands.UI.Xaml\ScrollPresenter\TestUI\ScrollPresenter_TestUI.projitems" Label="Shared" />
+
   <ItemGroup>
     <PackageReference Include="CoreIsland" Version="1.0.2" />
     <PackageReference Include="Microsoft.UI.Xaml" Version="2.8.7" />

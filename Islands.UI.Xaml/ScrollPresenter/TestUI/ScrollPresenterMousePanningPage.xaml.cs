@@ -6,12 +6,13 @@ using System.Numerics;
 using Windows.Foundation;
 using Windows.UI.Input;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterMousePanningPage : TestPage
+    public sealed partial class ScrollPresenterMousePanningPage
     {
         private bool _isMiddleButtonPressed = false;
         private bool _isInConstantVelocityPan = false;
@@ -35,7 +36,7 @@ namespace MUXControlsTestApp
 
         private void ScrollPresenter_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            if (e.Pointer.PointerDeviceType == Windows.UI.Input.PointerDeviceType.Mouse &&
+            if (e.Pointer.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Mouse &&
                 e.KeyModifiers == Windows.System.VirtualKeyModifiers.None)
             {
                 if (_isMiddleButtonPressed || _isInConstantVelocityPan)
@@ -100,7 +101,7 @@ namespace MUXControlsTestApp
 
         private void ScrollPresenter_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
-            if (e.Pointer.PointerDeviceType == Windows.UI.Input.PointerDeviceType.Mouse)
+            if (e.Pointer.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Mouse)
             {
                 PointerPointProperties ppp = e.GetCurrentPoint(null).Properties;
                 Point position = e.GetCurrentPoint(scrollPresenter).Position;
@@ -137,7 +138,7 @@ namespace MUXControlsTestApp
 
         private void ScrollPresenter_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
-            if (e.Pointer.PointerDeviceType == Windows.UI.Input.PointerDeviceType.Mouse)
+            if (e.Pointer.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Mouse)
             {
                 Point position = e.GetCurrentPoint(scrollPresenter).Position;
 
@@ -178,7 +179,7 @@ namespace MUXControlsTestApp
         private void ScrollPresenter_PointerCanceled(object sender, PointerRoutedEventArgs e)
         {
             LogEvent("Pointer canceled - id " + e.Pointer.PointerId);
-            if (e.Pointer.PointerDeviceType == Windows.UI.Input.PointerDeviceType.Mouse)
+            if (e.Pointer.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Mouse)
             {
                 if (_isInMousePan)
                 {

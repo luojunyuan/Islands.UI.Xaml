@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Windows.System;
@@ -11,7 +12,7 @@ using Islands.UI.Xaml.Controls.Primitives;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollViewWithScrollControllersPage : TestPage
+    public sealed partial class ScrollViewWithScrollControllersPage
     {
         private Object asyncEventReportingLock = new Object();
         private List<string> lstAsyncEventMessage = new List<string>();
@@ -597,7 +598,7 @@ namespace MUXControlsTestApp
             {
                 lstAsyncEventMessage.Add(asyncEventMessage);
 
-                var ignored = this.DispatcherQueue.TryEnqueue(Windows.System.DispatcherQueuePriority.Normal,
+                var ignored = Windows.System.DispatcherQueue.GetForCurrentThread().TryEnqueue(Windows.System.DispatcherQueuePriority.Normal,
                                                               AppendAsyncEventMessage);
             }
         }

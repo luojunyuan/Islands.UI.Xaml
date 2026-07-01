@@ -2,12 +2,14 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Automation.Peers;
 using Windows.UI.Xaml.Automation.Provider;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterAccessibilityPage : TestPage
+    public sealed partial class ScrollPresenterAccessibilityPage
     {
         private IScrollProvider scrollPresenterAutomationPeer;
 

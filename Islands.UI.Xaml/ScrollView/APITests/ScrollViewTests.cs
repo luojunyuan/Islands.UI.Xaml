@@ -29,7 +29,7 @@ using ScrollingChainMode = Islands.UI.Xaml.Controls.ScrollingChainMode;
 using ScrollingRailMode = Islands.UI.Xaml.Controls.ScrollingRailMode;
 using ScrollingZoomMode = Islands.UI.Xaml.Controls.ScrollingZoomMode;
 using ScrollingAnchorRequestedEventArgs = Islands.UI.Xaml.Controls.ScrollingAnchorRequestedEventArgs;
-using MUXControlsTestHooksLoggingMessageEventArgs = Islands.UI.Xaml.Controls.Primitives.MUXControlsTestHooksLoggingMessageEventArgs;
+using MUXControlsTestHooksLoggingMessageEventArgs = Islands.UI.Xaml.Controls.MUXControlsTestHooksLoggingMessageEventArgs;
 using ScrollViewTestHooks = Islands.UI.Xaml.Controls.Primitives.ScrollViewTestHooks;
 
 namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests

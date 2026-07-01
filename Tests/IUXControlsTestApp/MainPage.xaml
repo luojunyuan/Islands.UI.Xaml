@@ -23,6 +23,7 @@
             IsBackButtonEnabled="True"
             IsBackButtonVisible="True"
             IsPaneToggleButtonVisible="True"
+            BackRequested="WindowingTitleBar_BackRequested"
             Title="IUX Controls Test App">
             <controls:TitleBar.IconSource>
                 <muxc:SymbolIconSource Symbol="Home" />
@@ -47,25 +48,13 @@
                     x:Name="ScrollViewSampleButton"
                     Click="ScrollViewSampleButton_Click"
                     Content="ScrollView" />
+                <Button
+                    x:Name="ScrollPresenterSampleButton"
+                    Click="ScrollPresenterSampleButton_Click"
+                    Content="ScrollPresenter" />
             </StackPanel>
 
-            <ScrollViewer
-                x:Name="TitleBarSampleHost"
-                Grid.Row="1">
-                <StackPanel Padding="24" Spacing="12">
-                    <TextBlock
-                        FontSize="20"
-                        FontWeight="SemiBold"
-                        Text="TitleBar" />
-                    <TextBlock Text="Minimal CoreIsland host for Islands.UI.Xaml.Controls." />
-                    <local:TitleBarPage />
-                </StackPanel>
-            </ScrollViewer>
-
-            <Grid
-                x:Name="ScrollViewSampleHost"
-                Grid.Row="1"
-                Visibility="Collapsed" />
+            <Frame x:Name="ContentFrame" Grid.Row="1" />
         </Grid>
     </Grid>
 </Page>

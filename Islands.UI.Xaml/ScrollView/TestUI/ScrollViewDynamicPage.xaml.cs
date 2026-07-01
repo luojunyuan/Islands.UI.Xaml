@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Input;
@@ -18,7 +19,7 @@ using Windows.System;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollViewDynamicPage : TestPage
+    public sealed partial class ScrollViewDynamicPage
     {
         private Object asyncEventReportingLock = new Object();
         private List<string> lstAsyncEventMessage = new List<string>();
@@ -186,10 +187,10 @@ namespace MUXControlsTestApp
                 {
                     case ScrollingContentOrientation.Horizontal:
                         wuxScrollViewer.HorizontalScrollBarVisibility = MuxScrollBarVisibilityToWuxScrollBarVisibility(scrollView.HorizontalScrollBarVisibility);
-                        wuxScrollViewer.VerticalScrollBarVisibility = Islands.UI.Xaml.Controls.ScrollBarVisibility.Disabled;
+                        wuxScrollViewer.VerticalScrollBarVisibility = Windows.UI.Xaml.Controls.ScrollBarVisibility.Disabled;
                         break;
                     case ScrollingContentOrientation.Vertical:
-                        wuxScrollViewer.HorizontalScrollBarVisibility = Islands.UI.Xaml.Controls.ScrollBarVisibility.Disabled;
+                        wuxScrollViewer.HorizontalScrollBarVisibility = Windows.UI.Xaml.Controls.ScrollBarVisibility.Disabled;
                         wuxScrollViewer.VerticalScrollBarVisibility = MuxScrollBarVisibilityToWuxScrollBarVisibility(scrollView.VerticalScrollBarVisibility);
                         break;
                     case ScrollingContentOrientation.Both:
@@ -197,8 +198,8 @@ namespace MUXControlsTestApp
                         wuxScrollViewer.VerticalScrollBarVisibility = MuxScrollBarVisibilityToWuxScrollBarVisibility(scrollView.VerticalScrollBarVisibility);
                         break;
                     case ScrollingContentOrientation.None:
-                        wuxScrollViewer.HorizontalScrollBarVisibility = Islands.UI.Xaml.Controls.ScrollBarVisibility.Disabled;
-                        wuxScrollViewer.VerticalScrollBarVisibility = Islands.UI.Xaml.Controls.ScrollBarVisibility.Disabled;
+                        wuxScrollViewer.HorizontalScrollBarVisibility = Windows.UI.Xaml.Controls.ScrollBarVisibility.Disabled;
+                        wuxScrollViewer.VerticalScrollBarVisibility = Windows.UI.Xaml.Controls.ScrollBarVisibility.Disabled;
                         break;
                 }
             }
@@ -790,7 +791,7 @@ namespace MUXControlsTestApp
                 {
                     case ScrollingContentOrientation.Vertical:
                     case ScrollingContentOrientation.None:
-                        wuxScrollViewer.HorizontalScrollBarVisibility = Islands.UI.Xaml.Controls.ScrollBarVisibility.Disabled;
+                        wuxScrollViewer.HorizontalScrollBarVisibility = Windows.UI.Xaml.Controls.ScrollBarVisibility.Disabled;
                         break;
                     default:
                         wuxScrollViewer.HorizontalScrollBarVisibility = MuxScrollBarVisibilityToWuxScrollBarVisibility(scrollView.HorizontalScrollBarVisibility);
@@ -815,7 +816,7 @@ namespace MUXControlsTestApp
                 {
                     case ScrollingContentOrientation.Horizontal:
                     case ScrollingContentOrientation.None:
-                        wuxScrollViewer.VerticalScrollBarVisibility = Islands.UI.Xaml.Controls.ScrollBarVisibility.Disabled;
+                        wuxScrollViewer.VerticalScrollBarVisibility = Windows.UI.Xaml.Controls.ScrollBarVisibility.Disabled;
                         break;
                     default:
                         wuxScrollViewer.VerticalScrollBarVisibility = MuxScrollBarVisibilityToWuxScrollBarVisibility(scrollView.VerticalScrollBarVisibility);
@@ -2012,38 +2013,38 @@ namespace MUXControlsTestApp
             }
         }
 
-        private Islands.UI.Xaml.Controls.ScrollBarVisibility MuxScrollBarVisibilityToWuxScrollBarVisibility(ScrollingScrollBarVisibility muxScrollBarVisibility)
+        private Windows.UI.Xaml.Controls.ScrollBarVisibility MuxScrollBarVisibilityToWuxScrollBarVisibility(ScrollingScrollBarVisibility muxScrollBarVisibility)
         {
             switch (muxScrollBarVisibility)
             {
                 case ScrollingScrollBarVisibility.Auto:
-                    return Islands.UI.Xaml.Controls.ScrollBarVisibility.Auto;
+                    return Windows.UI.Xaml.Controls.ScrollBarVisibility.Auto;
                 case ScrollingScrollBarVisibility.Hidden:
-                    return Islands.UI.Xaml.Controls.ScrollBarVisibility.Hidden;
+                    return Windows.UI.Xaml.Controls.ScrollBarVisibility.Hidden;
                 default:
-                    return Islands.UI.Xaml.Controls.ScrollBarVisibility.Visible;
+                    return Windows.UI.Xaml.Controls.ScrollBarVisibility.Visible;
             }
         }
 
-        private Islands.UI.Xaml.Controls.ScrollMode MuxScrollModeToWuxScrollMode(ScrollingScrollMode muxScrollMode)
+        private Windows.UI.Xaml.Controls.ScrollMode MuxScrollModeToWuxScrollMode(ScrollingScrollMode muxScrollMode)
         {
             switch (muxScrollMode)
             {
                 case ScrollingScrollMode.Disabled:
-                    return Islands.UI.Xaml.Controls.ScrollMode.Disabled;
+                    return Windows.UI.Xaml.Controls.ScrollMode.Disabled;
                 default:
-                    return Islands.UI.Xaml.Controls.ScrollMode.Enabled;
+                    return Windows.UI.Xaml.Controls.ScrollMode.Enabled;
             }
         }
 
-        private Islands.UI.Xaml.Controls.ZoomMode MuxZoomModeToWuxZoomMode(ScrollingZoomMode muxZoomMode)
+        private Windows.UI.Xaml.Controls.ZoomMode MuxZoomModeToWuxZoomMode(ScrollingZoomMode muxZoomMode)
         {
             switch (muxZoomMode)
             {
                 case ScrollingZoomMode.Disabled:
-                    return Islands.UI.Xaml.Controls.ZoomMode.Disabled;
+                    return Windows.UI.Xaml.Controls.ZoomMode.Disabled;
                 default:
-                    return Islands.UI.Xaml.Controls.ZoomMode.Enabled;
+                    return Windows.UI.Xaml.Controls.ZoomMode.Enabled;
             }
         }
 
@@ -2407,7 +2408,7 @@ namespace MUXControlsTestApp
                     lstAsyncEventMessage.Add(msgHead);
                 }
 
-                var ignored = this.DispatcherQueue.TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
+                var ignored = Windows.System.DispatcherQueue.GetForCurrentThread().TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
             }
         }
 

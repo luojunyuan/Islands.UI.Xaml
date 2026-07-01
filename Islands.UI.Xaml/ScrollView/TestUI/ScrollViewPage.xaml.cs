@@ -3,6 +3,7 @@
 
 using Common;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 
@@ -13,7 +14,7 @@ using WEX.Logging.Interop;
 namespace MUXControlsTestApp
 {
     [TopLevelTestPage(Name = "ScrollView", Icon = "ScrollView.png")]
-    public sealed partial class ScrollViewPage : TestPage
+    public sealed partial class ScrollViewPage
     {
         public ScrollViewPage()
         {

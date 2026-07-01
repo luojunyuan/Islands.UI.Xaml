@@ -1,15 +1,18 @@
-﻿using Microsoft.UI.Private.Controls;
-using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Markup;
+﻿// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
+using Islands.UI.Xaml.Controls;
+using Islands.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Markup;
 using WEX.Logging.Interop;
 using System.Runtime.InteropServices;
 using System;
-using System.Diagnostics;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class TitleBarPageWindow : Window
+    public sealed partial class TitleBarPageWindow
     {
         private int backRequestedCount = 0;
         private int paneToggleRequestedCount = 0;
@@ -21,13 +24,16 @@ namespace MUXControlsTestApp
         {
             LogController.InitializeLogging();
             this.InitializeComponent();
+        }
 
-            // C# code to set AppTitleBar uielement as titlebar.
-            this.ExtendsContentIntoTitleBar = true;
-            this.SetTitleBar(this.WindowingTitleBar);
-
-            // Set titlebar's title to window's title.
-            this.Title = this.WindowingTitleBar.Title;
+        // Called by parent page to activate (show) this control in a new CoreIsland window.
+        public void Activate()
+        {
+            var window = new CoreIsland.Window { Content = this };
+            window.ExtendsContentIntoTitleBar = true;
+            window.SetTitleBar(this.WindowingTitleBar);
+            window.Title = this.WindowingTitleBar.Title;
+            window.Activate();
         }
 
         private void CmbTitleBarOutputDebugStringLevel_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -50,9 +56,6 @@ namespace MUXControlsTestApp
             UpdateCaptionButtonDirection(TitleBarPageWindowGrid.FlowDirection);
         }
 
-        private static nint GetWindowHandleForCurrentWindow(object target) =>
-            WinRT.Interop.WindowNative.GetWindowHandle(target);
-
         [DllImport("user32.dll", EntryPoint = "SetWindowLongPtr")]
         internal static extern IntPtr SetWindowLongPtr(IntPtr hWnd, int nIndex, nint newProc);
 
@@ -61,24 +64,18 @@ namespace MUXControlsTestApp
 
         private void UpdateCaptionButtonDirection(FlowDirection direction)
         {
-            var hwnd = GetWindowHandleForCurrentWindow(this);
+            // Get the HWND from the CoreIsland window hosting this UserControl.
+            var coreWindow = Windows.UI.Core.CoreWindow.GetForCurrentThread();
+            if (coreWindow == null) return;
+            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(coreWindow);
+            if (hwnd == IntPtr.Zero) return;
 
-            if (hwnd != 0)
-            {
-                var exStyle = GetWindowLongPtr(hwnd, GWL_EXSTYLE);
-
-                if (direction == FlowDirection.RightToLeft)
-                {
-                    exStyle |= WS_EX_LAYOUTRTL;
-                }
-                else
-                {
-                    exStyle &= ~WS_EX_LAYOUTRTL;
-                }
-
-                SetWindowLongPtr(hwnd, GWL_EXSTYLE, exStyle);
-            }
-            
+            var exStyle = GetWindowLongPtr(hwnd, GWL_EXSTYLE);
+            if (direction == FlowDirection.RightToLeft)
+                exStyle |= WS_EX_LAYOUTRTL;
+            else
+                exStyle &= ~WS_EX_LAYOUTRTL;
+            SetWindowLongPtr(hwnd, GWL_EXSTYLE, exStyle);
         }
 
         private void WindowingTitleBar_BackRequested(TitleBar sender, object args)
@@ -89,17 +86,13 @@ namespace MUXControlsTestApp
         private void IsBackButtonVisibleCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
             if (WindowingTitleBar != null)
-            {
-                WindowingTitleBar.IsBackButtonVisible = IsBackButtonVisibleCheckBox.IsChecked.Value;
-            }
+                WindowingTitleBar.IsBackButtonVisible = IsBackButtonVisibleCheckBox.IsChecked!.Value;
         }
 
         private void IsBackButtonEnabledCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
             if (WindowingTitleBar != null)
-            {
-                WindowingTitleBar.IsBackButtonEnabled = IsBackButtonEnabledCheckBox.IsChecked.Value;
-            }
+                WindowingTitleBar.IsBackButtonEnabled = IsBackButtonEnabledCheckBox.IsChecked!.Value;
         }
 
         private void WindowingTitleBar_PaneToggleRequested(TitleBar sender, object args)
@@ -110,105 +103,72 @@ namespace MUXControlsTestApp
         private void IsPaneToggleButtonVisibleCheckbox_CheckedChanged(object sender, RoutedEventArgs e)
         {
             if (WindowingTitleBar != null)
-            {
-                WindowingTitleBar.IsPaneToggleButtonVisible = IsPaneToggleButtonVisibleCheckbox.IsChecked.Value;
-            }
+                WindowingTitleBar.IsPaneToggleButtonVisible = IsPaneToggleButtonVisibleCheckbox.IsChecked!.Value;
         }
 
         private void SetIconCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
-            if (WindowingTitleBar != null)
+            if (WindowingTitleBar == null) return;
+            if (SetIconCheckBox.IsChecked!.Value)
             {
-                if (SetIconCheckBox.IsChecked.Value)
-                {
-                    var icon = new Microsoft.UI.Xaml.Controls.SymbolIconSource();
-                    icon.Symbol = Symbol.Mail;
-                    WindowingTitleBar.IconSource = icon;
-                }
-                else
-                {
-                    WindowingTitleBar.IconSource = null;
-                }
+                var icon = new Microsoft.UI.Xaml.Controls.SymbolIconSource { Symbol = Symbol.Mail };
+                WindowingTitleBar.IconSource = icon;
+            }
+            else
+            {
+                WindowingTitleBar.IconSource = null;
             }
         }
 
         private void CustomContentCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
-            if (WindowingTitleBar != null)
+            if (WindowingTitleBar == null) return;
+            if (CustomContentCheckBox.IsChecked!.Value)
             {
-                if (CustomContentCheckBox.IsChecked.Value)
-                {
-                    string xaml =
-                    @"<Grid xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
-                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width='Auto'/>
-                            <ColumnDefinition Width='*' />
-                         </Grid.ColumnDefinitions >
-
-                         <Button Content='Left'/>
-                         <Button Grid.Column='1' Content='Right' HorizontalAlignment='Right'/>
-                    </Grid>";
-
-                    var element = (Grid)XamlReader.Load(xaml);
-                    WindowingTitleBar.Content = element;
-                }
-                else
-                {
-                    WindowingTitleBar.Content = null;
-                }
+                string xaml =
+                @"<Grid xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>
+                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width='Auto'/>
+                        <ColumnDefinition Width='*' />
+                     </Grid.ColumnDefinitions >
+                     <Button Content='Left'/>
+                     <Button Grid.Column='1' Content='Right' HorizontalAlignment='Right'/>
+                </Grid>";
+                var element = (Grid)XamlReader.Load(xaml);
+                WindowingTitleBar.Content = element;
+            }
+            else
+            {
+                WindowingTitleBar.Content = null;
             }
         }
 
         private void LeftHeaderCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
-            if (WindowingTitleBar != null)
-            {
-                if (LeftHeaderCheckBox.IsChecked.Value)
-                {
-                    var button = new Button();
-                    button.Content = "LeftHeader";
-                    WindowingTitleBar.LeftHeader = button;
-                }
-                else
-                {
-                    WindowingTitleBar.LeftHeader = null;
-                }
-            }
+            if (WindowingTitleBar == null) return;
+            WindowingTitleBar.LeftHeader = LeftHeaderCheckBox.IsChecked!.Value
+                ? new Button { Content = "LeftHeader" }
+                : null;
         }
 
         private void RightHeaderCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
-            if (WindowingTitleBar != null)
-            {
-                if (RightHeaderCheckBox.IsChecked.Value)
-                {
-                    var button = new Button();
-                    button.Content = "RightHeader";
-                    WindowingTitleBar.RightHeader = button;
-                }
-                else
-                {
-                    WindowingTitleBar.RightHeader = null;
-                }
-            }
+            if (WindowingTitleBar == null) return;
+            WindowingTitleBar.RightHeader = RightHeaderCheckBox.IsChecked!.Value
+                ? new Button { Content = "RightHeader" }
+                : null;
         }
 
         private void SetSubtitleButton_Click(object sender, RoutedEventArgs e)
         {
             if (WindowingTitleBar != null)
-            {
                 WindowingTitleBar.Subtitle = SubtitleTextBox.Text;
-            }
         }
 
         private void TitleButton_Click(object sender, RoutedEventArgs e)
         {
             if (WindowingTitleBar != null)
-            {
                 WindowingTitleBar.Title = TitleTextBox.Text;
-            }
         }
-
-
     }
 }

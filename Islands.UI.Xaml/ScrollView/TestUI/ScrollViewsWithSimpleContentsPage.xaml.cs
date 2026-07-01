@@ -3,6 +3,7 @@
 
 using System.Collections.Generic;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
@@ -21,12 +22,12 @@ using ScrollingSnapPointsMode = Islands.UI.Xaml.Controls.ScrollingSnapPointsMode
 using ScrollPresenterTestHooks = Islands.UI.Xaml.Controls.Primitives.ScrollPresenterTestHooks;
 using ScrollPresenterViewChangeResult = Islands.UI.Xaml.Controls.Primitives.ScrollPresenterViewChangeResult;
 using ScrollViewTestHooks = Islands.UI.Xaml.Controls.Primitives.ScrollViewTestHooks;
-using MUXControlsTestHooks = Islands.UI.Xaml.Controls.Primitives.MUXControlsTestHooks;
-using MUXControlsTestHooksLoggingMessageEventArgs = Islands.UI.Xaml.Controls.Primitives.MUXControlsTestHooksLoggingMessageEventArgs;
+using MUXControlsTestHooks = Islands.UI.Xaml.Controls.MUXControlsTestHooks;
+using MUXControlsTestHooksLoggingMessageEventArgs = Islands.UI.Xaml.Controls.MUXControlsTestHooksLoggingMessageEventArgs;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollViewsWithSimpleContentsPage : TestPage
+    public sealed partial class ScrollViewsWithSimpleContentsPage
     {
         private List<string> fullLogs = new List<string>();
         private int scrollView52ZoomFactorChangeCorrelationId = -1;

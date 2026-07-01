@@ -6,7 +6,9 @@ using System;
 using System.Collections.Generic;
 using Windows.UI.Composition.Interactions;
 using Windows.UI.Xaml;
+using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
+using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 
 using WEX.TestExecution;

@@ -6,18 +6,22 @@ using System.Collections.Generic;
 using System.Linq;
 using Windows.UI;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
+using ItemsRepeater = Microsoft.UI.Xaml.Controls.ItemsRepeater;
+using ItemsRepeaterElementPreparedEventArgs = Microsoft.UI.Xaml.Controls.ItemsRepeaterElementPreparedEventArgs;
+using RecyclingElementFactory = Microsoft.UI.Xaml.Controls.RecyclingElementFactory;
+using RecyclePool = Microsoft.UI.Xaml.Controls.RecyclePool;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Islands.UI.Xaml.Controls.Primitives;
 using System.Collections.Specialized;
-using Windows.UI.Xaml.Tests.MUXControls.ApiTests.RepeaterTests.Common;
 using Windows.System;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterRepeaterAnchoringPage : TestPage
+    public sealed partial class ScrollPresenterRepeaterAnchoringPage
     {
         private SampleDataSource dataSource = null;
         private DispatcherTimer timer = new DispatcherTimer();
@@ -512,12 +516,10 @@ namespace MUXControlsTestApp
 
         private void ChkUseAnimator_Checked(object sender, RoutedEventArgs e)
         {
-            repeater.ItemTransitionProvider = new Utils.DefaultItemCollectionTransitionProvider();
         }
 
         private void ChkUseAnimator_Unchecked(object sender, RoutedEventArgs e)
         {
-            repeater.ItemTransitionProvider = null;
         }
 
         private void ChkLogScrollPresenterMessages_Checked(object sender, RoutedEventArgs e)
@@ -687,7 +689,7 @@ namespace MUXControlsTestApp
             {
                 lstAsyncEventMessage.Add(asyncEventMessage);
 
-                var ignored = this.DispatcherQueue.TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
+                var ignored = Windows.System.DispatcherQueue.GetForCurrentThread().TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
             }
         }
 

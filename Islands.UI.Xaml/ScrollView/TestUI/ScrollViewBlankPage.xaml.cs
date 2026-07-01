@@ -3,6 +3,7 @@
 
 using System.Collections.Generic;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 using ScrollPresenter = Islands.UI.Xaml.Controls.Primitives.ScrollPresenter;
@@ -16,13 +17,13 @@ using ScrollingScrollAnimationStartingEventArgs = Islands.UI.Xaml.Controls.Scrol
 using ScrollingZoomAnimationStartingEventArgs = Islands.UI.Xaml.Controls.ScrollingZoomAnimationStartingEventArgs;
 using ScrollingScrollCompletedEventArgs = Islands.UI.Xaml.Controls.ScrollingScrollCompletedEventArgs;
 using ScrollingZoomCompletedEventArgs = Islands.UI.Xaml.Controls.ScrollingZoomCompletedEventArgs;
-using MUXControlsTestHooks = Islands.UI.Xaml.Controls.Primitives.MUXControlsTestHooks;
-using MUXControlsTestHooksLoggingMessageEventArgs = Islands.UI.Xaml.Controls.Primitives.MUXControlsTestHooksLoggingMessageEventArgs;
+using MUXControlsTestHooks = Islands.UI.Xaml.Controls.MUXControlsTestHooks;
+using MUXControlsTestHooksLoggingMessageEventArgs = Islands.UI.Xaml.Controls.MUXControlsTestHooksLoggingMessageEventArgs;
 using ScrollViewTestHooks = Islands.UI.Xaml.Controls.Primitives.ScrollViewTestHooks;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollViewBlankPage : TestPage
+    public sealed partial class ScrollViewBlankPage
     {
         private object asyncEventReportingLock = new object();
         private List<string> lstAsyncEventMessage = new List<string>();
@@ -445,7 +446,7 @@ namespace MUXControlsTestApp
 
                     lstAsyncEventMessage.Add(msgHead);
                 }
-                var ignored = this.DispatcherQueue.TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
+                var ignored = Windows.System.DispatcherQueue.GetForCurrentThread().TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
 
             }
         }

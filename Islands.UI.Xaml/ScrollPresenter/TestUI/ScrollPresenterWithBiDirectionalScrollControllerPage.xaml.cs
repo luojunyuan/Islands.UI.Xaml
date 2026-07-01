@@ -3,10 +3,11 @@
 
 using MUXControlsTestApp.Utilities;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterWithBiDirectionalScrollControllerPage : TestPage
+    public sealed partial class ScrollPresenterWithBiDirectionalScrollControllerPage
     {
         public ScrollPresenterWithBiDirectionalScrollControllerPage()
         {

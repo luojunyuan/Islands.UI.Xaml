@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Navigation;
@@ -11,7 +12,7 @@ using Islands.UI.Xaml.Controls.Primitives;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterChainingAndRailingPage : TestPage
+    public sealed partial class ScrollPresenterChainingAndRailingPage
     {
         private List<string> fullLogs = new List<string>();
         private int scrollPresenter3ZoomFactorChangeCorrelationId = -1;

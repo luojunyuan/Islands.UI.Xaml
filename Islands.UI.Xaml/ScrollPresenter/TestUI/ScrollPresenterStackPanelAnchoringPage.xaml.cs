@@ -8,6 +8,7 @@ using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Composition;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
@@ -17,7 +18,7 @@ using Windows.System;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterStackPanelAnchoringPage : TestPage
+    public sealed partial class ScrollPresenterStackPanelAnchoringPage
     {
         private DispatcherTimer timer = new DispatcherTimer();
         private Object asyncEventReportingLock = new Object();
@@ -1061,7 +1062,7 @@ namespace MUXControlsTestApp
             {
                 lstAsyncEventMessage.Add(asyncEventMessage);
 
-                var ignored = this.DispatcherQueue.TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
+                var ignored = Windows.System.DispatcherQueue.GetForCurrentThread().TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, AppendAsyncEventMessage);
             }
         }
 

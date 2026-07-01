@@ -3,6 +3,7 @@
 
 using Windows.UI;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
@@ -12,7 +13,7 @@ using ScrollPresenter = Islands.UI.Xaml.Controls.Primitives.ScrollPresenter;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterLeakDetectionPage : TestPage
+    public sealed partial class ScrollPresenterLeakDetectionPage
     {
         private ScrollPresenter scrollPresenter = null;
         

@@ -8,6 +8,8 @@ using Windows.UI;
 using Windows.UI.Composition;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 using Islands.UI.Xaml.Controls;
 using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Navigation;
@@ -16,7 +18,7 @@ using Windows.System;
 
 namespace MUXControlsTestApp
 {
-    public sealed partial class ScrollPresenterExpressionAnimationSourcesPage : TestPage
+    public sealed partial class ScrollPresenterExpressionAnimationSourcesPage
     {
         private bool isLoggingMessages = false;
         private int layoutCompletedCount = 0;
@@ -68,18 +70,18 @@ namespace MUXControlsTestApp
         private void ScrollPresenterExpressionAnimationSourcesPage_Loaded(object sender, RoutedEventArgs e)
         {
             this.fullLogs.Add("ScrollPresenterExpressionAnimationSourcesPage_Loaded");
-            var ignored = DispatcherQueue.TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, SetupScrollbars);
+            var ignored = Windows.System.DispatcherQueue.GetForCurrentThread().TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, SetupScrollbars);
         }
 
         private void ScrollPresenter_SizeChanged(object sender, SizeChangedEventArgs e)
         {       
             this.fullLogs.Add("ScrollPresenter_SizeChanged PreviousSize=" + e.PreviousSize + ", NewSize=" + e.NewSize);
-            var ignored = DispatcherQueue.TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, UpdateScrollbars);
+            var ignored = Windows.System.DispatcherQueue.GetForCurrentThread().TryEnqueue(Windows.System.DispatcherQueuePriority.Normal, UpdateScrollbars);
 
             // One additional SetLayoutCompleted call is required to declare the layout final
             txtLayoutCompleted.Text = "No";
             layoutCompletedCount++;
-            ignored = this.DispatcherQueue.TryEnqueue(DispatcherQueuePriority.Low, SetLayoutCompleted);
+            ignored = Windows.System.DispatcherQueue.GetForCurrentThread().TryEnqueue(DispatcherQueuePriority.Low, SetLayoutCompleted);
         }
 
         private void SetupScrollbars()

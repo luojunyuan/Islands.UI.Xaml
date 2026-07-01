@@ -13,7 +13,6 @@ using Islands.UI.Xaml.Controls;
 using Islands.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Markup;
-using Windows.UI.Xaml.Tests.MUXControls.ApiTests.RepeaterTests.Common;
 using System.Collections.Specialized;
 
 using WEX.TestExecution;
