@@ -20,7 +20,6 @@
     <_IslandsUIXamlControlsPriDir Condition="'$(IslandsUIXamlControlsArchitecture)' != ''">$(_IslandsUIXamlControlsPackageRoot)build\native\pri\$(IslandsUIXamlControlsArchitecture)\</_IslandsUIXamlControlsPriDir>
     <_IslandsUIXamlControlsProjectionDir Condition="'$(_IslandsUIXamlControlsRid)' != ''">$(_IslandsUIXamlControlsPackageRoot)runtimes\$(_IslandsUIXamlControlsRid)\lib\$(_IslandsUIXamlControlsNetTfm)\</_IslandsUIXamlControlsProjectionDir>
     <_IslandsUIXamlControlsProjectionDll>$(_IslandsUIXamlControlsProjectionDir)Islands.UI.Xaml.Controls.Projection.dll</_IslandsUIXamlControlsProjectionDll>
-    <_IslandsUIXamlControlsProjectionDepsJson>$(_IslandsUIXamlControlsProjectionDir)Islands.UI.Xaml.Controls.Projection.deps.json</_IslandsUIXamlControlsProjectionDepsJson>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(_IslandsUIXamlControlsIsSupportedNetTarget)' == 'true' and '$(_IslandsUIXamlControlsRid)' != ''">
@@ -29,7 +28,6 @@
       <Private>false</Private>
     </Reference>
     <IslandsUIXamlControlsCopyLocal Include="$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.dll" Condition="Exists('$(_IslandsUIXamlControlsNativeDir)Islands.UI.Xaml.Controls.dll')" />
-    <IslandsUIXamlControlsCopyLocal Include="$(_IslandsUIXamlControlsProjectionDepsJson)" Condition="Exists('$(_IslandsUIXamlControlsProjectionDepsJson)')" />
     <WindowsMetadataReference Include="$(_IslandsUIXamlControlsControlsWinmd)" Implementation="$(_IslandsUIXamlControlsNativeDll)" Condition="Exists('$(_IslandsUIXamlControlsControlsWinmd)')" />
     <WindowsMetadataReference Include="$(_IslandsUIXamlControlsAutomationWinmd)" Implementation="$(_IslandsUIXamlControlsNativeDll)" Condition="Exists('$(_IslandsUIXamlControlsAutomationWinmd)')" />
   </ItemGroup>

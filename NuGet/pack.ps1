@@ -202,7 +202,6 @@ foreach ($architecture in $Architectures) {
     Copy-OptionalFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Controls.lib") -Destination (Join-Path $libTarget "Islands.UI.Xaml.Controls.lib")
 
     Copy-RequiredFile -Source (Join-Path $projectionDir "Islands.UI.Xaml.Controls.Projection.dll") -Destination (Join-Path $projectionTarget "Islands.UI.Xaml.Controls.Projection.dll") -Missing $architectureMissing
-    Copy-OptionalFile -Source (Join-Path $projectionDir "Islands.UI.Xaml.Controls.Projection.deps.json") -Destination (Join-Path $projectionTarget "Islands.UI.Xaml.Controls.Projection.deps.json")
 
     if ($IncludePdb) {
       Copy-OptionalFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Controls.pdb") -Destination (Join-Path $nativeTarget "Islands.UI.Xaml.Controls.pdb")
