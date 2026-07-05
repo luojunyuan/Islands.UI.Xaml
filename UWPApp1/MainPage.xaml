@@ -1,0 +1,52 @@
+<Page
+    x:Class="UWPApp1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPApp1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:islands="using:Islands.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <islands:ScrollView>
+            <StackPanel>
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+                <TextBlock Text="sadfsdf" />
+            </StackPanel>
+        </islands:ScrollView>
+    </Grid>
+</Page>

@@ -198,13 +198,11 @@ foreach ($architecture in $Architectures) {
     Copy-RequiredFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Controls.dll") -Destination (Join-Path $nativeTarget "Islands.UI.Xaml.Controls.dll") -Missing $architectureMissing
     Copy-RequiredFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Controls.pri") -Destination (Join-Path $priTarget "Islands.UI.Xaml.Controls.pri") -Missing $architectureMissing
     Copy-RequiredFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Controls.winmd") -Destination (Join-Path $nativeTarget "Islands.UI.Xaml.Controls.winmd") -Missing $architectureMissing
-    Copy-OptionalFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Automation.winmd") -Destination (Join-Path $nativeTarget "Islands.UI.Xaml.Automation.winmd")
-    Copy-OptionalFile -Source (Join-Path $nativeDir "Microsoft.Web.WebView2.Core.dll") -Destination (Join-Path $nativeTarget "Microsoft.Web.WebView2.Core.dll")
+    Copy-RequiredFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Automation.winmd") -Destination (Join-Path $nativeTarget "Islands.UI.Xaml.Automation.winmd") -Missing $architectureMissing
     Copy-OptionalFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Controls.lib") -Destination (Join-Path $libTarget "Islands.UI.Xaml.Controls.lib")
 
     Copy-RequiredFile -Source (Join-Path $projectionDir "Islands.UI.Xaml.Controls.Projection.dll") -Destination (Join-Path $projectionTarget "Islands.UI.Xaml.Controls.Projection.dll") -Missing $architectureMissing
     Copy-OptionalFile -Source (Join-Path $projectionDir "Islands.UI.Xaml.Controls.Projection.deps.json") -Destination (Join-Path $projectionTarget "Islands.UI.Xaml.Controls.Projection.deps.json")
-    Copy-OptionalFile -Source (Join-Path $projectionDir "Microsoft.Web.WebView2.Core.Projection.dll") -Destination (Join-Path $projectionTarget "Microsoft.Web.WebView2.Core.Projection.dll")
 
     if ($IncludePdb) {
       Copy-OptionalFile -Source (Join-Path $nativeDir "Islands.UI.Xaml.Controls.pdb") -Destination (Join-Path $nativeTarget "Islands.UI.Xaml.Controls.pdb")

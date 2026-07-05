@@ -8,14 +8,14 @@
   <Folder Name="/Controls/ScrollPresenter/">
     <Project Path="Islands.UI.Xaml/ScrollPresenter/APITests/ScrollPresenter_APITests.shproj" Id="474b92f7-cd58-fed9-8569-9640529d1871" />
     <Project Path="Islands.UI.Xaml/ScrollPresenter/InteractionTests/ScrollPresenter_InteractionTests.shproj" Id="8faad013-139c-8d2a-2285-45f717d9e64a" />
-    <Project Path="Islands.UI.Xaml/ScrollPresenter/TestUI/ScrollPresenter_TestUI.shproj" Id="0ec52fd5-42fe-3eb4-84e0-79ec9b5a014e" />
     <Project Path="Islands.UI.Xaml/ScrollPresenter/ScrollPresenter.vcxitems" Id="359544aa-a8cd-715c-cc36-f770e6e81aa0" />
+    <Project Path="Islands.UI.Xaml/ScrollPresenter/TestUI/ScrollPresenter_TestUI.shproj" Id="0ec52fd5-42fe-3eb4-84e0-79ec9b5a014e" />
   </Folder>
   <Folder Name="/Controls/ScrollView/">
     <Project Path="Islands.UI.Xaml/ScrollView/APITests/ScrollView_APITests.shproj" Id="374b93f8-dd19-5eda-c56a-1640529d187c" />
     <Project Path="Islands.UI.Xaml/ScrollView/InteractionTests/ScrollView_InteractionTests.shproj" Id="bfaad015-232d-5d2b-b28f-5ef717d3e648" />
-    <Project Path="Islands.UI.Xaml/ScrollView/TestUI/ScrollView_TestUI.shproj" Id="20c52fd5-62fd-53b4-a4a0-995c9b5a014d" />
     <Project Path="Islands.UI.Xaml/ScrollView/ScrollView.vcxitems" Id="755f5da9-087c-55a0-98d2-b884881c3ed0" />
+    <Project Path="Islands.UI.Xaml/ScrollView/TestUI/ScrollView_TestUI.shproj" Id="20c52fd5-62fd-53b4-a4a0-995c9b5a014d" />
   </Folder>
   <Folder Name="/Controls/TitleBar/">
     <Project Path="Islands.UI.Xaml/TitleBar/InteractionTests/TitleBar_InteractionTests.shproj" Id="aec0baee-7a86-4539-9e07-a5363f7b9a8c" />
@@ -39,6 +39,12 @@
     </Project>
     <Project Path="Tests/SmokeTests/SmokeTests.vcxproj" Id="8a22e752-f1a3-4c28-bba4-6beec9d4f2f2">
       <BuildDependency Project="Islands.UI.Xaml/Islands.UI.Xaml.vcxproj" />
+    </Project>
+    <Project Path="UWPApp1/UWPApp1.csproj" Id="3abb6489-1c55-4935-bed9-fa4543b4a5f7">
+      <Platform Solution="*|ARM64" Project="arm64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="x86" />
+      <Deploy />
     </Project>
   </Folder>
   <Project Path="CppWinRTModuleBuilder/CppWinRTModuleBuilder.vcxproj" Id="16e7b8c8-7b54-47e2-ae22-38e491ac5375" />
