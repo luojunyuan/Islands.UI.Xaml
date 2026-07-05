@@ -32,6 +32,11 @@
     <File Path="Directory.Build.props" />
   </Folder>
   <Folder Name="/Tests/">
+    <Project Path="CoreIslandApp1/CoreIslandApp1.csproj" Id="e5dc169f-ee0c-43a2-aa1d-2a82994c5fba">
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="x86" />
+    </Project>
     <Project Path="Tests/IUXControlsTestApp/IUXControlsTestApp.csproj">
       <Platform Solution="*|ARM64" Project="ARM64" />
       <Platform Solution="*|x64" Project="x64" />
