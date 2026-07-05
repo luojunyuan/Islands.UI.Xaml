@@ -32,7 +32,7 @@
     <File Path="Directory.Build.props" />
   </Folder>
   <Folder Name="/Tests/">
-    <Project Path="CoreIslandApp1/CoreIslandApp1.csproj" Id="e5dc169f-ee0c-43a2-aa1d-2a82994c5fba">
+    <Project Path="Tests/CoreIslandApp1/CoreIslandApp1.csproj" Id="e5dc169f-ee0c-43a2-aa1d-2a82994c5fba">
       <Platform Solution="*|ARM64" Project="ARM64" />
       <Platform Solution="*|x64" Project="x64" />
       <Platform Solution="*|x86" Project="x86" />
@@ -45,7 +45,7 @@
     <Project Path="Tests/SmokeTests/SmokeTests.vcxproj" Id="8a22e752-f1a3-4c28-bba4-6beec9d4f2f2">
       <BuildDependency Project="Islands.UI.Xaml/Islands.UI.Xaml.vcxproj" />
     </Project>
-    <Project Path="UWPApp1/UWPApp1.csproj" Id="3abb6489-1c55-4935-bed9-fa4543b4a5f7">
+    <Project Path="Tests/UWPApp1/UWPApp1.csproj" Id="3abb6489-1c55-4935-bed9-fa4543b4a5f7">
       <Platform Solution="*|ARM64" Project="arm64" />
       <Platform Solution="*|x64" Project="x64" />
       <Platform Solution="*|x86" Project="x86" />
