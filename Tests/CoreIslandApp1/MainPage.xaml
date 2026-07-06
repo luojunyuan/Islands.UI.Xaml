@@ -5,48 +5,25 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:CoreIslandApp1"
     xmlns:islands="using:Islands.UI.Xaml.Controls"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
     <Grid>
-        <islands:ScrollView>
-            <StackPanel>
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-                <TextBlock Text="sadfsdf" />
-            </StackPanel>
+        <islands:ScrollView
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+            <muxc:ItemsRepeater x:Name="repeater">
+                <muxc:ItemsRepeater.Layout>
+                    <muxc:StackLayout />
+                </muxc:ItemsRepeater.Layout>
+                <muxc:ItemsRepeater.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <TextBlock Text="{x:Bind}" FontSize="20" Padding="8,4" />
+                    </DataTemplate>
+                </muxc:ItemsRepeater.ItemTemplate>
+            </muxc:ItemsRepeater>
         </islands:ScrollView>
     </Grid>
 </Page>

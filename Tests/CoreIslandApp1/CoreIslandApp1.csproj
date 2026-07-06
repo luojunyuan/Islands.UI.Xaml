@@ -13,6 +13,7 @@
     <PublishAot>true</PublishAot>
     <DisableRuntimeMarshalling>true</DisableRuntimeMarshalling>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CoreIslandPackaging>false</CoreIslandPackaging>
   </PropertyGroup>
 
