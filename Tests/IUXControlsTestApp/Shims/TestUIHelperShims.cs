@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Controls;
 namespace MUXControlsTestApp.Utilities
 {
     // TilePanel is a custom panel from MUXControlsTestApp used in ScrollPresenter dynamic test page.
-    public sealed class TilePanel : Panel
+    public sealed partial class TilePanel : Panel
     {
         public int TileCount { get; set; } = 10;
 
@@ -36,42 +36,76 @@ namespace MUXControlsTestApp.Utilities
 
 namespace MUXControlsTestApp
 {
-    // Stub for ItemsRepeater custom data source used in ScrollPresenter BringIntoView/RepeaterAnchoring pages.
-    // Mirrors the WinUI2 ItemsSourceView+UniqueIdMapping abstract contract.
+    // Mirrors the WinUI2 CustomItemsSourceView + UniqueIdMapping contract.
+    // ItemsRepeater requires IList (for indexed access/count) and INotifyCollectionChanged.
+    // IKeyIndexMapping comes from Microsoft.UI.Xaml.Controls and enables unique-key lookup.
     public abstract class CustomItemsSourceViewWithUniqueIdMapping
+        : System.Collections.IList,
+          System.Collections.Specialized.INotifyCollectionChanged,
+          Microsoft.UI.Xaml.Controls.IKeyIndexMapping
     {
+        // ── IList ──────────────────────────────────────────────────────────────
         public int Count => GetSizeCore();
+        public object this[int index]
+        {
+            get => GetAtCore(index);
+            set => throw new NotImplementedException();
+        }
+        public bool IsFixedSize => false;
+        public bool IsReadOnly  => true;
+        public bool IsSynchronized => false;
+        public object SyncRoot => this;
 
-        public object GetAt(int index) => GetAtCore(index);
+        public int  Add(object value)           => throw new NotImplementedException();
+        public void Clear()                     => throw new NotImplementedException();
+        public bool Contains(object value)      => throw new NotImplementedException();
+        public int  IndexOf(object value)       => throw new NotImplementedException();
+        public void Insert(int index, object v) => throw new NotImplementedException();
+        public void Remove(object value)        => throw new NotImplementedException();
+        public void RemoveAt(int index)         => throw new NotImplementedException();
+        public void CopyTo(Array array, int i)  => throw new NotImplementedException();
 
-        protected abstract int GetSizeCore();
+        public System.Collections.IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < Count; i++)
+                yield return GetAtCore(i);
+        }
+
+        // ── INotifyCollectionChanged ───────────────────────────────────────────
+        public event System.Collections.Specialized.NotifyCollectionChangedEventHandler CollectionChanged;
+
+        protected void OnItemsSourceChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs args)
+            => CollectionChanged?.Invoke(this, args);
+
+        // ── IKeyIndexMapping ──────────────────────────────────────────────────
+        public string KeyFromIndex(int index)   => KeyFromIndexCore(index);
+        public int    IndexFromKey(string key)  => IndexFromKeyCore(key);
+
+        // ── Abstract core methods ─────────────────────────────────────────────
+        protected abstract int    GetSizeCore();
         protected abstract object GetAtCore(int index);
         protected abstract string KeyFromIndexCore(int index);
-
-        protected string KeyFromIndex(int index) => KeyFromIndexCore(index);
-
-        protected void OnItemsSourceChanged(object args)
-        {
-        }
+        protected virtual  int    IndexFromKeyCore(string key) => throw new NotImplementedException();
     }
 
     public static class CollectionChangeEventArgsConverters
     {
-        public static object CreateNotifyArgs(
+        public static System.Collections.Specialized.NotifyCollectionChangedEventArgs CreateNotifyArgs(
             NotifyCollectionChangedAction action,
             int oldStartingIndex,
             int oldItemsCount,
             int newStartingIndex,
             int newItemsCount)
         {
-            return new
-            {
-                Action = action,
-                OldStartingIndex = oldStartingIndex,
-                OldItemsCount = oldItemsCount,
-                NewStartingIndex = newStartingIndex,
-                NewItemsCount = newItemsCount
-            };
+            if (action == NotifyCollectionChangedAction.Reset)
+                return new System.Collections.Specialized.NotifyCollectionChangedEventArgs(action);
+            if (action == NotifyCollectionChangedAction.Add)
+                return new System.Collections.Specialized.NotifyCollectionChangedEventArgs(
+                    action, new System.Collections.Generic.List<object>(newItemsCount), newStartingIndex);
+            if (action == NotifyCollectionChangedAction.Remove)
+                return new System.Collections.Specialized.NotifyCollectionChangedEventArgs(
+                    action, new System.Collections.Generic.List<object>(oldItemsCount), oldStartingIndex);
+            return new System.Collections.Specialized.NotifyCollectionChangedEventArgs(action);
         }
     }
 }

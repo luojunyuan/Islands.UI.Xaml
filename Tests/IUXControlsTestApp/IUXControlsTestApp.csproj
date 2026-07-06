@@ -31,6 +31,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Assets\ingredient5.png" />
+    <Content Include="Assets\ingredient6.png" />
+    <Content Include="Assets\ingredient7.png" />
+    <Content Include="Assets\ingredient8.png" />
+    <Content Include="Assets\LargeWisteria.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Islands.UI.Xaml.Controls.Projection\Islands.UI.Xaml.Controls.Projection.csproj">
       <SetConfiguration>Configuration=$(Configuration)</SetConfiguration>
       <SetPlatform>Platform=$(Platform)</SetPlatform>

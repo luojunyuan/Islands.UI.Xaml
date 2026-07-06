@@ -13,7 +13,8 @@ namespace MUXControlsTestApp
         public static void AppendResourceDictionaryToMergedDictionaries(ResourceDictionary? dict)
         {
             if (dict == null) return;
-            Application.Current.Resources.MergedDictionaries.Add(dict);
+            if (!Application.Current.Resources.MergedDictionaries.Contains(dict))
+                Application.Current.Resources.MergedDictionaries.Add(dict);
         }
 
         private static ResourceDictionary? _additionStylesXaml;
