@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -20,7 +20,7 @@
   <ItemGroup>
     <PackageReference Include="CoreIsland" Version="1.0.2" />
     <PackageReference Include="Microsoft.UI.Xaml" Version="2.8.7" />
-    <PackageReference Include="Islands.UI.Xaml" Version="0.1.3" />
+    <PackageReference Include="Islands.UI.Xaml" Version="0.1.4" />
   </ItemGroup>
 
 </Project>
